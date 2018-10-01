@@ -21,11 +21,15 @@ public class PlayerAttributes : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        //onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        print("onGround: " + onGround);
 
-        print("onGround:" + onGround);
+        if (body.velocity.y <= 0)
+        {
+            jump = false;
+        }
 
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && !jump)
         {
             print("jumping pls");
             jump = true;
@@ -49,7 +53,8 @@ public class PlayerAttributes : MonoBehaviour {
 
         if (jump)
         {
-            body.AddForce(new Vector2(0f, jumpPower));
+            print("jump = true");
+            body.AddForce(Vector2.up * jumpPower * Time.deltaTime);
             jump = false;
         }
 

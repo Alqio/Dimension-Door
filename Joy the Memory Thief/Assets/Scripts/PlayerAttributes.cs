@@ -41,6 +41,7 @@ public class PlayerAttributes : MonoBehaviour {
         if (xMove != 0)
         {
             body.transform.Translate(new Vector3(xMove * spd * Time.deltaTime, 0, 0));
+            //body.AddForce(new Vector2(xMove * spd * Time.deltaTime, 0));
         }
 
         if (xMove > 0 && !facingRight)
@@ -53,7 +54,6 @@ public class PlayerAttributes : MonoBehaviour {
 
         if (jump)
         {
-            print("jump = true");
             body.AddForce(Vector2.up * jumpPower * Time.deltaTime);
             jump = false;
         }

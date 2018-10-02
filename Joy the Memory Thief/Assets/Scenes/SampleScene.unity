@@ -349,7 +349,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!4 &702984518
 Transform:
   m_ObjectHideFlags: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54df396b7d421034c990bff8bc298a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 1
+  spd: 10000
   body: {fileID: 702984517}
   jumpPower: 8000
   groundCheck: {fileID: 210124745}

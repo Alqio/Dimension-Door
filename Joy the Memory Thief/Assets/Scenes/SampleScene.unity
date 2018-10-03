@@ -446,9 +446,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54df396b7d421034c990bff8bc298a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 10000
+  spd: 2
   body: {fileID: 702984517}
-  jumpPower: 8000
+  jumpPower: 5
+  fallMultiplier: 1.5
+  lowJumpMultiplier: 1
   groundCheck: {fileID: 210124745}
   jump: 0
 --- !u!1001 &1044380417

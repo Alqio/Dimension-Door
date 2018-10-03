@@ -7,6 +7,8 @@ public class PlayerAttributes : MonoBehaviour {
     public float spd;
     public Rigidbody2D body;
     public float jumpPower;
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
     public Transform groundCheck;
 
     public bool jump = false;
@@ -21,17 +23,8 @@ public class PlayerAttributes : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        //onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        print("onGround: " + onGround);
-
-        if (body.velocity.y <= 0)
-        {
-            jump = false;
-        }
-
         if (Input.GetButtonDown("Jump") && !jump)
         {
-            print("jumping pls");
             jump = true;
         }
     }
@@ -41,7 +34,6 @@ public class PlayerAttributes : MonoBehaviour {
         if (xMove != 0)
         {
             body.transform.Translate(new Vector3(xMove * spd * Time.deltaTime, 0, 0));
-            //body.AddForce(new Vector2(xMove * spd * Time.deltaTime, 0));
         }
 
         if (xMove > 0 && !facingRight)
@@ -54,8 +46,19 @@ public class PlayerAttributes : MonoBehaviour {
 
         if (jump)
         {
-            body.AddForce(Vector2.up * jumpPower * Time.deltaTime);
+            body.velocity = Vector2.up * jumpPower;
             jump = false;
+        }
+
+        //This makes the jumping feel a lot better
+        if (body.velocity.y < 0)
+        {
+            //Increase falling speed
+            body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
+        } else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            //Make it possible to hold jump button for longer
+            body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
         }
 
 	}

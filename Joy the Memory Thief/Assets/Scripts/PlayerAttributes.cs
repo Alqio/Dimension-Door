@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class PlayerAttributes : MonoBehaviour {
 
     public float spd;
@@ -10,15 +11,16 @@ public class PlayerAttributes : MonoBehaviour {
     public float jumpPower;
     public float fallMultiplier;
     public float lowJumpMultiplier;
-    public Transform groundCheck;
     private int score;
     public Text scoreText;
     public Text endText;
-
+  
     public bool jump = false;
 
     private bool facingRight = true;
     private bool onGround;
+
+    private float dist = 1.4f;
 
     // Use this for initialization
     void Start () {
@@ -27,18 +29,56 @@ public class PlayerAttributes : MonoBehaviour {
         SetText(scoreText, "Score: " + score);
         SetText(endText, "");
     }
+  
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        
+        Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
+        Vector3 startPos = transform.position - c_extents;
+        startPos += new Vector3(0, -0.01f);
+        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2, startPos.y);
+
+        Gizmos.DrawLine(startPos, newPos);
+        
+    }
+
+    private void GroundCheck()
+    {
+        Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
+        Vector3 startPos = transform.position - c_extents;
+        
+        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2, startPos.y);
+
+        RaycastHit2D hit = Physics2D.Raycast(startPos, newPos);
+        
+        if (hit)
+        {
+            if (hit.collider.CompareTag("Block") && !onGround)
+            {
+                onGround = true;
+                Debug.Log("osuttiin maaha");
+            }
+
+        }
+    }
 
     // Update is called once per frame
-    void Update() {
-        if (Input.GetButtonDown("Jump") && !jump)
+    void Update()
+    {
+        if (Input.GetButtonDown("Jump") && onGround)
         {
             jump = true;
+            onGround = false;
         }
     }
     private void FixedUpdate()
     {
+        GroundCheck();
+      
         if (transform.position.y < -85)
             SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
+
         float xMove = Input.GetAxis("Horizontal");
         if (xMove != 0)
         {

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttributes : MonoBehaviour {
 
@@ -10,6 +11,9 @@ public class PlayerAttributes : MonoBehaviour {
     public float fallMultiplier;
     public float lowJumpMultiplier;
     public Transform groundCheck;
+    private int score;
+    public Text scoreText;
+    public Text endText;
 
     public bool jump = false;
 
@@ -19,7 +23,10 @@ public class PlayerAttributes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         onGround = true;
-	}
+        score = 0;
+        SetText(scoreText, "Score: " + score);
+        SetText(endText, "");
+    }
 
     // Update is called once per frame
     void Update() {
@@ -30,6 +37,8 @@ public class PlayerAttributes : MonoBehaviour {
     }
     private void FixedUpdate()
     {
+        if (transform.position.y < -85)
+            SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
         float xMove = Input.GetAxis("Horizontal");
         if (xMove != 0)
         {
@@ -69,6 +78,21 @@ public class PlayerAttributes : MonoBehaviour {
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            score += 100;
+            SetText(scoreText, "Score: " + score);
+        }
+    }
+
+    void SetText(Text textObject, string text)
+    {
+        textObject.text = text;
     }
 
 }

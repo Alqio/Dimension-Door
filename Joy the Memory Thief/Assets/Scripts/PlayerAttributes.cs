@@ -1,13 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttributes : MonoBehaviour {
 
     public float spd;
     public Rigidbody2D body;
     public float jumpPower;
+    public float fallMultiplier;
+    public float lowJumpMultiplier;
     public Transform groundCheck;
+    private int score;
+    public Text scoreText;
+    public Text endText;
 
     public bool jump = false;
 
@@ -17,31 +23,26 @@ public class PlayerAttributes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         onGround = true;
-	}
+        score = 0;
+        SetText(scoreText, "Score: " + score);
+        SetText(endText, "");
+    }
 
     // Update is called once per frame
     void Update() {
-        //onGround = Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-        print("onGround: " + onGround);
-
-        if (body.velocity.y <= 0)
-        {
-            jump = false;
-        }
-
         if (Input.GetButtonDown("Jump") && !jump)
         {
-            print("jumping pls");
             jump = true;
         }
     }
     private void FixedUpdate()
     {
+        if (transform.position.y < -85)
+            SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
         float xMove = Input.GetAxis("Horizontal");
         if (xMove != 0)
         {
             body.transform.Translate(new Vector3(xMove * spd * Time.deltaTime, 0, 0));
-            //body.AddForce(new Vector2(xMove * spd * Time.deltaTime, 0));
         }
 
         if (xMove > 0 && !facingRight)
@@ -54,8 +55,19 @@ public class PlayerAttributes : MonoBehaviour {
 
         if (jump)
         {
-            body.AddForce(Vector2.up * jumpPower * Time.deltaTime);
+            body.velocity = Vector2.up * jumpPower;
             jump = false;
+        }
+
+        //This makes the jumping feel a lot better
+        if (body.velocity.y < 0)
+        {
+            //Increase falling speed
+            body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
+        } else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
+        {
+            //Make it possible to hold jump button for longer
+            body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
         }
 
 	}
@@ -66,6 +78,21 @@ public class PlayerAttributes : MonoBehaviour {
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            score += 100;
+            SetText(scoreText, "Score: " + score);
+        }
+    }
+
+    void SetText(Text textObject, string text)
+    {
+        textObject.text = text;
     }
 
 }

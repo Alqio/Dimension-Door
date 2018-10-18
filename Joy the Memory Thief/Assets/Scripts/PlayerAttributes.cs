@@ -30,8 +30,8 @@ public class PlayerAttributes : MonoBehaviour {
         
         Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
         Vector3 startPos = transform.position - c_extents;
-        startPos += new Vector3(0, -0.01f);
-        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2, startPos.y);
+        startPos += new Vector3(0.2f, -0.01f);
+        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2 - 0.2f*2, startPos.y);
 
         Gizmos.DrawLine(startPos, newPos);
         

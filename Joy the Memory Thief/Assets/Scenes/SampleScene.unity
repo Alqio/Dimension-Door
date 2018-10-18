@@ -136,8 +136,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 210124744}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.6, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: -0.36, z: 0}
+  m_LocalScale: {x: 2.02, y: 0.22, z: 1}
   m_Children: []
   m_Father: {fileID: 702984518}
   m_RootOrder: 0
@@ -820,13 +820,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54df396b7d421034c990bff8bc298a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 2
+  spd: 150
+  maxSpd: 2
   body: {fileID: 702984517}
   jumpPower: 5
   fallMultiplier: 1.5
   lowJumpMultiplier: 1
   groundCheck: {fileID: 210124745}
   scoreText: {fileID: 1130754322}
+  endText: {fileID: 0}
   jump: 0
 --- !u!1001 &814261777
 Prefab:

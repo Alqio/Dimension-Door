@@ -7,10 +7,14 @@ using UnityEngine.UI;
 public class PlayerAttributes : MonoBehaviour {
 
     public float spd;
+    public float maxSpd;
     public Rigidbody2D body;
     public float jumpPower;
     public float fallMultiplier;
     public float lowJumpMultiplier;
+
+    public Transform groundCheck;
+
     private int score;
     public Text scoreText;
     public Text endText;
@@ -43,24 +47,9 @@ public class PlayerAttributes : MonoBehaviour {
         
     }
 
-    private void GroundCheck()
+    private bool GroundCheck()
     {
-        Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
-        Vector3 startPos = transform.position - c_extents;
-        
-        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2, startPos.y);
-
-        RaycastHit2D hit = Physics2D.Raycast(startPos, newPos);
-        
-        if (hit)
-        {
-            if (hit.collider.CompareTag("Block") && !onGround)
-            {
-                onGround = true;
-                Debug.Log("osuttiin maaha");
-            }
-
-        }
+        return Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     // Update is called once per frame
@@ -69,21 +58,20 @@ public class PlayerAttributes : MonoBehaviour {
         if (Input.GetButtonDown("Jump") && onGround)
         {
             jump = true;
-            onGround = false;
         }
     }
+
     private void FixedUpdate()
     {
-        GroundCheck();
+        onGround = GroundCheck();
       
         if (transform.position.y < -85)
             SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
 
         float xMove = Input.GetAxis("Horizontal");
-        if (xMove != 0)
-        {
-            body.transform.Translate(new Vector3(xMove * spd * Time.deltaTime, 0, 0));
-        }
+
+        MoveHorizontal();
+        MoveVertical();
 
         if (xMove > 0 && !facingRight)
         {
@@ -92,7 +80,11 @@ public class PlayerAttributes : MonoBehaviour {
         {
             flip();
         }
+        
+	}
 
+    private void MoveVertical()
+    {
         if (jump)
         {
             body.velocity = Vector2.up * jumpPower;
@@ -104,13 +96,26 @@ public class PlayerAttributes : MonoBehaviour {
         {
             //Increase falling speed
             body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
-        } else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
+        }
+        else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             //Make it possible to hold jump button for longer
             body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
         }
+    }
 
-	}
+    private void MoveHorizontal()
+    {
+
+        float xMove = Input.GetAxis("Horizontal");
+
+        if (xMove * body.velocity.x < maxSpd)
+            body.AddForce(Vector2.right * xMove * spd);
+
+        if (Mathf.Abs(body.velocity.x) > maxSpd)
+            body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * maxSpd, body.velocity.y);
+
+    }
 
     void flip()
     {

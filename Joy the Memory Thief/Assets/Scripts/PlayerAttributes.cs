@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerAttributes : MonoBehaviour {
@@ -10,7 +11,10 @@ public class PlayerAttributes : MonoBehaviour {
     public float jumpPower;
     public float fallMultiplier;
     public float lowJumpMultiplier;
-
+    private int score;
+    public Text scoreText;
+    public Text endText;
+  
     public bool jump = false;
 
     private bool facingRight = true;
@@ -20,13 +24,15 @@ public class PlayerAttributes : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        onGround = false;
-	}
-
+        onGround = true;
+        score = 0;
+        SetText(scoreText, "Score: " + score);
+        SetText(endText, "");
+    }
+  
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-
         
         Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
         Vector3 startPos = transform.position - c_extents;
@@ -69,6 +75,9 @@ public class PlayerAttributes : MonoBehaviour {
     private void FixedUpdate()
     {
         GroundCheck();
+      
+        if (transform.position.y < -85)
+            SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
 
         float xMove = Input.GetAxis("Horizontal");
         if (xMove != 0)
@@ -109,6 +118,21 @@ public class PlayerAttributes : MonoBehaviour {
         Vector2 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+    
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            other.gameObject.SetActive(false);
+            score += 100;
+            SetText(scoreText, "Score: " + score);
+        }
+    }
+
+    void SetText(Text textObject, string text)
+    {
+        textObject.text = text;
     }
 
 }

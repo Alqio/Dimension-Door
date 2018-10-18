@@ -24,27 +24,12 @@ public class PlayerAttributes : MonoBehaviour {
     private bool facingRight = true;
     private bool onGround;
 
-    private float dist = 1.4f;
-
     // Use this for initialization
     void Start () {
         onGround = true;
         score = 0;
         SetText(scoreText, "Score: " + score);
         SetText(endText, "");
-    }
-  
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        
-        Vector3 c_extents = GetComponent<Collider2D>().bounds.extents;
-        Vector3 startPos = transform.position - c_extents;
-        startPos += new Vector3(0.2f, -0.01f);
-        Vector3 newPos = new Vector3(startPos.x + c_extents.x * 2 - 0.2f*2, startPos.y);
-
-        Gizmos.DrawLine(startPos, newPos);
-        
     }
 
     private bool GroundCheck()
@@ -63,6 +48,14 @@ public class PlayerAttributes : MonoBehaviour {
 
     private void FixedUpdate()
     {
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            GetComponent<CustomGravity>().ReverseGravity();
+
+            Debug.Log("Vaihetaan gravityn suuntaa");
+        }
+
         onGround = GroundCheck();
       
         if (transform.position.y < -85)
@@ -87,7 +80,9 @@ public class PlayerAttributes : MonoBehaviour {
     {
         if (jump)
         {
-            body.velocity = Vector2.up * jumpPower;
+            body.velocity = Vector2.up * jumpPower * Mathf.Sign(Physics2D.gravity.y);
+            //TODO ota huomioon et jos gravitaatio ei oo kokonaan ylöspäin, eli sillon hyppy ei saa olla yhtä voimakas 
+            //ja sen pitäis olla myös sivuttain
             jump = false;
         }
 

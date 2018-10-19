@@ -51,7 +51,8 @@ public class PlayerAttributes : MonoBehaviour {
 
         if (Input.GetButtonDown("Fire1"))
         {
-            GetComponent<CustomGravity>().ReverseGravity();
+            //GetComponent<CustomGravity>().ReverseGravity();
+            GetComponent<CustomGravity>().ChangeGravityDirection();
 
             Debug.Log("Vaihetaan gravityn suuntaa");
         }
@@ -80,7 +81,7 @@ public class PlayerAttributes : MonoBehaviour {
     {
         if (jump)
         {
-            body.velocity = Vector2.up * jumpPower * Mathf.Sign(Physics2D.gravity.y);
+            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y);
             //TODO ota huomioon et jos gravitaatio ei oo kokonaan ylöspäin, eli sillon hyppy ei saa olla yhtä voimakas 
             //ja sen pitäis olla myös sivuttain
             jump = false;
@@ -90,12 +91,15 @@ public class PlayerAttributes : MonoBehaviour {
         if (body.velocity.y < 0)
         {
             //Increase falling speed
-            body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.deltaTime;
+            body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.fixedDeltaTime;
+            //body.velocity += Vector2.right * Physics2D.gravity.x * fallMultiplier * Time.fixedDeltaTime;
+
         }
         else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             //Make it possible to hold jump button for longer
-            body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.deltaTime;
+            body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
+
         }
     }
 

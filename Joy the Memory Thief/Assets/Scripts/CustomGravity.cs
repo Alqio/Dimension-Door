@@ -23,7 +23,7 @@ public class CustomGravity : MonoBehaviour
         Vector2 newGravity = gravity;
         Physics2D.gravity = newGravity;
 
-        Debug.Log(Physics2D.gravity);
+        //Debug.Log(Physics2D.gravity);
     }
 
     public void ReverseGravity()
@@ -31,9 +31,9 @@ public class CustomGravity : MonoBehaviour
         gravity = new Vector2(gravity.x, -gravity.y);
     }
 
-    public void ChangeGravityDirection(float dir)
+    public void ChangeGravityDirection()
     {
-        //todo
+        gravity = new Vector2(-gravity.y, gravity.x);
     }
 
 }

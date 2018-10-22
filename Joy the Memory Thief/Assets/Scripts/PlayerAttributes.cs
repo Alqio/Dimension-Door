@@ -81,7 +81,11 @@ public class PlayerAttributes : MonoBehaviour {
     {
         if (jump)
         {
-            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y);
+            
+            float angle = Mathf.Tan(Physics2D.gravity.y / Physics2D.gravity.x);
+            
+            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y) * Mathf.Sin(angle);
+            //body.velocity = Vector2.right * jumpPower * -Mathf.Sign(Physics2D.gravity.x) * Mathf.Sin(angle);
             //TODO ota huomioon et jos gravitaatio ei oo kokonaan ylöspäin, eli sillon hyppy ei saa olla yhtä voimakas 
             //ja sen pitäis olla myös sivuttain
             jump = false;

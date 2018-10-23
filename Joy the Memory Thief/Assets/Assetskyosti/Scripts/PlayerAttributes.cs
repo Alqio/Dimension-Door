@@ -9,146 +9,29 @@ public class PlayerAttributes : MonoBehaviour {
     public float spd;
     public float maxSpd;
 
-    [HideInInspector]
-    public Rigidbody2D body;
-
     public float jumpPower;
     public float fallMultiplier;
     public float lowJumpMultiplier;
 
     public Transform groundCheck;
 
-    private int score;
+    public int score;
     public Text scoreText;
     public Text endText;
-  
-    public bool jump = false;
-
-    private bool facingRight = false;
-    private bool onGround;
-
-
-    private void Awake()
-    {
-        body = GetComponent<Rigidbody2D>();
-    }
-
+ 
     // Use this for initialization
     void Start () {
-        onGround = true;
         score = 0;
         SetText(scoreText, "Score: " + score);
         SetText(endText, "");
-        flip();
     }
-
-    private bool GroundCheck()
-    {
-        return Physics2D.Linecast(transform.position, groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
-    }
-
+    
     // Update is called once per frame
     void Update()
     {
 
-        onGround = GroundCheck();
-
-        if (Input.GetButtonDown("Jump") && onGround)
-        {
-            jump = true;
-        }
     }
 
-    private void FixedUpdate()
-    {
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            //GetComponent<CustomGravity>().ReverseGravity();
-            GetComponent<CustomGravity>().ChangeGravityDirection();
-        }
-      
-        if (transform.position.y < -85)
-            SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
-
-        float xMove = Input.GetAxis("Horizontal");
-
-        MoveHorizontal();
-        MoveVertical();
-
-        if (xMove > 0 && !facingRight)
-        {
-            flip();
-        } else if (xMove < 0 && facingRight)
-        {
-            flip();
-        }
-        
-	}
-
-    private void MoveVertical()
-    {
-        if (jump)
-        {
-            //body.AddForce(new Vector2(0f, jumpPower * 20f));
-
-            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y);
-
-            //TODO ota huomioon et jos gravitaatio ei oo kokonaan ylöspäin, eli sillon hyppy ei saa olla yhtä voimakas 
-            //ja sen pitäis olla myös sivuttain
-            jump = false;
-        }
-
-        if (body.velocity.y < 0)
-        {
-            //Increase falling speed
-            body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.fixedDeltaTime;
-            //body.velocity += Vector2.right * Physics2D.gravity.x * fallMultiplier * Time.fixedDeltaTime;
-            
-        }
-        else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
-        {
-            //Make it possible to hold jump button for longer
-            body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
-        }
-        
-
-    }
-
-    private void MoveHorizontal()
-    {
-
-        float xMove = Input.GetAxis("Horizontal");
-
-        float maxSpeed = maxSpd;
-        float h = xMove;
-        Rigidbody2D rb2d = body;
-
-        float moveForce = 365f;
-
-        if (h * rb2d.velocity.x < maxSpeed)
-            rb2d.AddForce(Vector2.right * h * moveForce);
-
-        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
-            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
-        /*
-        if (xMove * body.velocity.x < maxSpd)
-            body.AddForce(Vector2.right * xMove * spd);
-
-        if (Mathf.Abs(body.velocity.x) > maxSpd) {
-            body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * maxSpd, body.velocity.y);
-        }
-        */
-    }
-
-    void flip()
-    {
-        facingRight = !facingRight;
-        Vector2 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
-    }
-    
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -159,7 +42,7 @@ public class PlayerAttributes : MonoBehaviour {
         }
     }
 
-    void SetText(Text textObject, string text)
+    public void SetText(Text textObject, string text)
     {
         textObject.text = text;
     }

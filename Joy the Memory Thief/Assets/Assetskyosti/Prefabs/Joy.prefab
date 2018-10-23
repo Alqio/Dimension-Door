@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 70619784899956566}
   - component: {fileID: 114536808056295650}
   - component: {fileID: 114186581360486230}
+  - component: {fileID: 114314697074790010}
   m_Layer: 0
   m_Name: Joy
   m_TagString: Player
@@ -472,7 +473,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1591278551290082}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 5fc6987541548be4589c215d999f0675, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -487,7 +488,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1591278551290082}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: d23795af403affa4790662596e92c895, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -507,6 +508,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravityModifier: 1
   dir: 0
+--- !u!114 &114314697074790010
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1591278551290082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d38e8c92e5994e04e9db675b3cacf40d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  body: {fileID: 0}
+  jump: 0
 --- !u!114 &114536808056295650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -518,16 +532,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54df396b7d421034c990bff8bc298a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spd: 350
-  maxSpd: 2
-  body: {fileID: 50711364193133698}
-  jumpPower: 12
+  spd: 365
+  maxSpd: 5
+  jumpPower: 5
   fallMultiplier: 2.5
   lowJumpMultiplier: 1
   groundCheck: {fileID: 4285447824161804}
+  score: 0
   scoreText: {fileID: 0}
   endText: {fileID: 0}
-  jump: 0
 --- !u!212 &212068173620335732
 SpriteRenderer:
   m_ObjectHideFlags: 1

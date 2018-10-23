@@ -8,7 +8,10 @@ public class PlayerAttributes : MonoBehaviour {
 
     public float spd;
     public float maxSpd;
+
+    [HideInInspector]
     public Rigidbody2D body;
+
     public float jumpPower;
     public float fallMultiplier;
     public float lowJumpMultiplier;
@@ -21,8 +24,14 @@ public class PlayerAttributes : MonoBehaviour {
   
     public bool jump = false;
 
-    private bool facingRight = true;
+    private bool facingRight = false;
     private bool onGround;
+
+
+    private void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+    }
 
     // Use this for initialization
     void Start () {
@@ -30,6 +39,7 @@ public class PlayerAttributes : MonoBehaviour {
         score = 0;
         SetText(scoreText, "Score: " + score);
         SetText(endText, "");
+        flip();
     }
 
     private bool GroundCheck()
@@ -40,6 +50,9 @@ public class PlayerAttributes : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
+        onGround = GroundCheck();
+
         if (Input.GetButtonDown("Jump") && onGround)
         {
             jump = true;
@@ -53,11 +66,7 @@ public class PlayerAttributes : MonoBehaviour {
         {
             //GetComponent<CustomGravity>().ReverseGravity();
             GetComponent<CustomGravity>().ChangeGravityDirection();
-
-            Debug.Log("Vaihetaan gravityn suuntaa");
         }
-
-        onGround = GroundCheck();
       
         if (transform.position.y < -85)
             SetText(endText, "YOU DIED!\nYOUR SCORE: " + score);
@@ -81,30 +90,29 @@ public class PlayerAttributes : MonoBehaviour {
     {
         if (jump)
         {
-            
-            float angle = Mathf.Tan(Physics2D.gravity.y / Physics2D.gravity.x);
-            
-            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y) * Mathf.Sin(angle);
-            //body.velocity = Vector2.right * jumpPower * -Mathf.Sign(Physics2D.gravity.x) * Mathf.Sin(angle);
+            //body.AddForce(new Vector2(0f, jumpPower * 20f));
+
+            body.velocity = Vector2.up * jumpPower * -Mathf.Sign(Physics2D.gravity.y);
+
             //TODO ota huomioon et jos gravitaatio ei oo kokonaan ylöspäin, eli sillon hyppy ei saa olla yhtä voimakas 
             //ja sen pitäis olla myös sivuttain
             jump = false;
         }
 
-        //This makes the jumping feel a lot better
         if (body.velocity.y < 0)
         {
             //Increase falling speed
             body.velocity += Vector2.up * Physics2D.gravity.y * fallMultiplier * Time.fixedDeltaTime;
             //body.velocity += Vector2.right * Physics2D.gravity.x * fallMultiplier * Time.fixedDeltaTime;
-
+            
         }
         else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             //Make it possible to hold jump button for longer
             body.velocity += Vector2.up * Physics2D.gravity.y * lowJumpMultiplier * Time.fixedDeltaTime;
-
         }
+        
+
     }
 
     private void MoveHorizontal()
@@ -112,12 +120,25 @@ public class PlayerAttributes : MonoBehaviour {
 
         float xMove = Input.GetAxis("Horizontal");
 
+        float maxSpeed = maxSpd;
+        float h = xMove;
+        Rigidbody2D rb2d = body;
+
+        float moveForce = 365f;
+
+        if (h * rb2d.velocity.x < maxSpeed)
+            rb2d.AddForce(Vector2.right * h * moveForce);
+
+        if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
+            rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+        /*
         if (xMove * body.velocity.x < maxSpd)
             body.AddForce(Vector2.right * xMove * spd);
 
-        if (Mathf.Abs(body.velocity.x) > maxSpd)
+        if (Mathf.Abs(body.velocity.x) > maxSpd) {
             body.velocity = new Vector2(Mathf.Sign(body.velocity.x) * maxSpd, body.velocity.y);
-
+        }
+        */
     }
 
     void flip()

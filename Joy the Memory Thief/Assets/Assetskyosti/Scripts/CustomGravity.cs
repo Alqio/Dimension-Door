@@ -18,12 +18,8 @@ public class CustomGravity : MonoBehaviour
 
     void FixedUpdate()
     {
-        //body.velocity = new Vector2(body.velocity.x + gravity.x * Time.fixedDeltaTime, body.velocity.y + gravity.y * Time.fixedDeltaTime) * gravityModifier;
-
         Vector2 newGravity = gravity;
         Physics2D.gravity = newGravity;
-
-        //Debug.Log(Physics2D.gravity);
     }
 
     public void ReverseGravity()
@@ -34,6 +30,7 @@ public class CustomGravity : MonoBehaviour
     public void ChangeGravityDirection()
     {
         gravity = new Vector2(-gravity.y, gravity.x);
+        Debug.Log(gravity);
     }
 
 }

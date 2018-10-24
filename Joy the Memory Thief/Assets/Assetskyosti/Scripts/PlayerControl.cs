@@ -53,12 +53,12 @@ public class PlayerControl : MonoBehaviour {
             jump = true;
         }
 
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKey(KeyCode.E))
         {
             GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, -1));
         }
 
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKey(KeyCode.Q))
         {
             GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, 1));
         }

@@ -6,7 +6,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     private GameObject[] platforms;
 
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 15f;
 
 	// Use this for initialization
 	void Start () {

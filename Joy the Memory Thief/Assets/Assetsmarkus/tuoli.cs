@@ -14,7 +14,7 @@ public class tuoli : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tietokone_ = GameObject.Find("pöytä").GetComponent<tietokone>();
+        tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();
 
     }
 

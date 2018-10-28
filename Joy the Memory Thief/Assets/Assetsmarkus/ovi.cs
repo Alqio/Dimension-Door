@@ -6,7 +6,6 @@ public class ovi : MonoBehaviour
 {
     bool playerInRange;
     public float speed;
-
     public GameObject leftRoom;
     public GameObject rightRoom;
 
@@ -21,14 +20,14 @@ public class ovi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        open = this.transform.position.y + 4;
+        open = this.transform.position.y + 5.5f;
         closed = this.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     private void FixedUpdate()
     {

@@ -6,6 +6,7 @@ public class ovi : MonoBehaviour
 {
     bool playerInRange;
     public float speed;
+    
     public GameObject leftRoom;
     public GameObject rightRoom;
 
@@ -27,7 +28,7 @@ public class ovi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+    
     }
     private void FixedUpdate()
     {

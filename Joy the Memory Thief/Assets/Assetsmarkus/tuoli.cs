@@ -15,7 +15,6 @@ public class tuoli : MonoBehaviour
     void Start()
     {
         tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();
-
     }
 
     // Update is called once per frame
@@ -23,7 +22,6 @@ public class tuoli : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A) && playerInRange)
         {
-            print("jep");
             if (tietokone_.uhrit.Count > tietokone_.taso - 1 && tietokone_.taso > 0)
             {
                 SceneManager.LoadScene(tietokone_.levelNames[tietokone_.taso - 1]);

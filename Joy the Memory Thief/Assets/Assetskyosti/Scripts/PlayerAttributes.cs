@@ -26,7 +26,7 @@ public class PlayerAttributes : MonoBehaviour {
         SetText(endText, "");
     }
     
-    // Update is called once per frame
+    // Update is called once per framFcoine
     void Update()
     {
 
@@ -39,6 +39,11 @@ public class PlayerAttributes : MonoBehaviour {
             other.gameObject.SetActive(false);
             score += 100;
             SetText(scoreText, "Score: " + score);
+        }
+        if (other.gameObject.CompareTag("RedKey"))
+        {
+            other.gameObject.SetActive(false);
+            GameObject.FindGameObjectWithTag("RedDoor").transform.parent.gameObject.SetActive(false);
         }
     }
 

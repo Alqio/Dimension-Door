@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Coin
   - Block
+  - Ring1
+  - Ring2
+  - Ring0
+  - ChildRing2
+  - RedDoor
+  - RedKey
+  - ChildRing1
   layers:
   - Default
   - TransparentFX

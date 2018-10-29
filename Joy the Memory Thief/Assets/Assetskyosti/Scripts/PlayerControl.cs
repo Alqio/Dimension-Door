@@ -6,12 +6,16 @@ public class PlayerControl : MonoBehaviour {
 
     [HideInInspector]
     public Rigidbody2D body;
+    private Camera mainCamera;
 
     PlayerAttributes attributes;
     private bool onGround;
     public bool jump = false;
 
     private bool facingRight = false;
+
+    private bool toCenter = false;
+    private float targetZoom = 4f;
 
     private void Awake()
     {
@@ -22,6 +26,7 @@ public class PlayerControl : MonoBehaviour {
     void Start () {
         onGround = true;
         attributes = GetComponent<PlayerAttributes>();
+        mainCamera = Camera.main;
         flip();
     }
 
@@ -53,14 +58,39 @@ public class PlayerControl : MonoBehaviour {
             jump = true;
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.Q) && body.position == Vector2.zero)
         {
             GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, -1));
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.E) && body.position == Vector2.zero)
         {
             GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, 1));
+        }
+
+        if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(body.position.x) < 5.5f && Mathf.Abs(body.position.y) < 5.5f)
+        {
+            toCenter = !toCenter;
+            if(toCenter)
+            {
+                body.velocity = new Vector2((float)-body.position.x, (float)-body.position.y);
+                body.gravityScale = 0;
+                targetZoom = 20f;
+            } else
+            {
+                body.gravityScale = 1;
+                targetZoom = 4f;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero)
+        {
+            GetComponent<RotateGameWorld>().DecreaseRing();
+        }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero)
+        {
+            GetComponent<RotateGameWorld>().IncreaseRing();
         }
 
         if (Input.GetButtonDown("Fire1"))
@@ -83,20 +113,18 @@ public class PlayerControl : MonoBehaviour {
             attributes.SetText(attributes.endText, "YOU DIED!\nYOUR SCORE: " + attributes.score);
         }
         
-        float xMove = Input.GetAxis("Horizontal");
-
-        MoveHorizontal();
         MoveVertical();
-
-        if (xMove > 0 && !facingRight)
+        if(toCenter)
         {
-            flip();
-        }
-        else if (xMove < 0 && facingRight)
+            MoveTowardsCenter();
+        } else
         {
-            flip();
+            MoveHorizontal();
         }
-
+        if(mainCamera.orthographicSize < targetZoom - 0.1 || mainCamera.orthographicSize > targetZoom + 1)
+        {
+            Zoom();
+        }
     }
 
     private void MoveHorizontal()
@@ -114,12 +142,20 @@ public class PlayerControl : MonoBehaviour {
 
         if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
-       
+        if (xMove > 0 && !facingRight)
+        {
+            flip();
+        }
+        else if (xMove < 0 && facingRight)
+        {
+            flip();
+        }
     }
 
 
     private void MoveVertical()
     {
+
         if (jump)
         {
             //body.AddForce(new Vector2(0f, jumpPower * 20f));
@@ -131,20 +167,48 @@ public class PlayerControl : MonoBehaviour {
             jump = false;
         }
 
-        if (body.velocity.y < 0)
+        if (body.velocity.y < 0 && !toCenter)
         {
             //Increase falling speed
             body.velocity += Vector2.up * Physics2D.gravity.y * attributes.fallMultiplier * Time.fixedDeltaTime;
             //body.velocity += Vector2.right * Physics2D.gravity.x * fallMultiplier * Time.fixedDeltaTime;
 
         }
-        else if (body.velocity.y > 0 && !Input.GetButton("Jump"))
+        else if (body.velocity.y > 0 && !Input.GetButton("Jump") && !toCenter)
         {
             //Make it possible to hold jump button for longer
             body.velocity += Vector2.up * Physics2D.gravity.y * attributes.lowJumpMultiplier * Time.fixedDeltaTime;
         }
+        
+        
     }
 
+    void MoveTowardsCenter()
+    {
+        if (toCenter)
+        {
+            if (Mathf.Abs(body.position.x) < 0.5 && Mathf.Abs(body.position.y) < 0.5)
+            {
+                body.position = Vector2.zero;
+                body.velocity = Vector3.zero;
+                body.angularVelocity = 0;
+            }
+        }
+    }
+
+    void Zoom()
+    {
+        if (mainCamera.orthographicSize < targetZoom)
+        {
+            mainCamera.orthographicSize += 0.2f;
+        }
+        else if (mainCamera.orthographicSize > targetZoom)
+        {
+            mainCamera.orthographicSize -= 0.2f;
+        }
+
+
+    }
 
     void flip()
     {

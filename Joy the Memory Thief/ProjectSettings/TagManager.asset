@@ -13,6 +13,7 @@ TagManager:
   - RedDoor
   - RedKey
   - ChildRing1
+  - ChildRing0
   layers:
   - Default
   - TransparentFX

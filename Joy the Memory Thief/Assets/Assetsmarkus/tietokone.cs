@@ -23,9 +23,9 @@ public class tietokone : MonoBehaviour
         uhrit.Add(GameObject.Find("tyyppi1"));
         uhrit.Add(GameObject.Find("tyyppi2"));
         uhrit.Add(GameObject.Find("tyyppi3"));
-        levelNames.Add("taso1");
-        levelNames.Add("taso2");
-        levelNames.Add("taso3");
+        levelNames.Add("Level1");
+        levelNames.Add("Level1");
+        levelNames.Add("Level1");
 
         //uhrien levelit järjestyksessä
 
@@ -60,7 +60,7 @@ public class tietokone : MonoBehaviour
         //}
         if (uhrit.Count > taso-1 && taso > 0)
         {
-            print("Moi");
+            //print("Moi");
             SpriteRenderer sprender = uhrit[taso-1].GetComponent<SpriteRenderer>();
             sprender.enabled = true;
             if (taso != 1) {

@@ -9,7 +9,7 @@ public class RotateGameWorld : MonoBehaviour {
     public float rotationSpeed = 15f;
 
     private Transform playerTransform;
-    private int ringNumber = 0;
+    public int ringNumber = 0;
     private int maxRing = 2;
     public int targetAngle = 0;
 
@@ -23,10 +23,11 @@ public class RotateGameWorld : MonoBehaviour {
         platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
         foreach (GameObject platform in platforms)
         {
+            //platform.GetComponent<SpriteRenderer>().color = Color.green;
             platform.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
         }
-
-
+        
+        
         platforms = GameObject.FindGameObjectsWithTag("ChildRing" + ringNumber);
         foreach (GameObject platform in platforms)
         {

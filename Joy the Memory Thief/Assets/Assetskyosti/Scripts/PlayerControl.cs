@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour {
     private bool facingRight = false;
 
     private bool toCenter = false;
-    private float targetZoom = 4f;
+    public float targetZoom = 4f;
 
     private void Awake()
     {
@@ -53,9 +53,10 @@ public class PlayerControl : MonoBehaviour {
 
     void HandleInput()
     {
-        if (Input.GetButtonDown("Jump") && onGround)
+        if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             jump = true;
+            Debug.Log("hyppy");
         }
 
         if (Input.GetKey(KeyCode.Q) && body.position == Vector2.zero)
@@ -75,11 +76,11 @@ public class PlayerControl : MonoBehaviour {
             {
                 body.velocity = new Vector2((float)-body.position.x, (float)-body.position.y);
                 body.gravityScale = 0;
-                targetZoom = 20f;
+                targetZoom = 24f;
             } else
             {
                 body.gravityScale = 1;
-                targetZoom = 4f;
+                targetZoom = 8f;
             }
         }
 
@@ -92,6 +93,23 @@ public class PlayerControl : MonoBehaviour {
         {
             GetComponent<RotateGameWorld>().IncreaseRing();
         }
+        /*
+        for(int i = 0; i < 3; i++)
+        {
+            Debug.Log("ring" + i);
+            GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
+            foreach (GameObject platform in platforms1)
+            {
+                platform.GetComponent<SpriteRenderer>().color = Color.white;
+            }
+        }
+        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Ring" + GetComponent<RotateGameWorld>().ringNumber);
+        foreach (GameObject platform in platforms)
+        {
+            Debug.Log("moi");
+            platform.GetComponent<SpriteRenderer>().color = Color.green;
+        }
+         */
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -110,7 +128,7 @@ public class PlayerControl : MonoBehaviour {
 
         if (transform.position.y < -85)
         {
-            attributes.SetText(attributes.endText, "YOU DIED!\nYOUR SCORE: " + attributes.score);
+            attributes.SetText(attributes.endText, "Level 1 cleared");
         }
         
         MoveVertical();

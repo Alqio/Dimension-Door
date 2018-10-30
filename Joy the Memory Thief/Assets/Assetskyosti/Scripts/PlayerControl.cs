@@ -8,13 +8,14 @@ public class PlayerControl : MonoBehaviour {
     public Rigidbody2D body;
     private Camera mainCamera;
     public bool jump = false;
+    public bool toCenter = false;
 
     PlayerAttributes attributes;
     private bool onGround;
     
     private bool facingRight = false;
 
-    private bool toCenter = false;
+    
     public float targetZoom = 4f;
 
     private void Awake()
@@ -66,57 +67,11 @@ public class PlayerControl : MonoBehaviour {
             jump = true;
         }
 
-        if (Input.GetKey(KeyCode.Q) && body.position == Vector2.zero)
+        if (GetComponent<RotateGameWorld>())
         {
-            GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, -1));
+            GetComponent<RotateGameWorld>().HandleInput(body);
         }
-
-        if (Input.GetKey(KeyCode.E) && body.position == Vector2.zero)
-        {
-            GetComponent<RotateGameWorld>().Rotate(new Vector3(0, 0, 1));
-        }
-
-        if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(body.position.x) < 5.5f && Mathf.Abs(body.position.y) < 5.5f)
-        {
-            toCenter = !toCenter;
-            if(toCenter)
-            {
-                body.velocity = new Vector2((float)-body.position.x, (float)-body.position.y);
-                body.gravityScale = 0;
-                targetZoom = 24f;
-            } else
-            {
-                body.gravityScale = 1;
-                targetZoom = 8f;
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero)
-        {
-            GetComponent<RotateGameWorld>().DecreaseRing();
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero)
-        {
-            GetComponent<RotateGameWorld>().IncreaseRing();
-        }
-        /*
-        for(int i = 0; i < 3; i++)
-        {
-            Debug.Log("ring" + i);
-            GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
-            foreach (GameObject platform in platforms1)
-            {
-                platform.GetComponent<SpriteRenderer>().color = Color.white;
-            }
-        }
-        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Ring" + GetComponent<RotateGameWorld>().ringNumber);
-        foreach (GameObject platform in platforms)
-        {
-            Debug.Log("moi");
-            platform.GetComponent<SpriteRenderer>().color = Color.green;
-        }
-         */
+        
     }
 
     private void FixedUpdate()
@@ -128,7 +83,7 @@ public class PlayerControl : MonoBehaviour {
         
         MoveVertical();
 
-        if(toCenter)
+        if (toCenter)
         {
             MoveTowardsCenter();
         } else

@@ -16,6 +16,7 @@ public class PlayerAttributes : MonoBehaviour {
     public Transform groundCheck;
 
     public int score;
+    public int maxScore = 4;
     public Text scoreText;
     public Text endText;
  
@@ -37,13 +38,12 @@ public class PlayerAttributes : MonoBehaviour {
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
-            score += 100;
-            SetText(scoreText, "Score: " + score);
-        }
-        if (other.gameObject.CompareTag("RedKey"))
-        {
-            other.gameObject.SetActive(false);
-            GameObject.FindGameObjectWithTag("RedDoor").transform.parent.gameObject.SetActive(false);
+            score += 1;
+            SetText(scoreText, "Memory fractions left: " + (maxScore - score));
+            if (score == maxScore)
+            {
+                GameObject.FindGameObjectWithTag("RedDoor").gameObject.SetActive(false);
+            }
         }
     }
 

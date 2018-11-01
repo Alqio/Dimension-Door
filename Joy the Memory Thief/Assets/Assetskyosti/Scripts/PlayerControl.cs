@@ -37,6 +37,9 @@ public class PlayerControl : MonoBehaviour {
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 13);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 20);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 34);
+        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 41);
+
     }
 
     private bool GroundCheck()

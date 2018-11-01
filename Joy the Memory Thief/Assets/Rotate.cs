@@ -26,11 +26,11 @@ public class Rotate : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z - rotationSpeed);
+            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z - rotationSpeed * Time.deltaTime);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z + rotationSpeed);
+            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z + rotationSpeed * Time.deltaTime);
         }
     }
 }

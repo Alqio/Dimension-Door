@@ -36,21 +36,20 @@ public class RotateGameWorld : MonoBehaviour {
         platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
         foreach (GameObject platform in platforms)
         {
-            //platform.GetComponent<SpriteRenderer>().color = Color.green;
-            platform.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+            foreach (Transform child in platform.transform)
+            {
+                Quaternion rot = child.transform.rotation;
+                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+                if (child.CompareTag("Coin"))
+                {
+                    child.transform.rotation = rot;
+                }
+            }
         }
         
         
-        platforms = GameObject.FindGameObjectsWithTag("ChildRing" + ringNumber);
-        foreach (GameObject platform in platforms)
-        {
-            GameObject collectable = platform.transform.parent.gameObject;
-            Quaternion rot = collectable.transform.rotation;
-            collectable.transform.RotateAround(Vector3.zero, direction, rotationSpeed * 2 * Time.deltaTime);
-            collectable.transform.rotation = rot; 
-        }
-
         /*
+
         collectables = GameObject.FindGameObjectsWithTag("Coin")
         foreach (GameObject platform in platforms)
         {
@@ -111,9 +110,12 @@ public class RotateGameWorld : MonoBehaviour {
             foreach (GameObject platform in platforms1)
             {
 
-                if (platform.GetComponent<SpriteRenderer>() != null)
+                foreach (Transform child in platform.transform)
                 {
-                    platform.GetComponent<SpriteRenderer>().sprite = normalSprite;
+                    if (!child.CompareTag("Coin"))
+                    {
+                        child.GetComponent<SpriteRenderer>().sprite = normalSprite;
+                    }
                 }
 
             }
@@ -128,21 +130,38 @@ public class RotateGameWorld : MonoBehaviour {
             GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
             foreach (GameObject platform in platforms1)
             {
-
+                foreach(Transform child in platform.transform)
+                {
+                    if(!child.CompareTag("Coin"))
+                    {
+                        child.GetComponent<SpriteRenderer>().sprite = normalSprite;
+                    }
+                }
+                /*
                 if (platform.GetComponent<SpriteRenderer>() != null)
                 {
                     platform.GetComponent<SpriteRenderer>().sprite = normalSprite;
                 }
+                 */
                 
             }
         }
         GameObject[] platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
         foreach (GameObject platform in platforms)
         {
+            foreach (Transform child in platform.transform)
+            {
+                if (!child.CompareTag("Coin"))
+                {
+                    child.GetComponent<SpriteRenderer>().sprite = selectedSprite;
+                }
+            }
+            /*
             if (platform.GetComponent<SpriteRenderer>() != null)
             {
                 platform.GetComponent<SpriteRenderer>().sprite = selectedSprite;
             }
+             */
         }
     }
 

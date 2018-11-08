@@ -6,8 +6,8 @@ public class RotateGameWorld : MonoBehaviour {
 
     private GameObject[] platforms;
 
-    public float rotationSpeed = 15f;
-    public float zoomedOut     = 24f;
+    public float rotationSpeed = 1f;
+    public float zoomedOut     = 110f;
     public float zoomedIn      = 8f;
 
     public Sprite normalSprite;
@@ -20,6 +20,10 @@ public class RotateGameWorld : MonoBehaviour {
     private int maxRing = 2;
     public int targetAngle = 0;
 
+    private bool rotating;
+    private Vector3 rotateDirection;
+    private float rotated = 0;
+
     private void Awake()
     {
         playerTransform = GetComponent<Transform>();
@@ -28,47 +32,55 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        rotating = false;
     }
 	
     public void Rotate(Vector3 direction)
     {
         platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
+        
         foreach (GameObject platform in platforms)
         {
             foreach (Transform child in platform.transform)
             {
                 Quaternion rot = child.transform.rotation;
-                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+
+                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
+
                 if (child.CompareTag("Coin"))
                 {
                     child.transform.rotation = rot;
                 }
             }
         }
-        
-        
-        /*
-
-        collectables = GameObject.FindGameObjectsWithTag("Coin")
-        foreach (GameObject platform in platforms)
-        {
-            collectable.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
-        }
-         */
-        
     }
 
     public void HandleInput(Rigidbody2D body)
     {
-        if (Input.GetKey(KeyCode.Q) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.Q) && body.position == Vector2.zero)
         {
-            Rotate(new Vector3(0, 0, -1));
+            //Rotate(new Vector3(0, 0, -1));
+            rotating = true;
+            rotateDirection = new Vector3(0, 0, -1);
         }
 
-        if (Input.GetKey(KeyCode.E) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.E) && body.position == Vector2.zero)
         {
-            Rotate(new Vector3(0, 0, 1));
+            //Rotate(new Vector3(0, 0, 1));
+            rotating = true;
+            rotateDirection = new Vector3(0, 0, 1);
+        }
+        if (rotating)
+        {
+            Rotate(rotateDirection);
+
+            rotated += rotationSpeed;
+            
+            if (rotated >= 90)
+            {
+                rotating = false;
+                rotated = 0;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(body.position.x) < 10.5f && Mathf.Abs(body.position.y) < 10.5f)
@@ -87,15 +99,16 @@ public class RotateGameWorld : MonoBehaviour {
                 controlScript.targetZoom = zoomedIn;
                 ResetPlatformColors();
             }
+            controlScript.ResetZoomSpeed();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero && !rotating)
         {
             DecreaseRing();
             ColorSelectedPlatforms();
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero && !rotating)
         {
             IncreaseRing();
             ColorSelectedPlatforms();

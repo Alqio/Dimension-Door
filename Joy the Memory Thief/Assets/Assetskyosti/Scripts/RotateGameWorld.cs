@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RotateGameWorld : MonoBehaviour {
 
-    private GameObject[] platforms;
+    private GameObject platforms;
+    private string mazeTag = "center";
 
-    public float rotationSpeed = 15f;
-    public float zoomedOut     = 24f;
-    public float zoomedIn      = 8f;
+    public float rotationSpeed;
+    public float zoomedOut;
+    public float zoomedIn;
 
     public Sprite normalSprite;
     public Sprite selectedSprite;
@@ -17,7 +18,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     private Transform playerTransform;
     public int ringNumber = 0;
-    private int maxRing = 2;
+    private int maxRing = 3;
     public int targetAngle = 0;
 
     private void Awake()
@@ -28,15 +29,23 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        
+        rotationSpeed = 15f;
+        zoomedOut = 110f;
+        zoomedIn = 8f;
     }
 	
     public void Rotate(Vector3 direction)
     {
-        platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
-        foreach (GameObject platform in platforms)
+        if(mazeTag == "center" && ringNumber == maxRing)
         {
-            foreach (Transform child in platform.transform)
+            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
+            foreach(GameObject maze in mazes)
+            {
+                maze.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+            }
+        } else {
+            GameObject ring = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
+            foreach (Transform child in ring.transform)
             {
                 Quaternion rot = child.transform.rotation;
                 child.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
@@ -46,16 +55,6 @@ public class RotateGameWorld : MonoBehaviour {
                 }
             }
         }
-        
-        
-        /*
-
-        collectables = GameObject.FindGameObjectsWithTag("Coin")
-        foreach (GameObject platform in platforms)
-        {
-            collectable.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
-        }
-         */
         
     }
 
@@ -87,6 +86,7 @@ public class RotateGameWorld : MonoBehaviour {
                 controlScript.targetZoom = zoomedIn;
                 ResetPlatformColors();
             }
+            controlScript.ResetZoomSpeed();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero)

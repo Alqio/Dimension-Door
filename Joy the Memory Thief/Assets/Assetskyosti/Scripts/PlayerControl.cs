@@ -15,8 +15,10 @@ public class PlayerControl : MonoBehaviour {
     
     private bool facingRight = false;
 
-    
-    public float targetZoom = 4f;
+    private float zoomSpeed = 0.2f;
+    private float originalZoomSpeed;
+    public float maxZoomSpeed = 50.0f;
+    public float targetZoom = 8f;
 
     private void Awake()
     {
@@ -26,6 +28,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        originalZoomSpeed = zoomSpeed;
         onGround = true;
         mainCamera = Camera.main;
         flip();
@@ -34,11 +37,31 @@ public class PlayerControl : MonoBehaviour {
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 13);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 20);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 27);
-        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 34);
-        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 41);
+
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 34);
+
 
     }
 
@@ -93,7 +116,7 @@ public class PlayerControl : MonoBehaviour {
         {
             MoveHorizontal();
         }
-        if (mainCamera.orthographicSize < targetZoom - 0.1 || mainCamera.orthographicSize > targetZoom + 1)
+        if (mainCamera.orthographicSize < targetZoom - 0.1 || mainCamera.orthographicSize > targetZoom + 0.1)
         {
             Zoom();
         }
@@ -159,6 +182,7 @@ public class PlayerControl : MonoBehaviour {
                 body.position = Vector2.zero;
                 body.velocity = Vector3.zero;
                 body.angularVelocity = 0;
+                zoomSpeed = 0.2f;
             }
         }
     }
@@ -167,14 +191,40 @@ public class PlayerControl : MonoBehaviour {
     {
         if (mainCamera.orthographicSize < targetZoom)
         {
-            mainCamera.orthographicSize += 0.2f;
+            mainCamera.orthographicSize += zoomSpeed;
+
+            //Makes sure that the orthographicSize doesn't overextend
+            if (mainCamera.orthographicSize > targetZoom)
+            {
+                mainCamera.orthographicSize = targetZoom;
+            }
+
         }
         else if (mainCamera.orthographicSize > targetZoom)
         {
-            mainCamera.orthographicSize -= 0.2f;
+            mainCamera.orthographicSize -= zoomSpeed;
+
+            //Makes sure that the orthographicSize doesn't overextend
+            if (mainCamera.orthographicSize < targetZoom)
+            {
+                mainCamera.orthographicSize = targetZoom;
+            }
         }
 
 
+        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
+        {
+            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
+        }
+        else
+        {
+            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
+        }
+    }
+
+    public void ResetZoomSpeed()
+    {
+        zoomSpeed = originalZoomSpeed;
     }
 
     void flip()

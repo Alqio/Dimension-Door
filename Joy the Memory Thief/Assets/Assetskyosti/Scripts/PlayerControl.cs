@@ -9,7 +9,7 @@ public class PlayerControl : MonoBehaviour {
     private Camera mainCamera;
     public bool jump = false;
     public bool toCenter = false;
-    public bool canMove;
+    public bool canMove = true;
 
     PlayerAttributes attributes;
     private bool onGround;
@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        canMove = true;
         originalZoomSpeed = zoomSpeed;
         onGround = true;
         mainCamera = Camera.main;

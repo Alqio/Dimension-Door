@@ -45,7 +45,7 @@ public class tietokone : MonoBehaviour
                 taso++;
             }
             
-            print("oioiio");
+            //print("oioiio");
         }
             
         //if (true)

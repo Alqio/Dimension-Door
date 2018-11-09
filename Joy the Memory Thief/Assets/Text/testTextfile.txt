@@ -1,4 +1,5 @@
 
+Machine text
 @ID12345
 ------------------------
 @start
@@ -8,13 +9,53 @@ Such wow
 @end
 -------------------------
 -------------------------
+Computer text
 @ID11111
 ------------------------
 @start
-Niin hyvaa tekstia
-Many text
-Wow
-Much text
-ahfisuhfiorseurhfiuehriusergifhsdijfdsuhgiahsdkvdjfhgiuasgfusdgfksdhfguiashfkjdshfuyasgdufsdjhzduyfusydgfuyasgdfjdhufygsauidfguysd ahfoiruesghuierhpiHEIUAHERIOU HAAF SAIUF GUAYSGF AUISYEG FUYASG FSUDGF IOASG FYASGDI UFASDYF GSAUYDG FAUSYG  uihsgoifsug ioudrgoiutshr iuhrdiuofsghiuah giuadfh uighasiu dhfaiusdhfiu ashdiuof hasiudh fiuasdh fiusahd ioufhasdiu fhasiudh fiuasdh fuioasdh fiuoashdf iouahsoiu fhiuaosdh fiousdh 
+jotain
+Chitchat
+press 'A' to get the next patient
 @end
 -------------------------
+First text in the hub
+@ID23456
+@start
+Press enter to skip to the next line
+Press enter to read instructions about what you can do in the space you're in.
+Thank you for your attention.
+@end
+
+Kun painetaan enter hubis
+@ID34567
+@start
+Short tutorial about what you can do in the hub:
+Use the arrow keys to move left and right
+You can jump using the space key
+You can press 'A' to call your next patient
+Press 'A' to enter the patients memories when you are near the patient
+@end
+
+Patient 1 computer text
+@ID56789
+@start
+Text about patient 1
+chit chat
+Text about patient 1
+@end
+
+Patient2 test text
+@ID54321
+@start
+Text about patient 2
+chit chat
+Text about patient 2
+@end
+
+Patient3 test text
+@ID65432
+@start
+Text about patient 3
+chit chat
+Text about patient 3
+@end

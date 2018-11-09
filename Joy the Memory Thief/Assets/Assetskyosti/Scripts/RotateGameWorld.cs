@@ -6,6 +6,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     private GameObject platforms;
     private string mazeTag = "center";
+    private GameObject[] activePlatforms;
     
     public float rotationSpeed;
     public float zoomedOut;
@@ -120,7 +121,22 @@ public class RotateGameWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero && !rotating)
         {
             IncreaseRing();
+            SetActivePlatforms();
             ColorSelectedPlatforms();
+        }
+    }
+
+    public void SetActivePlatforms()
+    {
+        if (mazeTag == "center" && ringNumber == maxRing)
+        {
+            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
+            
+        }
+        else
+        {
+            //activePlatforms = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
+            
         }
     }
 
@@ -147,7 +163,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     public void ColorSelectedPlatforms()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
             foreach (GameObject platform in platforms1)

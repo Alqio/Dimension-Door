@@ -237,6 +237,7 @@ MonoBehaviour:
   lowJumpMultiplier: 1
   groundCheck: {fileID: 4285447824161804}
   score: 0
+  maxScore: 4
   scoreText: {fileID: 0}
   endText: {fileID: 0}
 --- !u!114 &114186581360486230
@@ -267,3 +268,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   body: {fileID: 0}
   jump: 0
+  toCenter: 0
+  maxZoomSpeed: 50
+  targetZoom: 8
+  jumpClip: {fileID: 8300000, guid: 94cc851b67347954a8e02ca734cb035a, type: 3}

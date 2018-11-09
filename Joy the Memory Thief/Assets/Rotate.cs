@@ -6,7 +6,7 @@ using System;
 public class Rotate : MonoBehaviour
 {
 
-    public float rotationSpeed = 1f;
+    public float rotationSpeed = 20f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,13 +24,15 @@ public class Rotate : MonoBehaviour
     {
         Vector3 oldRot = transform.eulerAngles;
 
+        
+
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z - rotationSpeed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z - (rotationSpeed * Time.deltaTime)/transform.localScale.x);
         }
         if (Input.GetKey(KeyCode.E))
         {
-            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z + rotationSpeed * Time.deltaTime);
+            transform.eulerAngles = new Vector3(oldRot.x, oldRot.y, oldRot.z + (rotationSpeed * Time.deltaTime) / transform.localScale.x);
         }
     }
 }

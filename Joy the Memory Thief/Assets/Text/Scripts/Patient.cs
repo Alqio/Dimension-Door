@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PatientIsInHub : MonoBehaviour
+public class Patient : MonoBehaviour
 {
 
     public bool isInHub = false;
+    public int number;
     // Start is called before the first frame update
     void Start()
     {

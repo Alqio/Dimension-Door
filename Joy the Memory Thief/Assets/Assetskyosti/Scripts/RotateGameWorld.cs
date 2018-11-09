@@ -99,7 +99,7 @@ public class RotateGameWorld : MonoBehaviour {
                 controlScript.targetZoom = zoomedIn;
                 ResetPlatformColors();
             }
-            controlScript.ResetZoomSpeed();
+            //controlScript.ResetZoomSpeed();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero && !rotating)

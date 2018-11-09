@@ -62,10 +62,13 @@ public class tietokone : MonoBehaviour
         {
             //print("Moi");
             SpriteRenderer sprender = uhrit[taso-1].GetComponent<SpriteRenderer>();
+            Patient patient = uhrit[taso - 1].GetComponent<Patient>();
+            patient.isInHub = true;
             sprender.enabled = true;
             if (taso != 1) {
                 sprender = uhrit[taso - 2].GetComponent<SpriteRenderer>();
                 sprender.enabled = false;
+                patient.isInHub = false;
             }
         }
     }

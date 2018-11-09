@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     private Camera mainCamera;
     public bool jump = false;
     public bool toCenter = false;
+    public bool canMove;
 
     PlayerAttributes attributes;
     private bool onGround;
@@ -79,6 +80,10 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        if (!canMove)
+        {
+            return;
+        }
         if (transform.position.y < -85)
         {
             attributes.SetText(attributes.endText, "Level 1 cleared");

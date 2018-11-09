@@ -17,10 +17,12 @@ public class TextIDManager : MonoBehaviour
     public int endAtLine;
     public string textID = "@ID12345";
     public string firstTextID = "@ID23456";
+    public PlayerControl playerControl;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerControl = FindObjectOfType<PlayerControl>();
         if (allTextInGame != null)
         {
             string ID = "";
@@ -72,6 +74,7 @@ public class TextIDManager : MonoBehaviour
                 if (endAtLine < currentLine)
                 {
                     DisableBox();
+                    
                 }
                 else
                 {
@@ -112,6 +115,7 @@ public class TextIDManager : MonoBehaviour
         textBox.SetActive(true);
         isActive = true;
         limitActions = true;
+        playerControl.canMove = false;
     }
 
     public void DisableBox()
@@ -119,6 +123,7 @@ public class TextIDManager : MonoBehaviour
         textBox.SetActive(false);
         isActive = false;
         limitActions = false;
+        playerControl.canMove = true;
     }
 
     public void LoadTextWithID(string ID)

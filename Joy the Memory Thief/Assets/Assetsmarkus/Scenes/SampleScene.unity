@@ -1821,6 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInHub: 0
+  number: 2
 --- !u!1 &534669902
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInHub: 0
+  number: 3
 --- !u!1 &727579654
 GameObject:
   m_ObjectHideFlags: 0
@@ -2674,7 +2676,7 @@ PrefabInstance:
     - target: {fileID: 1266418443746102468, guid: 4da78d5c5ffac6f44a6f507aaf878be8,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -12.110077
+      value: -12.110107
       objectReference: {fileID: 0}
     - target: {fileID: 1266418444098879320, guid: 4da78d5c5ffac6f44a6f507aaf878be8,
         type: 3}
@@ -3258,6 +3260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInHub: 0
+  number: 1
 --- !u!1 &1131076242
 GameObject:
   m_ObjectHideFlags: 0

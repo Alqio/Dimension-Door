@@ -9,7 +9,8 @@ public class ActivateText : MonoBehaviour
     public int endLine;
     public TextIDManager textIDManager;
     public bool isInside;
-    public GameObject patient = null;
+    public Patient patient = null;
+    private Patient[] patients;
 
     public string triggerTextID = "@ID11111";
     public string patient1ID = "@ID56789";
@@ -20,11 +21,13 @@ public class ActivateText : MonoBehaviour
     void Start()
     {
         textIDManager = FindObjectOfType<TextIDManager>();
+        patients = FindObjectsOfType<Patient>();
     }
 
     // Update is called once per frame
     private void Update()
     {
+        UpdatePatient();
         if (Input.GetKeyDown(KeyCode.X))
         {
             if (!textIDManager.isActive && isInside)
@@ -45,6 +48,17 @@ public class ActivateText : MonoBehaviour
                 {
                     textIDManager.LoadTextWithID(patient3ID);
                 }
+            }
+        }
+    }
+
+    void UpdatePatient()
+    {
+        for (int i = 0; i < patients.Length; i++)
+        {
+            if (patients[i].isInHub)
+            {
+                patient = patients[i];
             }
         }
     }

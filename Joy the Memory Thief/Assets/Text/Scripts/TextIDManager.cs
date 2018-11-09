@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class TextIDManager : MonoBehaviour
 {
-
     public TextAsset allTextInGame;
     public Dictionary<string, (int, int)> TextIDs = new Dictionary<string, (int, int)>();
     public List<string> textIDList = new List<string>();
@@ -17,7 +16,7 @@ public class TextIDManager : MonoBehaviour
     public int currentLine;
     public int endAtLine;
     public string textID = "@ID12345";
-
+    public string firstTextID = "@ID23456";
 
     // Start is called before the first frame update
     void Start()
@@ -45,7 +44,6 @@ public class TextIDManager : MonoBehaviour
                     TextIDs.Add(ID, (start, end));
                     textIDList.Add(ID);
                 }
-
             }
         }
         if (isActive)
@@ -56,14 +54,13 @@ public class TextIDManager : MonoBehaviour
         {
             DisableBox();
         }
-        print(TextIDs.ToString());
+        LoadTextWithID(firstTextID);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    
+         
         if (isActive)
         {
             if (currentLine == -1)
@@ -79,11 +76,8 @@ public class TextIDManager : MonoBehaviour
                 else
                 {
                     textShown.text = textLines[currentLine];
-
-
-
                     if (Input.GetKeyDown(KeyCode.Return))
-                    {
+                    {                        
                         currentLine += 1;
                     }
                 }
@@ -93,9 +87,8 @@ public class TextIDManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                if (/*!textPrinter.isActive*/!isActive)
+                if (!isActive)
                 {
-                    //textPrinter.ReloadScript(text, endLine, startLine);
                     LoadTextWithID(textID);
                 }
             }

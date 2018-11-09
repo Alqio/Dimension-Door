@@ -14,6 +14,9 @@ TagManager:
   - RedKey
   - ChildRing1
   - ChildRing0
+  - Patient1
+  - Patient2
+  - Patient3
   layers:
   - Default
   - TransparentFX

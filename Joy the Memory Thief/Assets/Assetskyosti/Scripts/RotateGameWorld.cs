@@ -6,7 +6,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     private GameObject platforms;
     private string mazeTag = "center";
-
+    
     public float rotationSpeed;
     public float zoomedOut;
     public float zoomedIn;
@@ -21,6 +21,10 @@ public class RotateGameWorld : MonoBehaviour {
     private int maxRing = 3;
     public int targetAngle = 0;
 
+    private bool rotating;
+    private Vector3 rotateDirection;
+    private float rotated = 0;
+
     private void Awake()
     {
         playerTransform = GetComponent<Transform>();
@@ -29,9 +33,10 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rotationSpeed = 15f;
+        rotationSpeed = 2f;
         zoomedOut = 110f;
         zoomedIn = 8f;
+        rotating = false;
     }
 	
     public void Rotate(Vector3 direction)
@@ -41,33 +46,50 @@ public class RotateGameWorld : MonoBehaviour {
             GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
             foreach(GameObject maze in mazes)
             {
-                maze.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+                maze.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
             }
         } else {
             GameObject ring = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
             foreach (Transform child in ring.transform)
             {
                 Quaternion rot = child.transform.rotation;
-                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed * Time.deltaTime);
+
+                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
+
                 if (child.CompareTag("Coin"))
                 {
                     child.transform.rotation = rot;
                 }
             }
         }
-        
     }
 
     public void HandleInput(Rigidbody2D body)
     {
-        if (Input.GetKey(KeyCode.Q) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.Q) && body.position == Vector2.zero)
         {
-            Rotate(new Vector3(0, 0, -1));
+            //Rotate(new Vector3(0, 0, -1));
+            rotating = true;
+            rotateDirection = new Vector3(0, 0, -1);
         }
 
-        if (Input.GetKey(KeyCode.E) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.E) && body.position == Vector2.zero)
         {
-            Rotate(new Vector3(0, 0, 1));
+            //Rotate(new Vector3(0, 0, 1));
+            rotating = true;
+            rotateDirection = new Vector3(0, 0, 1);
+        }
+        if (rotating)
+        {
+            Rotate(rotateDirection);
+
+            rotated += rotationSpeed;
+            
+            if (rotated >= 90)
+            {
+                rotating = false;
+                rotated = 0;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(body.position.x) < 10.5f && Mathf.Abs(body.position.y) < 10.5f)
@@ -89,13 +111,13 @@ public class RotateGameWorld : MonoBehaviour {
             controlScript.ResetZoomSpeed();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero && !rotating)
         {
             DecreaseRing();
             ColorSelectedPlatforms();
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero && !rotating)
         {
             IncreaseRing();
             ColorSelectedPlatforms();
@@ -104,7 +126,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     public void ResetPlatformColors()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
             foreach (GameObject platform in platforms1)
@@ -137,12 +159,6 @@ public class RotateGameWorld : MonoBehaviour {
                         child.GetComponent<SpriteRenderer>().sprite = normalSprite;
                     }
                 }
-                /*
-                if (platform.GetComponent<SpriteRenderer>() != null)
-                {
-                    platform.GetComponent<SpriteRenderer>().sprite = normalSprite;
-                }
-                 */
                 
             }
         }
@@ -156,12 +172,6 @@ public class RotateGameWorld : MonoBehaviour {
                     child.GetComponent<SpriteRenderer>().sprite = selectedSprite;
                 }
             }
-            /*
-            if (platform.GetComponent<SpriteRenderer>() != null)
-            {
-                platform.GetComponent<SpriteRenderer>().sprite = selectedSprite;
-            }
-             */
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextManager : MonoBehaviour {
+public class TextPrinter : MonoBehaviour {
 
 
     public GameObject textBox;
@@ -14,6 +14,7 @@ public class TextManager : MonoBehaviour {
     public int endAtLine;
     public bool isActive;
     public bool limitActions;
+    public TextAsset TextID;
 
     // Use this for initialization
     void Start()

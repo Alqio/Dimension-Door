@@ -23,6 +23,7 @@ Press enter to read instructions about what you can do in the space you're in.
 Short tutorial about what you can do in the hub:
 Use the arrow keys to move left and right
 You can jump using the space key
+Press X near the monitors to read what's written on them
 You can press 'A' to call your next patient
 Press 'A' to enter the patients memories when you are near the patient
 Thank you for your attention.

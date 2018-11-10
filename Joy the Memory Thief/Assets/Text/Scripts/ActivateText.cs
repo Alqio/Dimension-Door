@@ -12,10 +12,10 @@ public class ActivateText : MonoBehaviour
     public Patient patient = null;
     private Patient[] patients;
 
-    public string triggerTextID = "@ID11111";
-    public string patient1ID = "@ID56789";
-    public string patient2ID = "@ID54321";
-    public string patient3ID = "@ID65432";
+    public string triggerTextID;
+    public string patient1ID;
+    public string patient2ID;
+    public string patient3ID;
 
     // Use this for initialization
     void Start()
@@ -29,9 +29,9 @@ public class ActivateText : MonoBehaviour
     {
         UpdatePatient();
         if (Input.GetKeyDown(KeyCode.X))
-        {
+        {           
             if (!textIDManager.isActive && isInside)
-            {
+            {               
                 if (patient == null)
                 {
                     textIDManager.LoadTextWithID(triggerTextID);

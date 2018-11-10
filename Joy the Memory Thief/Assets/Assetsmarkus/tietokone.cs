@@ -67,6 +67,7 @@ public class tietokone : MonoBehaviour
             sprender.enabled = true;
             if (taso != 1) {
                 sprender = uhrit[taso - 2].GetComponent<SpriteRenderer>();
+                patient = uhrit[taso - 2].GetComponent<Patient>();
                 sprender.enabled = false;
                 patient.isInHub = false;
             }

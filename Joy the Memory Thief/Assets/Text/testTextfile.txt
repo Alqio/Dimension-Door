@@ -20,6 +20,11 @@ First text in the hub
 @start
 Press enter to skip to the next line.
 Press enter to read instructions about what you can do in the space you're in.
+Short tutorial about what you can do in the hub:
+Use the arrow keys to move left and right
+You can jump using the space key
+You can press 'A' to call your next patient
+Press 'A' to enter the patients memories when you are near the patient
 Thank you for your attention.
 @end
 
@@ -39,6 +44,7 @@ Patient 1 computer text
 Text about patient 1
 chit chat
 Text about patient 1
+General info eg hobbies, occupation, family, most precious memory
 @end
 
 Patient2 test text
@@ -47,6 +53,7 @@ Patient2 test text
 Text about patient 2
 chit chat
 Text about patient 2
+General info eg hobbies, occupation, family, most precious memory
 @end
 
 Patient3 test text
@@ -54,5 +61,31 @@ Patient3 test text
 @start
 Text about patient 3
 chit chat
+Text about patient 3
+General info eg hobbies, occupation, family, most precious memory
+@end
+
+
+Patient 1 machine text
+@ID98765
+@start
+Text about patient 1
+Stats: health, age, intelligence, physical activity etc
+Text about patient 1
+@end
+
+Patient2 test text
+@ID09876
+@start
+Text about patient 2
+Stats: health, age, intelligence, physical activity etc
+Text about patient 2
+@end
+
+Patient3 test text
+@ID87654
+@start
+Text about patient 3
+Stats: health, age, intelligence, physical activity etc
 Text about patient 3
 @end

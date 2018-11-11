@@ -269,6 +269,6 @@ MonoBehaviour:
   body: {fileID: 0}
   jump: 0
   toCenter: 0
+  canMove: 1
   maxZoomSpeed: 50
   targetZoom: 8
-  jumpClip: {fileID: 8300000, guid: 94cc851b67347954a8e02ca734cb035a, type: 3}

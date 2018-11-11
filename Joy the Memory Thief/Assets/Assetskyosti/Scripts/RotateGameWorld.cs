@@ -22,7 +22,7 @@ public class RotateGameWorld : MonoBehaviour {
     private int maxRing = 3;
     public int targetAngle = 0;
 
-    private bool rotating;
+    public bool rotating;
     private Vector3 rotateDirection;
     private float rotated = 0;
 
@@ -77,6 +77,7 @@ public class RotateGameWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && body.position == Vector2.zero)
         {
             //Rotate(new Vector3(0, 0, 1));
+            print("moi");
             rotating = true;
             rotateDirection = new Vector3(0, 0, 1);
         }

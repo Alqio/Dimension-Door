@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Physics2D.IgnoreLayerCollision(0, 9);
         canMove = true;
         originalZoomSpeed = zoomSpeed;
         onGround = true;
@@ -75,16 +76,11 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         onGround = GroundCheck();
-
         HandleInput();
-        
-        Vector3 oldRotation = body.transform.eulerAngles;
-        
-        float newZRotation = Mathf.Min(30f, 20f*Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
 
-        //Debug.Log(newZRotation);
 
-        body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
+
+
 
     }
 
@@ -104,6 +100,14 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        //Vector3 oldRotation = body.transform.eulerAngles;
+
+        //float newZRotation = Mathf.Min(10f, 20f * Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
+
+        //Debug.Log(newZRotation);
+
+        //body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
+
         if (!canMove)
         {
             return;

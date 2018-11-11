@@ -7,7 +7,7 @@ public class soundPlatform : MonoBehaviour
     public bool coloured;
     public Vector3 color_rgb_;
     private Vector3 color_rgb;
-
+    public float min_alfa;
     public bool invisible;
     public float speed;
 
@@ -35,9 +35,9 @@ public class soundPlatform : MonoBehaviour
         if (invisible)
         {
             if(coloured)
-                GetComponent<SpriteRenderer>().color = new Color(color_rgb.x, color_rgb.y, color_rgb.z, Mathf.Max(0, alfa - Mathf.Abs(speed)*Time.deltaTime));
+                GetComponent<SpriteRenderer>().color = new Color(color_rgb.x, color_rgb.y, color_rgb.z, Mathf.Max(min_alfa, alfa - Mathf.Abs(speed)*Time.deltaTime));
             else
-                GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, Mathf.Max(0, alfa - Mathf.Abs(speed) * Time.deltaTime));
+                GetComponent<SpriteRenderer>().color = new Color(c.r, c.g, c.b, Mathf.Max(min_alfa, alfa - Mathf.Abs(speed) * Time.deltaTime));
 
         }
         else

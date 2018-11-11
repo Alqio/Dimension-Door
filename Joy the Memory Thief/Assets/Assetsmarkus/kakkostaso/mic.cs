@@ -81,7 +81,7 @@ public class mic : MonoBehaviour
 
         if (Input.GetKey(KeyCode.C))
         {
-            if (quesize == 255)
+            if (quesize == 50)
                 recent_notes.Dequeue();
             recent_notes.Enqueue(guessNote());
 
@@ -104,7 +104,8 @@ public class mic : MonoBehaviour
                 float c_speed = halos[0].GetComponent<graphicsMovement>().color_speed;
                 if (Mathf.Abs(c.r - notesRGB[n].x / 255f) < 2 / 255f &&
                     Mathf.Abs(c.g - notesRGB[n].y / 255f) < 2 / 255f &&
-                    Mathf.Abs(c.b - notesRGB[n].z / 255f) < 2 / 255f)
+                    Mathf.Abs(c.b - notesRGB[n].z / 255f) < 2 / 255f &&
+                    quesize > 40)
                 {
                     halo.GetComponent<SpriteRenderer>().color = new Color(notesRGB[n].x / 255f, notesRGB[n].y / 255f, notesRGB[n].z / 255f, 1);
                     halo.GetComponent<graphicsMovement>().alfa_speed = 1f;
@@ -146,7 +147,10 @@ public class mic : MonoBehaviour
             recent_notes.Clear();
             foreach (GameObject g in halos) {
                 g.GetComponent<graphicsMovement>().alfa_speed = -0.5f;
+                
                 g.GetComponent<graphicsMovement>().color_rgb = new Vector3(1f, 1f, 1f);
+                g.GetComponent<SpriteRenderer>().color = new Color(1,1,1, g.GetComponent<SpriteRenderer>().color.a);
+
             }
             GameObject halo = GameObject.FindGameObjectWithTag("finalHalo");
             halo.GetComponent<graphicsMovement>().alfa_speed = -1f;

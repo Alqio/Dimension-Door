@@ -21,6 +21,9 @@ TagManager:
   - Patient1
   - Patient2
   - Patient3
+  - halos
+  - finalHalo
+  - musicPlatform
   layers:
   - Default
   - TransparentFX

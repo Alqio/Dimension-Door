@@ -2,35 +2,80 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ActivateText : MonoBehaviour {
-
+public class ActivateText : MonoBehaviour
+{
     public TextAsset text;
     public int startLine;
     public int endLine;
-   // public TextPrinter textPrinter;
     public TextIDManager textIDManager;
-    
-    public string triggerTextID = "@ID11111";
+    public bool isInside;
+    public Patient patient = null;
+    private Patient[] patients;
 
-	// Use this for initialization
-	void Start () {
-        //textPrinter = FindObjectOfType<TextPrinter>();
-        textIDManager = FindObjectOfType<TextIDManager>();
-    }
-	
-	// Update is called once per frame
-	
+    public string triggerTextID;
+    public string patient1ID;
+    public string patient2ID;
+    public string patient3ID;
 
-    void OnTriggerEnter2D(Collider2D collider)
+    // Use this for initialization
+    void Start()
     {
-        if (collider.name == "Joy")
-        {
-            if (/*!textPrinter.isActive*/ !textIDManager.isActive)
-            {
-                //textPrinter.ReloadScript(text, endLine, startLine);
-                textIDManager.LoadTextWithID(triggerTextID);
-            }       
+        textIDManager = FindObjectOfType<TextIDManager>();
+        patients = FindObjectsOfType<Patient>();
+    }
+
+    // Update is called once per frame
+    private void Update()
+    {
+        UpdatePatient();
+        if (Input.GetKeyDown(KeyCode.X))
+        {           
+            if (!textIDManager.isActive && isInside)
+            {               
+                if (patient == null)
+                {
+                    textIDManager.LoadTextWithID(triggerTextID);
+                }
+                else if (patient.gameObject.CompareTag("Patient1"))
+                {
+                    textIDManager.LoadTextWithID(patient1ID);
+                }
+                else if (patient.gameObject.CompareTag("Patient2"))
+                {
+                    textIDManager.LoadTextWithID(patient2ID);
+                }
+                else if (patient.gameObject.CompareTag("Patient3"))
+                {
+                    textIDManager.LoadTextWithID(patient3ID);
+                }
+            }
         }
     }
 
+    void UpdatePatient()
+    {
+        for (int i = 0; i < patients.Length; i++)
+        {
+            if (patients[i].isInHub)
+            {
+                patient = patients[i];
+            }
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            isInside = true;
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Player"))
+        {
+            isInside = false;
+        }
+    }
 }

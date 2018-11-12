@@ -3,7 +3,13 @@ guid: 64139df93a7e1e94bbec9a7a1d5b3b6f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - blip1: {fileID: 8300000, guid: 539fa9f5e4f55914994904e015ff9c2d, type: 3}
+  - blip2: {fileID: 8300000, guid: 5d73a6cdd7864264fb5356614de90e9c, type: 3}
+  - blip3: {fileID: 8300000, guid: d8d3d8327c2b84740ae77ae3255fee00, type: 3}
+  - blip4: {fileID: 8300000, guid: 9b8d5d6d6d70e824e9fa8b87963b9cd6, type: 3}
+  - blip5: {fileID: 8300000, guid: 2055241c5ddb312448060e751f387460, type: 3}
+  - blip6: {fileID: 8300000, guid: d2555fa6b2555414dae8dfdbb3510848, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

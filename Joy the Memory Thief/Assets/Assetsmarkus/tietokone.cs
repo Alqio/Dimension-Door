@@ -13,6 +13,8 @@ public class tietokone : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
 
+    private ComputerSound computerSound;
+
     void Start()
     {
         playerInRange = false;
@@ -33,6 +35,9 @@ public class tietokone : MonoBehaviour
             SpriteRenderer sprender = g.GetComponent<SpriteRenderer>();
             sprender.enabled = false;
         }
+
+        computerSound = GetComponent<ComputerSound>();
+
     }
 
     // Update is called once per frame
@@ -43,9 +48,10 @@ public class tietokone : MonoBehaviour
             print(playerInRange);
             if (playerInRange) {
                 taso++;
+                computerSound.PlayClips();
             }
             
-            print("oioiio");
+            //print("oioiio");
         }
             
         //if (true)
@@ -62,10 +68,14 @@ public class tietokone : MonoBehaviour
         {
             //print("Moi");
             SpriteRenderer sprender = uhrit[taso-1].GetComponent<SpriteRenderer>();
+            Patient patient = uhrit[taso - 1].GetComponent<Patient>();
+            patient.isInHub = true;
             sprender.enabled = true;
             if (taso != 1) {
                 sprender = uhrit[taso - 2].GetComponent<SpriteRenderer>();
+                patient = uhrit[taso - 2].GetComponent<Patient>();
                 sprender.enabled = false;
+                patient.isInHub = false;
             }
         }
     }

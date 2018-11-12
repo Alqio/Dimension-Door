@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class RotateGameWorld : MonoBehaviour {
 
-    private GameObject[] platforms;
-
-    public float rotationSpeed = 1f;
-    public float zoomedOut     = 110f;
-    public float zoomedIn      = 8f;
+    private GameObject platforms;
+    private string mazeTag = "center";
+    private GameObject[] activePlatforms;
+    
+    public float rotationSpeed;
+    public float zoomedOut;
+    public float zoomedIn;
 
     public Sprite normalSprite;
     public Sprite selectedSprite;
@@ -17,10 +19,10 @@ public class RotateGameWorld : MonoBehaviour {
 
     private Transform playerTransform;
     public int ringNumber = 0;
-    private int maxRing = 2;
+    private int maxRing = 3;
     public int targetAngle = 0;
 
-    private bool rotating;
+    public bool rotating;
     private Vector3 rotateDirection;
     private float rotated = 0;
 
@@ -32,16 +34,24 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        rotationSpeed = 2f;
+        zoomedOut = 110f;
+        zoomedIn = 8f;
         rotating = false;
     }
 	
     public void Rotate(Vector3 direction)
     {
-        platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
-        
-        foreach (GameObject platform in platforms)
+        if(mazeTag == "center" && ringNumber == maxRing)
         {
-            foreach (Transform child in platform.transform)
+            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
+            foreach(GameObject maze in mazes)
+            {
+                maze.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
+            }
+        } else {
+            GameObject ring = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
+            foreach (Transform child in ring.transform)
             {
                 Quaternion rot = child.transform.rotation;
 
@@ -67,6 +77,7 @@ public class RotateGameWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E) && body.position == Vector2.zero)
         {
             //Rotate(new Vector3(0, 0, 1));
+            print("moi");
             rotating = true;
             rotateDirection = new Vector3(0, 0, 1);
         }
@@ -111,13 +122,28 @@ public class RotateGameWorld : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero && !rotating)
         {
             IncreaseRing();
+            SetActivePlatforms();
             ColorSelectedPlatforms();
+        }
+    }
+
+    public void SetActivePlatforms()
+    {
+        if (mazeTag == "center" && ringNumber == maxRing)
+        {
+            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
+            
+        }
+        else
+        {
+            //activePlatforms = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
+            
         }
     }
 
     public void ResetPlatformColors()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
             foreach (GameObject platform in platforms1)
@@ -138,7 +164,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     public void ColorSelectedPlatforms()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 4; i++)
         {
             GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
             foreach (GameObject platform in platforms1)
@@ -150,12 +176,6 @@ public class RotateGameWorld : MonoBehaviour {
                         child.GetComponent<SpriteRenderer>().sprite = normalSprite;
                     }
                 }
-                /*
-                if (platform.GetComponent<SpriteRenderer>() != null)
-                {
-                    platform.GetComponent<SpriteRenderer>().sprite = normalSprite;
-                }
-                 */
                 
             }
         }
@@ -169,12 +189,6 @@ public class RotateGameWorld : MonoBehaviour {
                     child.GetComponent<SpriteRenderer>().sprite = selectedSprite;
                 }
             }
-            /*
-            if (platform.GetComponent<SpriteRenderer>() != null)
-            {
-                platform.GetComponent<SpriteRenderer>().sprite = selectedSprite;
-            }
-             */
         }
     }
 

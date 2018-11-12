@@ -11,26 +11,26 @@ public class ComputerSound : MonoBehaviour
     public AudioClip blip5;
     public AudioClip blip6;
 
-    private AudioClip[] clips;
+    private List<AudioClip> clips;
+    private AudioQueue audioQueue;
 
     private Random rng = new Random();
 
-    private void Shuffle(AudioClip[] list)
+    private void Shuffle(List<AudioClip> list)
     {
-        int n = list.Length;
-        while (n > 1)
+        for (int i = 0; i < list.Count; i++)
         {
-            n--;
-            int k = rng.Next(n + 1);
-            AudioClip value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            AudioClip temp = list[i];
+            int randomIndex = Random.Range(i, list.Count);
+            list[i] = list[randomIndex];
+            list[randomIndex] = temp;
         }
     }
 
     void Awake()
     {
-        clips.add(blip1, blip2, blip3, blip4, blip5, blip6);
+        clips = new List<AudioClip> { blip1, blip2, blip3, blip4, blip5, blip6 };
+        audioQueue = GetComponent<AudioQueue>();
     }
 
     void ShuffleClips()
@@ -38,13 +38,11 @@ public class ComputerSound : MonoBehaviour
         Shuffle(clips);
     }
 
-    void PlayClips()
+    public void PlayClips()
     {
         ShuffleClips();
-        for (int i = 0; i < clips.Length; i++)
-        {
-            SoundManager.instance.PlaySfx(clips[i]);
-        }
+        audioQueue.PlayQueue(clips);
+        
     }
 
 }

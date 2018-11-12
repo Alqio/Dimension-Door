@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     private Camera mainCamera;
     public bool jump = false;
     public bool toCenter = false;
+    public bool canMove = true;
 
     PlayerAttributes attributes;
     private bool onGround;
@@ -23,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
 
     public AudioClip jumpClip;
 
+
     private void Awake()
     {
         body = GetComponent<Rigidbody2D>();
@@ -31,6 +33,9 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Physics2D.IgnoreLayerCollision(0, 9);
+        canMove = true;
+        originalZoomSpeed = zoomSpeed;
         onGround = true;
         mainCamera = Camera.main;
         originalZoomSpeed = zoomSpeed;
@@ -40,11 +45,31 @@ public class PlayerControl : MonoBehaviour {
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
+
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 13);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 20);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 27);
-        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 34);
-        Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 41);
+
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(0, -68, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(0, 68, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(68, 0, 0), 34);
+
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 13);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 20);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 27);
+        Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 34);
+
 
     }
 
@@ -56,17 +81,8 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         onGround = GroundCheck();
-
         HandleInput();
         
-        Vector3 oldRotation = body.transform.eulerAngles;
-        
-        float newZRotation = Mathf.Min(30f, 20f*Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
-
-        //Debug.Log(newZRotation);
-
-        body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
-
     }
 
     void HandleInput()
@@ -90,6 +106,18 @@ public class PlayerControl : MonoBehaviour {
 
     private void FixedUpdate()
     {
+        //Vector3 oldRotation = body.transform.eulerAngles;
+
+        //float newZRotation = Mathf.Min(10f, 20f * Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
+
+        //Debug.Log(newZRotation);
+
+        //body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
+
+        if (!canMove)
+        {
+            return;
+        }
         if (transform.position.y < -85)
         {
             attributes.SetText(attributes.endText, "Level 1 cleared");
@@ -171,6 +199,7 @@ public class PlayerControl : MonoBehaviour {
                 body.position = Vector2.zero;
                 body.velocity = Vector3.zero;
                 body.angularVelocity = 0;
+                zoomSpeed = 0.2f;
             }
         }
     }
@@ -210,6 +239,14 @@ public class PlayerControl : MonoBehaviour {
         }
          
 
+        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
+        {
+            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
+        }
+        else
+        {
+            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
+        }
     }
 
     void flip()

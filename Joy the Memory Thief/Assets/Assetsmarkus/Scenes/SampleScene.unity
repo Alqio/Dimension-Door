@@ -412,6 +412,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 875522390}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &61515769 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4838769699673692979, guid: 273daccbad9466d4c9ebac9acdf1de83,
+    type: 3}
+  m_PrefabInstance: {fileID: 1667808599}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a3a8ce043115e499def5d72a577b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &80860316 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 7662106475309144016, guid: 0cc6700d72f3652418b1eef49ae37b27,
@@ -1607,6 +1619,7 @@ MonoBehaviour:
   uhrit: []
   levelNames: []
   hasPassedLevel: 0
+  computerTrigger: {fileID: 773778011}
 --- !u!61 &418100233
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1815,6 +1828,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ConnectedAnchor.y
       value: 7.653807
+      objectReference: {fileID: 0}
+    - target: {fileID: 6587619470190541256, guid: 9bf45f46568474448b4bbc4fdfc2d5af,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9bf45f46568474448b4bbc4fdfc2d5af, type: 3}
@@ -2859,6 +2877,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &773778011 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4838769699673692979, guid: 273daccbad9466d4c9ebac9acdf1de83,
+    type: 3}
+  m_PrefabInstance: {fileID: 2117884300}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a3a8ce043115e499def5d72a577b8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &795099522
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +5783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4ba5b7decaa6f344ba537594d75cd7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  machineTrigger: {fileID: 61515769}
 --- !u!61 &1737976670
 BoxCollider2D:
   m_ObjectHideFlags: 0

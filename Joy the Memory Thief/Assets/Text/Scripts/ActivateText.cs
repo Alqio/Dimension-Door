@@ -30,16 +30,17 @@ public class ActivateText : MonoBehaviour
         UpdatePatient();
         if (Input.GetKeyDown(KeyCode.X))
         {
-            patientText(patient);
+            PatientText(patient);
         }
     }
 
-    public void patientText(Patient patientInput)
+    public void PatientText(Patient patientInput)
     {
         if (!textIDManager.isActive && isInside)
         {
             if (patientInput == null)
             {
+                
                 textIDManager.LoadTextWithID(triggerTextID);
             }
             else if (patientInput.gameObject.CompareTag("Patient1"))

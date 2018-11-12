@@ -10,6 +10,7 @@ public class tietokone : MonoBehaviour
     public List<GameObject> uhrit;
     public List<string> levelNames;
     public bool hasPassedLevel;
+    public ActivateText computerTrigger;
 
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
 
@@ -47,13 +48,13 @@ public class tietokone : MonoBehaviour
             if (playerInRange && hasPassedLevel) {
                 taso++;
             }
-            //print("oioiio");
+            
+            computerTrigger.PatientText(uhrit[taso - 1].GetComponent<Patient>());
         }
             
         
         if (uhrit.Count > taso-1 && taso > 0)
         {
-            //print("Moi");
             SpriteRenderer sprender = uhrit[taso-1].GetComponent<SpriteRenderer>();
             Patient patient = uhrit[taso - 1].GetComponent<Patient>();
             patient.isInHub = true;

@@ -62,7 +62,10 @@ public class TextIDManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            DisableBox();
+        }
         if (isActive)
         {
             if (currentLine == -1)
@@ -73,8 +76,7 @@ public class TextIDManager : MonoBehaviour
             {
                 if (endAtLine < currentLine)
                 {
-                    DisableBox();
-                    
+                    DisableBox();                   
                 }
                 else
                 {

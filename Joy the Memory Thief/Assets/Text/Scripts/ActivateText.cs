@@ -29,25 +29,30 @@ public class ActivateText : MonoBehaviour
     {
         UpdatePatient();
         if (Input.GetKeyDown(KeyCode.X))
-        {           
-            if (!textIDManager.isActive && isInside)
-            {               
-                if (patient == null)
-                {
-                    textIDManager.LoadTextWithID(triggerTextID);
-                }
-                else if (patient.gameObject.CompareTag("Patient1"))
-                {
-                    textIDManager.LoadTextWithID(patient1ID);
-                }
-                else if (patient.gameObject.CompareTag("Patient2"))
-                {
-                    textIDManager.LoadTextWithID(patient2ID);
-                }
-                else if (patient.gameObject.CompareTag("Patient3"))
-                {
-                    textIDManager.LoadTextWithID(patient3ID);
-                }
+        {
+            patientText(patient);
+        }
+    }
+
+    public void patientText(Patient patientInput)
+    {
+        if (!textIDManager.isActive && isInside)
+        {
+            if (patientInput == null)
+            {
+                textIDManager.LoadTextWithID(triggerTextID);
+            }
+            else if (patientInput.gameObject.CompareTag("Patient1"))
+            {
+                textIDManager.LoadTextWithID(patient1ID);
+            }
+            else if (patientInput.gameObject.CompareTag("Patient2"))
+            {
+                textIDManager.LoadTextWithID(patient2ID);
+            }
+            else if (patientInput.gameObject.CompareTag("Patient3"))
+            {
+                textIDManager.LoadTextWithID(patient3ID);
             }
         }
     }

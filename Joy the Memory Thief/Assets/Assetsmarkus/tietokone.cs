@@ -9,12 +9,15 @@ public class tietokone : MonoBehaviour
     public int taso;
     public List<GameObject> uhrit;
     public List<string> levelNames;
+    public bool hasPassedLevel;
+
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
 
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
 
     void Start()
     {
+        hasPassedLevel = true;
         playerInRange = false;
         taso = 0;
         uhrit = new List<GameObject>();
@@ -41,23 +44,13 @@ public class tietokone : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             print(playerInRange);
-            if (playerInRange) {
+            if (playerInRange && hasPassedLevel) {
                 taso++;
             }
-            
             //print("oioiio");
         }
             
-        //if (true)
-        //{
-        //    print("moi1");
-        //    if (input.getkeydown(keycode.a) && playerinrange)
-        //    {
-        //        taso++;
-        //        print("moi2 " + taso);
-
-        //    }
-        //}
+        
         if (uhrit.Count > taso-1 && taso > 0)
         {
             //print("Moi");

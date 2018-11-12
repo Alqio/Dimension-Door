@@ -42,7 +42,7 @@ public class tietokone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions)
         {
             print(playerInRange);
             if (playerInRange && hasPassedLevel) {

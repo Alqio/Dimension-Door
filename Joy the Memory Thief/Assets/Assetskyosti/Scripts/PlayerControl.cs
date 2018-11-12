@@ -15,8 +15,13 @@ public class PlayerControl : MonoBehaviour {
     
     private bool facingRight = false;
 
-    
-    public float targetZoom = 4f;
+    public float maxZoomSpeed = 50f;
+    private float zoomSpeed = 0.2f;
+    private float originalZoomSpeed;
+
+    public float targetZoom = 8f;
+
+    public AudioClip jumpClip;
 
     private void Awake()
     {
@@ -28,6 +33,7 @@ public class PlayerControl : MonoBehaviour {
     void Start () {
         onGround = true;
         mainCamera = Camera.main;
+        originalZoomSpeed = zoomSpeed;
         flip();
     }
 
@@ -77,6 +83,11 @@ public class PlayerControl : MonoBehaviour {
         
     }
 
+    public void ResetZoomSpeed()
+    {
+        zoomSpeed = originalZoomSpeed;
+    }
+
     private void FixedUpdate()
     {
         if (transform.position.y < -85)
@@ -93,7 +104,7 @@ public class PlayerControl : MonoBehaviour {
         {
             MoveHorizontal();
         }
-        if (mainCamera.orthographicSize < targetZoom - 0.1 || mainCamera.orthographicSize > targetZoom + 1)
+        if (mainCamera.orthographicSize < targetZoom - 0.1 || mainCamera.orthographicSize > targetZoom + 0.1)
         {
             Zoom();
         }
@@ -133,6 +144,7 @@ public class PlayerControl : MonoBehaviour {
         if (jump)
         {
             body.velocity = Vector2.up * attributes.jumpPower * -Mathf.Sign(Physics2D.gravity.y);
+            SoundManager.instance.PlaySfx(jumpClip);
             jump = false;
         }
 
@@ -167,13 +179,36 @@ public class PlayerControl : MonoBehaviour {
     {
         if (mainCamera.orthographicSize < targetZoom)
         {
-            mainCamera.orthographicSize += 0.2f;
+            mainCamera.orthographicSize += zoomSpeed;
+
+            //Makes sure that the orthographicSize doesn't overextend
+            if (mainCamera.orthographicSize > targetZoom)
+            {
+                mainCamera.orthographicSize = targetZoom;
+            }
+
         }
         else if (mainCamera.orthographicSize > targetZoom)
         {
-            mainCamera.orthographicSize -= 0.2f;
+            mainCamera.orthographicSize -= zoomSpeed;
+
+            //Makes sure that the orthographicSize doesn't overextend
+            if (mainCamera.orthographicSize < targetZoom)
+            {
+                mainCamera.orthographicSize = targetZoom;
+            }
         }
 
+        
+
+        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
+        {
+            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
+        } else
+        {
+            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
+        }
+         
 
     }
 

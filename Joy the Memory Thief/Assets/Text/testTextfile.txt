@@ -11,8 +11,10 @@ Computer text
 @ID11111
 ------------------------
 @start
-Chitchat
-press 'A' to get the next patient
+Good job as always. 
+It's a pleasure to have you working for us.
+I'll send you info on your next job soon.
+Press 'A' to get the next patient
 @end
 -------------------------
 First text in the hub
@@ -42,6 +44,10 @@ Press 'A' to enter the patients memories when you are near the patient
 Patient 1 computer text
 @ID56789
 @start
+Now Joy, I know you're good at what you do, but this one is rare.
+It's for a very special client. We don't want to dissapoint him.
+It's hard to find a mechanic who actually enjoys their work.
+
 Text about patient 1
 chit chat
 Text about patient 1

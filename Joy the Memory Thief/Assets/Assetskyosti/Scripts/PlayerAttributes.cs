@@ -15,6 +15,8 @@ public class PlayerAttributes : MonoBehaviour {
 
     public Transform groundCheck;
 
+    private RotateGameWorld rotateScript;
+
     public int score;
     public int maxScore = 4;
     public Text scoreText;
@@ -26,7 +28,12 @@ public class PlayerAttributes : MonoBehaviour {
         SetText(scoreText, "Score: " + score);
         SetText(endText, "");
     }
-    
+
+    private void Awake()
+    {
+        rotateScript = GetComponent<RotateGameWorld>();
+    }
+
     // Update is called once per framFcoine
     void Update()
     {
@@ -40,10 +47,22 @@ public class PlayerAttributes : MonoBehaviour {
             other.gameObject.SetActive(false);
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
-            if (score == maxScore)
-            {
-                GameObject.FindGameObjectWithTag("RedDoor").gameObject.SetActive(false);
-            }
+        }
+        if(other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        {
+
+            rotateScript.activeMaze = other.gameObject;
+            Debug.Log(rotateScript.activeMaze.tag);
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        {
+            rotateScript.activeMaze = null;
+
         }
     }
 

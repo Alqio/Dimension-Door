@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour {
     
     private bool facingRight = false;
 
-    private float zoomSpeed = 0.2f;
+    public float zoomSpeed = 0.2f;
     private float originalZoomSpeed;
     public float maxZoomSpeed = 50.0f;
     public float targetZoom = 8f;
@@ -79,9 +79,7 @@ public class PlayerControl : MonoBehaviour {
         Vector3 oldRotation = body.transform.eulerAngles;
         
         float newZRotation = Mathf.Min(30f, 20f*Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
-
-        //Debug.Log(newZRotation);
-
+        
         body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
 
     }
@@ -109,10 +107,7 @@ public class PlayerControl : MonoBehaviour {
         
         MoveVertical();
 
-        if (toCenter)
-        {
-            MoveTowardsCenter();
-        } else
+        if (!toCenter)
         {
             MoveHorizontal();
         }
@@ -170,21 +165,7 @@ public class PlayerControl : MonoBehaviour {
             //Make it possible to hold jump button for longer
             body.velocity += Vector2.up * Physics2D.gravity.y * attributes.lowJumpMultiplier * Time.fixedDeltaTime;
         }
-        
-    }
 
-    void MoveTowardsCenter()
-    {
-        if (toCenter)
-        {
-            if (Mathf.Abs(body.position.x) < 0.5 && Mathf.Abs(body.position.y) < 0.5)
-            {
-                body.position = Vector2.zero;
-                body.velocity = Vector3.zero;
-                body.angularVelocity = 0;
-                zoomSpeed = 0.2f;
-            }
-        }
     }
 
     void Zoom()

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class RotateGameWorld : MonoBehaviour {
-
-    private GameObject platforms;
-    private string mazeTag = "center";
-    private GameObject[] activePlatforms;
+    
+    private List<GameObject> activePlatforms = new List<GameObject>();
+    public GameObject activeMaze;
     
     public float rotationSpeed;
     public float zoomedOut;
@@ -34,7 +34,7 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rotationSpeed = 2f;
+        rotationSpeed = 3f;
         zoomedOut = 110f;
         zoomedIn = 8f;
         rotating = false;
@@ -42,41 +42,33 @@ public class RotateGameWorld : MonoBehaviour {
 	
     public void Rotate(Vector3 direction)
     {
-        if(mazeTag == "center" && ringNumber == maxRing)
+        foreach(GameObject platform in activePlatforms)
         {
-            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
-            foreach(GameObject maze in mazes)
-            {
-                maze.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
-            }
-        } else {
-            GameObject ring = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
-            foreach (Transform child in ring.transform)
-            {
-                Quaternion rot = child.transform.rotation;
+            platform.transform.RotateAround(activeMaze.transform.position, direction, rotationSpeed);
+        }
+    }
 
-                child.transform.RotateAround(Vector3.zero, direction, rotationSpeed);
-
-                if (child.CompareTag("Coin"))
-                {
-                    child.transform.rotation = rot;
-                }
-            }
+    public bool BodyInCenter(Rigidbody2D body)
+    {
+        if(activeMaze != null)
+        {
+            return body.position == (Vector2)activeMaze.transform.position;
+        } else
+        {
+            return false;
         }
     }
 
     public void HandleInput(Rigidbody2D body)
     {
-        if (Input.GetKeyDown(KeyCode.Q) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.Q) && BodyInCenter(body))
         {
-            //Rotate(new Vector3(0, 0, -1));
             rotating = true;
             rotateDirection = new Vector3(0, 0, -1);
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && body.position == Vector2.zero)
+        if (Input.GetKeyDown(KeyCode.E) && BodyInCenter(body))
         {
-            //Rotate(new Vector3(0, 0, 1));
             rotating = true;
             rotateDirection = new Vector3(0, 0, 1);
         }
@@ -92,15 +84,20 @@ public class RotateGameWorld : MonoBehaviour {
                 rotated = 0;
             }
         }
+        if(controlScript.toCenter)
+        {
+            MoveTowardsCenter(body);
+        }
 
-        if (Input.GetKeyDown(KeyCode.W) && Mathf.Abs(body.position.x) < 10.5f && Mathf.Abs(body.position.y) < 10.5f)
+        if (Input.GetKeyDown(KeyCode.W) && activeMaze != null)
         {
             controlScript.toCenter = !controlScript.toCenter;
             if (controlScript.toCenter)
             {
-                body.velocity = new Vector2((float)-body.position.x, (float)-body.position.y);
+                body.velocity = (Vector2)activeMaze.transform.position - body.position;
                 body.gravityScale = 0;
                 controlScript.targetZoom = zoomedOut;
+                SetActivePlatforms();
                 ColorSelectedPlatforms();
             }
             else
@@ -112,15 +109,18 @@ public class RotateGameWorld : MonoBehaviour {
             controlScript.ResetZoomSpeed();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && body.position == Vector2.zero && !rotating)
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && BodyInCenter(body) && !rotating)
         {
             DecreaseRing();
+            ResetPlatformColors();
+            SetActivePlatforms();
             ColorSelectedPlatforms();
         }
 
-        if (Input.GetKeyDown(KeyCode.RightArrow) && body.position == Vector2.zero && !rotating)
+        if (Input.GetKeyDown(KeyCode.RightArrow) && BodyInCenter(body) && !rotating)
         {
             IncreaseRing();
+            ResetPlatformColors();
             SetActivePlatforms();
             ColorSelectedPlatforms();
         }
@@ -128,69 +128,71 @@ public class RotateGameWorld : MonoBehaviour {
 
     public void SetActivePlatforms()
     {
-        if (mazeTag == "center" && ringNumber == maxRing)
+        if(activeMaze != null)
         {
-            GameObject[] mazes = GameObject.FindGameObjectsWithTag("outerMaze");
-            
-        }
-        else
-        {
-            //activePlatforms = GameObject.FindGameObjectWithTag(mazeTag).transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject;
-            
+            if (activeMaze.tag == "center" && ringNumber == maxRing)
+            {
+                Transform mazes = GameObject.FindGameObjectWithTag("Mazes").transform;
+                activePlatforms.Clear();
+                foreach (Transform maze in mazes)
+                {
+                    if(maze.gameObject.tag != "center")
+                    {
+                        activePlatforms.Add(maze.gameObject);
+                        /*
+                        Transform blocks = maze.transform.Find("Offset").Find("Blocks");
+                        foreach (Transform ring in blocks)
+                        {
+                            foreach(Transform platform in ring)
+                            {
+                                activePlatforms.Add(platform.gameObject);
+                            }
+                        }
+                         */
+                    }
+                }
+            }
+            else
+            {
+                //Transform ring = activeMaze.transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber);
+                activePlatforms.Clear();
+                activePlatforms.Add(activeMaze.transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject);
+                /*
+                foreach (Transform child in ring)
+                {
+                    activePlatforms.Add(child.gameObject);
+                }
+                 */
+            }
         }
     }
 
     public void ResetPlatformColors()
     {
-        for (int i = 0; i < 4; i++)
+        foreach (GameObject maze in activePlatforms)
         {
-            GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
-            foreach (GameObject platform in platforms1)
+            List<GameObject> platforms = new List<GameObject>();
+            AddDescendantsWithTag(maze.transform, "Block", platforms);
+            foreach (GameObject platform in platforms)
             {
-
-                foreach (Transform child in platform.transform)
-                {
-                    if (!child.CompareTag("Coin"))
-                    {
-                        child.GetComponent<SpriteRenderer>().sprite = normalSprite;
-                    }
-                }
-
+                platform.GetComponent<SpriteRenderer>().sprite = normalSprite;
             }
-            
         }
     }
 
     public void ColorSelectedPlatforms()
     {
-        for (int i = 0; i < 4; i++)
+        foreach (GameObject maze in activePlatforms)
         {
-            GameObject[] platforms1 = GameObject.FindGameObjectsWithTag("Ring" + i);
-            foreach (GameObject platform in platforms1)
+            List<GameObject> platforms = new List<GameObject>();
+            AddDescendantsWithTag(maze.transform, "Block", platforms);
+            foreach (GameObject platform in platforms)
             {
-                foreach(Transform child in platform.transform)
-                {
-                    if(!child.CompareTag("Coin"))
-                    {
-                        child.GetComponent<SpriteRenderer>().sprite = normalSprite;
-                    }
-                }
-                
-            }
-        }
-        GameObject[] platforms = GameObject.FindGameObjectsWithTag("Ring" + ringNumber);
-        foreach (GameObject platform in platforms)
-        {
-            foreach (Transform child in platform.transform)
-            {
-                if (!child.CompareTag("Coin"))
-                {
-                    child.GetComponent<SpriteRenderer>().sprite = selectedSprite;
-                }
+                platform.GetComponent<SpriteRenderer>().sprite = selectedSprite;
             }
         }
     }
-
+    
     public void IncreaseRing()
     {
         ringNumber = Mathf.Min(ringNumber + 1, maxRing);
@@ -201,4 +203,29 @@ public class RotateGameWorld : MonoBehaviour {
         ringNumber = Mathf.Max(ringNumber - 1, 0);
     }
 
+    void MoveTowardsCenter(Rigidbody2D body)
+    {
+        if (controlScript.toCenter && activeMaze != null)
+        {
+            if (((Vector2)activeMaze.transform.position - body.position).magnitude < 0.5)
+            {
+                body.position = activeMaze.transform.position;
+                body.velocity = Vector3.zero;
+                body.angularVelocity = 0;
+                controlScript.zoomSpeed = 0.2f;
+            }
+        }
+    }
+
+    private void AddDescendantsWithTag(Transform parent, string tag, List<GameObject> list)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.gameObject.tag == tag)
+            {
+                list.Add(child.gameObject);
+            }
+            AddDescendantsWithTag(child, tag, list);
+        }
+    }
 }

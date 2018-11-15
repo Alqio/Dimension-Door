@@ -9811,6 +9811,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 259301524}
+    - target: {fileID: 4297146524618920973, guid: 5c8624e83ed61e54baca875b84b62a0d,
+        type: 3}
+      propertyPath: targetZoom
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c8624e83ed61e54baca875b84b62a0d, type: 3}
 --- !u!1 &671885812 stripped

@@ -115,10 +115,6 @@ public class PlayerControl : MonoBehaviour {
         {
             return;
         }
-        if (transform.position.y < -85)
-        {
-            attributes.SetText(attributes.endText, "Level 1 cleared");
-        }
         
         MoveVertical();
 

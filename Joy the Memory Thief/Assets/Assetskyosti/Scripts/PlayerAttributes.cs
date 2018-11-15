@@ -20,13 +20,11 @@ public class PlayerAttributes : MonoBehaviour {
     public int score;
     public int maxScore = 4;
     public Text scoreText;
-    public Text endText;
  
     // Use this for initialization
     void Start () {
         score = 0;
         SetText(scoreText, "Score: " + score);
-        SetText(endText, "");
     }
 
     private void Awake()

@@ -9884,7 +9884,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activeMaze: {fileID: 0}
   rotationSpeed: 1
-  zoomedOut: 24
+  zoomedOut: 110
   zoomedIn: 8
   normalSprite: {fileID: 21300000, guid: 18096fc2d6185b2408f65d22d072bdb6, type: 3}
   selectedSprite: {fileID: 21300000, guid: 2725b359b654bcc49b103ad02bb899a7, type: 3}

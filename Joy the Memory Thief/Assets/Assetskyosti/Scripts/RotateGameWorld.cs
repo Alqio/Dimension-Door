@@ -36,9 +36,6 @@ public class RotateGameWorld : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        rotationSpeed = 3f;
-        zoomedOut = 110f;
-        zoomedIn = 8f;
         rotating = false;
     }
 	

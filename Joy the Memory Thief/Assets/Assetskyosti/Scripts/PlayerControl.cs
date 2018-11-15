@@ -73,7 +73,13 @@ public class PlayerControl : MonoBehaviour {
 
     private bool GroundCheck()
     {
-        return Physics2D.Linecast(transform.position, attributes.groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        Vector3 pos1 = attributes.groundCheck.position;
+        Vector3 pos2 = attributes.groundCheck.position - new Vector3(-1, 0, 0);
+        Vector3 pos3 = attributes.groundCheck.position - new Vector3(1, 0, 0);
+
+        return Physics2D.Linecast(transform.position, pos1, 1 << LayerMask.NameToLayer("Ground")) 
+            || Physics2D.Linecast(transform.position, pos2, 1 << LayerMask.NameToLayer("Ground"))
+            || Physics2D.Linecast(transform.position, pos3, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     // Update is called once per frame
@@ -204,16 +210,28 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-        
-
-        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
+        if (mainCamera.orthographicSize < targetZoom)
         {
-            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
+            if (targetZoom - mainCamera.orthographicSize < 20)
+            {
+                zoomSpeed = Mathf.Min(zoomSpeed / 1.05f, maxZoomSpeed);
+            } else
+            {
+                zoomSpeed = Mathf.Min(zoomSpeed * 1.05f, maxZoomSpeed);
+            }
         } else
         {
-            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
+            if (mainCamera.orthographicSize - targetZoom < 20)
+            {
+                zoomSpeed = Mathf.Max(zoomSpeed / 1.05f, originalZoomSpeed);
+            } else
+            {
+                zoomSpeed = Mathf.Max(zoomSpeed * 1.05f, originalZoomSpeed);
+            }
+            
         }
-         
+
+
     }
 
     void flip()

@@ -22,9 +22,11 @@ public class RotateGameWorld : MonoBehaviour {
     private int maxRing = 3;
     public int targetAngle = 0;
 
-    private bool rotating;
+    public bool rotating;
     private Vector3 rotateDirection;
     private float rotated = 0;
+
+    public AudioClip rotateSound;
 
     private void Awake()
     {
@@ -61,16 +63,17 @@ public class RotateGameWorld : MonoBehaviour {
 
     public void HandleInput(Rigidbody2D body)
     {
-        if (Input.GetKeyDown(KeyCode.Q) && BodyInCenter(body))
+        if (Input.GetKeyDown(KeyCode.Q) && BodyInCenter(body) && !rotating)
         {
             rotating = true;
             rotateDirection = new Vector3(0, 0, -1);
+            SoundManager.instance.PlaySfx(rotateSound);
         }
-
-        if (Input.GetKeyDown(KeyCode.E) && BodyInCenter(body))
+        if (Input.GetKeyDown(KeyCode.E) && BodyInCenter(body) && !rotating)
         {
             rotating = true;
             rotateDirection = new Vector3(0, 0, 1);
+            SoundManager.instance.PlaySfx(rotateSound);
         }
         if (rotating)
         {
@@ -107,6 +110,8 @@ public class RotateGameWorld : MonoBehaviour {
                 ResetPlatformColors();
             }
             controlScript.ResetZoomSpeed();
+            ChangeColliders();
+            
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && BodyInCenter(body) && !rotating)
@@ -115,6 +120,7 @@ public class RotateGameWorld : MonoBehaviour {
             ResetPlatformColors();
             SetActivePlatforms();
             ColorSelectedPlatforms();
+            
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow) && BodyInCenter(body) && !rotating)
@@ -123,6 +129,16 @@ public class RotateGameWorld : MonoBehaviour {
             ResetPlatformColors();
             SetActivePlatforms();
             ColorSelectedPlatforms();
+        }
+    }
+
+    private void ChangeColliders()
+    {
+        GameObject[] plats = GameObject.FindGameObjectsWithTag("Block");
+
+        foreach (GameObject platform in plats)
+        {
+            platform.GetComponent<PolygonCollider2D>().enabled = !platform.GetComponent<PolygonCollider2D>().enabled;
         }
     }
 

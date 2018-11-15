@@ -9,6 +9,7 @@ public class PlayerControl : MonoBehaviour {
     private Camera mainCamera;
     public bool jump = false;
     public bool toCenter = false;
+    public bool canMove = true;
 
     PlayerAttributes attributes;
     private bool onGround;
@@ -16,9 +17,12 @@ public class PlayerControl : MonoBehaviour {
     private bool facingRight = false;
 
     public float zoomSpeed = 0.2f;
+    public float maxZoomSpeed = 20f;
     private float originalZoomSpeed;
-    public float maxZoomSpeed = 50.0f;
     public float targetZoom = 8f;
+
+    public AudioClip jumpClip;
+
 
     private void Awake()
     {
@@ -28,6 +32,8 @@ public class PlayerControl : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        Physics2D.IgnoreLayerCollision(0, 9);
+        canMove = true;
         originalZoomSpeed = zoomSpeed;
         onGround = true;
         mainCamera = Camera.main;
@@ -73,15 +79,7 @@ public class PlayerControl : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         onGround = GroundCheck();
-
         HandleInput();
-        
-        Vector3 oldRotation = body.transform.eulerAngles;
-        
-        float newZRotation = Mathf.Min(30f, 20f*Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
-        
-        body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
-
     }
 
     void HandleInput()
@@ -98,8 +96,25 @@ public class PlayerControl : MonoBehaviour {
         
     }
 
+    public void ResetZoomSpeed()
+    {
+        zoomSpeed = originalZoomSpeed;
+    }
+
     private void FixedUpdate()
     {
+        //Vector3 oldRotation = body.transform.eulerAngles;
+
+        //float newZRotation = Mathf.Min(10f, 20f * Mathf.Abs(body.velocity.x)) * -Mathf.Sign(body.velocity.x);
+
+        //Debug.Log(newZRotation);
+
+        //body.transform.eulerAngles = new Vector3(oldRotation.x, oldRotation.y, newZRotation);
+
+        if (!canMove)
+        {
+            return;
+        }
         if (transform.position.y < -85)
         {
             attributes.SetText(attributes.endText, "Level 1 cleared");
@@ -151,6 +166,7 @@ public class PlayerControl : MonoBehaviour {
         if (jump)
         {
             body.velocity = Vector2.up * attributes.jumpPower * -Mathf.Sign(Physics2D.gravity.y);
+            //SoundManager.instance.PlaySfx(jumpClip);
             jump = false;
         }
 
@@ -192,20 +208,16 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
+        
 
         if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
         {
             zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
-        }
-        else
+        } else
         {
             zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
         }
-    }
-
-    public void ResetZoomSpeed()
-    {
-        zoomSpeed = originalZoomSpeed;
+         
     }
 
     void flip()

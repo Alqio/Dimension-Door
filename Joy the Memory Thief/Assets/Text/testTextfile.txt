@@ -3,9 +3,7 @@ Machine text
 @ID12345
 ------------------------
 @start
-Such text
-So amaze
-Such wow
+Go to the computer in the other room to get your next assignment.
 @end
 -------------------------
 -------------------------
@@ -13,16 +11,23 @@ Computer text
 @ID11111
 ------------------------
 @start
-jotain
-Chitchat
-press 'A' to get the next patient
+Good job as always. 
+It's a pleasure to have you working for us.
+I'll send you info on your next job soon.
+Press 'A' to get the next patient
 @end
 -------------------------
 First text in the hub
 @ID23456
 @start
-Press enter to skip to the next line
+Press enter to skip to the next line.
 Press enter to read instructions about what you can do in the space you're in.
+Short tutorial about what you can do in the hub:
+Use the arrow keys to move left and right
+You can jump using the space key
+Press X near the monitors to read what's written on them
+You can press 'A' to call your next patient
+Press 'A' to enter the patients memories when you are near the patient
 Thank you for your attention.
 @end
 
@@ -39,9 +44,14 @@ Press 'A' to enter the patients memories when you are near the patient
 Patient 1 computer text
 @ID56789
 @start
+Now Joy, I know you're good at what you do, but this one is rare.
+It's for a very special client. We don't want to dissapoint him.
+It's hard to find a mechanic who actually enjoys their work.
+
 Text about patient 1
 chit chat
 Text about patient 1
+General info eg hobbies, occupation, family, most precious memory
 @end
 
 Patient2 test text
@@ -50,6 +60,7 @@ Patient2 test text
 Text about patient 2
 chit chat
 Text about patient 2
+General info eg hobbies, occupation, family, most precious memory
 @end
 
 Patient3 test text
@@ -57,5 +68,31 @@ Patient3 test text
 @start
 Text about patient 3
 chit chat
+Text about patient 3
+General info eg hobbies, occupation, family, most precious memory
+@end
+
+
+Patient 1 machine text
+@ID98765
+@start
+Text about patient 1
+Stats: health, age, intelligence, physical activity etc
+Text about patient 1
+@end
+
+Patient2 test text
+@ID09876
+@start
+Text about patient 2
+Stats: health, age, intelligence, physical activity etc
+Text about patient 2
+@end
+
+Patient3 test text
+@ID87654
+@start
+Text about patient 3
+Stats: health, age, intelligence, physical activity etc
 Text about patient 3
 @end

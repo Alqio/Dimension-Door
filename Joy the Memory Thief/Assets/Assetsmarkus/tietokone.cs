@@ -9,12 +9,18 @@ public class tietokone : MonoBehaviour
     public int taso;
     public List<GameObject> uhrit;
     public List<string> levelNames;
+    public bool hasPassedLevel;
+    public ActivateText computerTrigger;
+
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
 
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
 
+    private ComputerSound computerSound;
+
     void Start()
     {
+        hasPassedLevel = true;
         playerInRange = false;
         taso = 0;
         uhrit = new List<GameObject>();
@@ -33,39 +39,37 @@ public class tietokone : MonoBehaviour
             SpriteRenderer sprender = g.GetComponent<SpriteRenderer>();
             sprender.enabled = false;
         }
+
+        computerSound = GetComponent<ComputerSound>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions)
         {
             print(playerInRange);
-            if (playerInRange) {
+            if (playerInRange && hasPassedLevel) {
                 taso++;
+                computerSound.PlayClips();
             }
             
-            //print("oioiio");
+            computerTrigger.PatientText(uhrit[taso - 1].GetComponent<Patient>());
         }
             
-        //if (true)
-        //{
-        //    print("moi1");
-        //    if (input.getkeydown(keycode.a) && playerinrange)
-        //    {
-        //        taso++;
-        //        print("moi2 " + taso);
-
-        //    }
-        //}
+        
         if (uhrit.Count > taso-1 && taso > 0)
         {
-            //print("Moi");
             SpriteRenderer sprender = uhrit[taso-1].GetComponent<SpriteRenderer>();
+            Patient patient = uhrit[taso - 1].GetComponent<Patient>();
+            patient.isInHub = true;
             sprender.enabled = true;
             if (taso != 1) {
                 sprender = uhrit[taso - 2].GetComponent<SpriteRenderer>();
+                patient = uhrit[taso - 2].GetComponent<Patient>();
                 sprender.enabled = false;
+                patient.isInHub = false;
             }
         }
     }

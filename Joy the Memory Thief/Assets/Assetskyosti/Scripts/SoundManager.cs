@@ -32,6 +32,11 @@ public class SoundManager : MonoBehaviour
         sfx.Play();
     }
 
+    public bool SfxIsPlaying()
+    {
+        return sfx.isPlaying;
+    }
+
     // Update is called once per frame
     void Update()
     {

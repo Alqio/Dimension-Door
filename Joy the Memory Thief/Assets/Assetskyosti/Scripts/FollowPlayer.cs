@@ -11,7 +11,7 @@ public class FollowPlayer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.position = new Vector3(playerTransform.position.x, playerTransform.position.y + yDiff, -100);
-        Camera.main.orthographicSize = size;
+        //Camera.main.orthographicSize = size;
 
     }
 }

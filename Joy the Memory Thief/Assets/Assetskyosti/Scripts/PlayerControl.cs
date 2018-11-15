@@ -16,8 +16,8 @@ public class PlayerControl : MonoBehaviour {
     
     private bool facingRight = false;
 
-    public float maxZoomSpeed = 50f;
-    private float zoomSpeed = 0.2f;
+    public float maxZoomSpeed = 20f;
+    private float zoomSpeed = 0.002f;
     private float originalZoomSpeed;
 
     public float targetZoom = 8f;
@@ -38,7 +38,6 @@ public class PlayerControl : MonoBehaviour {
         originalZoomSpeed = zoomSpeed;
         onGround = true;
         mainCamera = Camera.main;
-        originalZoomSpeed = zoomSpeed;
         flip();
     }
 
@@ -238,15 +237,6 @@ public class PlayerControl : MonoBehaviour {
             zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
         }
          
-
-        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
-        {
-            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
-        }
-        else
-        {
-            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
-        }
     }
 
     void flip()

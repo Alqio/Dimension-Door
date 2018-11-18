@@ -13,7 +13,6 @@ public class tietokone : MonoBehaviour
     public ActivateText computerTrigger;
 
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
-
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
 
     void Start()
@@ -46,9 +45,9 @@ public class tietokone : MonoBehaviour
         {
             print(playerInRange);
             if (playerInRange && hasPassedLevel) {
+                // TÄHÄN PATIENTIN VAIHTOÄÄNI
                 taso++;
-            }
-            
+            }           
             computerTrigger.PatientText(uhrit[taso - 1].GetComponent<Patient>());
         }
             

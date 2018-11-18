@@ -11,10 +11,10 @@ Computer text
 @ID11111
 ------------------------
 @start
-Good job as always. 
+Good job as always.
 It's a pleasure to have you working for us.
 I'll send you info on your next job soon.
-Press 'A' to get the next patient
+Press A to get the next patient
 @end
 -------------------------
 First text in the hub
@@ -22,23 +22,24 @@ First text in the hub
 @start
 Press enter to skip to the next line.
 Press enter to read instructions about what you can do in the space you're in.
+You can skip any text by pressing S
 Short tutorial about what you can do in the hub:
 Use the arrow keys to move left and right
 You can jump using the space key
 Press X near the monitors to read what's written on them
-You can press 'A' to call your next patient
-Press 'A' to enter the patients memories when you are near the patient
+You can press A to call your next patient when you are next to the computer
+Press A to enter the patients memories when you are near the patient
 Thank you for your attention.
 @end
 
-Kun painetaan enter hubis
+General instructions about the hub
 @ID34567
 @start
-Short tutorial about what you can do in the hub:
-Use the arrow keys to move left and right
 You can jump using the space key
-You can press 'A' to call your next patient
-Press 'A' to enter the patients memories when you are near the patient
+Press X near the monitors to read what's written on them
+You can press A to call your next patient when you are next to the computer
+Press A to enter the patients memories when you are near the patient
+Thank you for your attention.
 @end
 
 Patient 1 computer text
@@ -47,20 +48,31 @@ Patient 1 computer text
 Now Joy, I know you're good at what you do, but this one is rare.
 It's for a very special client. We don't want to dissapoint him.
 It's hard to find a mechanic who actually enjoys their work.
-
-Text about patient 1
-chit chat
-Text about patient 1
-General info eg hobbies, occupation, family, most precious memory
+Well anyway you know that it's important to know what kind of mind you're going into beforhand.
+I'll try to make it short.
+Basically he's a mechanic, doesn't really have family, which is perfect for us.
+Well anyway he's pretty much obsessed with gears, don't know why he didn't become a locksmith.
+That's going a bit off topic, but yeah he likes gears so much that everyone just calls him Gear.
+Weird right?
+The memory you're trying to collect is of when he built his first machine.
+Collectors really want strange memories don't they. The thing didn't even do anything.
+Well I guess that's none of my business.
+Ok enough chit chat. I expect good results from you.
 @end
 
 Patient2 test text
 @ID54321
 @start
-Text about patient 2
-chit chat
-Text about patient 2
-General info eg hobbies, occupation, family, most precious memory
+We went through a lot of trouble to get her here. Celebrities are such a pain.
+Their bodyguards and surveillance systems are so hard to get rid of.
+She's so popular that she's been modified in all kinds of ways to slow her aging.
+If she could keep up her popularity she would probably live for 100 years looking exactly the way she looks now.
+That's kind of creepy if you ask me.
+Sad that it's all going to end here, but a job's a job.
+Don't know if a few billion is worth all this effort...
+Oh well not like we've ever had any standards.
+Just get the memory of her singing at her mothers grave.
+I'm counting on you.
 @end
 
 Patient3 test text
@@ -76,17 +88,19 @@ General info eg hobbies, occupation, family, most precious memory
 Patient 1 machine text
 @ID98765
 @start
-Text about patient 1
-Stats: health, age, intelligence, physical activity etc
-Text about patient 1
+name: Cael
+gender: male
+occupation: Mechanic
+age: 35
 @end
 
 Patient2 test text
 @ID09876
 @start
-Text about patient 2
-Stats: health, age, intelligence, physical activity etc
-Text about patient 2
+name: Fantasia
+gender: female
+occupation: Singer
+age: 150
 @end
 
 Patient3 test text
@@ -96,3 +110,6 @@ Text about patient 3
 Stats: health, age, intelligence, physical activity etc
 Text about patient 3
 @end
+
+
+Whole story

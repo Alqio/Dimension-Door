@@ -5,12 +5,15 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     public static GameState instance = null;
-    public int level = 1;
-    public Patient patient = null;
-    public bool hasPassedLevel = false;
+    public int level;
+    public Patient patient;
+    public bool hasPassedLevel;
     // Start is called before the first frame update
     void Awake()
     {
+        level = 0;
+        patient = null;
+        hasPassedLevel = true;
         //Check if there is already an instance of GameState
         if (instance == null)
         {
@@ -22,7 +25,8 @@ public class GameState : MonoBehaviour
         {
             //Destroy this, there can only be one instance of GameState.
             Destroy(gameObject);
-        }           
+        }
+        Object.DontDestroyOnLoad(this);
     }
 
     // Update is called once per frame
@@ -30,4 +34,6 @@ public class GameState : MonoBehaviour
     {
         
     }
+
+    
 }

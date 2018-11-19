@@ -15,6 +15,8 @@ public class tietokone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
 
+    private ComputerSound computerSound;
+
     void Start()
     {
         hasPassedLevel = true;
@@ -36,6 +38,9 @@ public class tietokone : MonoBehaviour
             SpriteRenderer sprender = g.GetComponent<SpriteRenderer>();
             sprender.enabled = false;
         }
+
+        computerSound = GetComponent<ComputerSound>();
+
     }
 
     // Update is called once per frame
@@ -46,8 +51,9 @@ public class tietokone : MonoBehaviour
             print(playerInRange);
             if (playerInRange && hasPassedLevel) {
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
-                taso++;
-            }           
+                taso++;           
+                computerSound.PlayClips();
+            }
             computerTrigger.PatientText(uhrit[taso - 1].GetComponent<Patient>());
         }
             

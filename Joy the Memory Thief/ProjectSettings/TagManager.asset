@@ -9,11 +9,6 @@ TagManager:
   - Ring1
   - Ring2
   - Ring0
-  - ChildRing2
-  - RedDoor
-  - RedKey
-  - ChildRing1
-  - ChildRing0
   - Ring3
   - Offset
   - outerMaze
@@ -21,9 +16,7 @@ TagManager:
   - Patient1
   - Patient2
   - Patient3
-  - halos
-  - finalHalo
-  - musicPlatform
+  - Mazes
   layers:
   - Default
   - TransparentFX

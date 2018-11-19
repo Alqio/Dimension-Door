@@ -16,10 +16,13 @@ public class PlayerControl : MonoBehaviour {
     
     private bool facingRight = false;
 
-    private float zoomSpeed = 0.2f;
+    public float zoomSpeed = 0.2f;
+    public float maxZoomSpeed = 20f;
     private float originalZoomSpeed;
-    public float maxZoomSpeed = 50.0f;
     public float targetZoom = 8f;
+
+    public AudioClip jumpClip;
+
 
     private void Awake()
     {
@@ -70,18 +73,19 @@ public class PlayerControl : MonoBehaviour {
 
     private bool GroundCheck()
     {
-        return Physics2D.Linecast(transform.position, attributes.groundCheck.position, 1 << LayerMask.NameToLayer("Ground"));
+        Vector3 pos1 = attributes.groundCheck.position;
+        Vector3 pos2 = attributes.groundCheck.position - new Vector3(-1, 0, 0);
+        Vector3 pos3 = attributes.groundCheck.position - new Vector3(1, 0, 0);
+
+        return Physics2D.Linecast(transform.position, pos1, 1 << LayerMask.NameToLayer("Ground")) 
+            || Physics2D.Linecast(transform.position, pos2, 1 << LayerMask.NameToLayer("Ground"))
+            || Physics2D.Linecast(transform.position, pos3, 1 << LayerMask.NameToLayer("Ground"));
     }
 
     // Update is called once per frame
     void Update () {
         onGround = GroundCheck();
         HandleInput();
-
-
-
-
-
     }
 
     void HandleInput()
@@ -98,6 +102,11 @@ public class PlayerControl : MonoBehaviour {
         
     }
 
+    public void ResetZoomSpeed()
+    {
+        zoomSpeed = originalZoomSpeed;
+    }
+
     private void FixedUpdate()
     {
         //Vector3 oldRotation = body.transform.eulerAngles;
@@ -112,17 +121,10 @@ public class PlayerControl : MonoBehaviour {
         {
             return;
         }
-        if (transform.position.y < -85)
-        {
-            attributes.SetText(attributes.endText, "Level 1 cleared");
-        }
         
         MoveVertical();
 
-        if (toCenter)
-        {
-            MoveTowardsCenter();
-        } else
+        if (!toCenter)
         {
             MoveHorizontal();
         }
@@ -166,6 +168,7 @@ public class PlayerControl : MonoBehaviour {
         if (jump)
         {
             body.velocity = Vector2.up * attributes.jumpPower * -Mathf.Sign(Physics2D.gravity.y);
+            //SoundManager.instance.PlaySfx(jumpClip);
             jump = false;
         }
 
@@ -180,21 +183,7 @@ public class PlayerControl : MonoBehaviour {
             //Make it possible to hold jump button for longer
             body.velocity += Vector2.up * Physics2D.gravity.y * attributes.lowJumpMultiplier * Time.fixedDeltaTime;
         }
-        
-    }
 
-    void MoveTowardsCenter()
-    {
-        if (toCenter)
-        {
-            if (Mathf.Abs(body.position.x) < 0.5 && Mathf.Abs(body.position.y) < 0.5)
-            {
-                body.position = Vector2.zero;
-                body.velocity = Vector3.zero;
-                body.angularVelocity = 0;
-                zoomSpeed = 0.2f;
-            }
-        }
     }
 
     void Zoom()
@@ -221,20 +210,28 @@ public class PlayerControl : MonoBehaviour {
             }
         }
 
-
-        if (Mathf.Abs(mainCamera.orthographicSize - targetZoom) > 4)
+        if (mainCamera.orthographicSize < targetZoom)
         {
-            zoomSpeed = Mathf.Min(zoomSpeed * 1.1f, maxZoomSpeed);
-        }
-        else
+            if (targetZoom - mainCamera.orthographicSize < 20)
+            {
+                zoomSpeed = Mathf.Min(zoomSpeed / 1.05f, maxZoomSpeed);
+            } else
+            {
+                zoomSpeed = Mathf.Min(zoomSpeed * 1.05f, maxZoomSpeed);
+            }
+        } else
         {
-            zoomSpeed = Mathf.Max(zoomSpeed / 1.1f, originalZoomSpeed);
+            if (mainCamera.orthographicSize - targetZoom < 20)
+            {
+                zoomSpeed = Mathf.Max(zoomSpeed / 1.05f, originalZoomSpeed);
+            } else
+            {
+                zoomSpeed = Mathf.Max(zoomSpeed * 1.05f, originalZoomSpeed);
+            }
+            
         }
-    }
 
-    public void ResetZoomSpeed()
-    {
-        zoomSpeed = originalZoomSpeed;
+
     }
 
     void flip()

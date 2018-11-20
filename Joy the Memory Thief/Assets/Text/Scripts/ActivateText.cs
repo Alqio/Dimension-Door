@@ -9,7 +9,7 @@ public class ActivateText : MonoBehaviour
     public int endLine;
     public TextIDManager textIDManager;
     public bool isInside;
-    //public Patient patient = null;
+    public Patient patient = null;
     private Patient[] patients;
 
 
@@ -33,7 +33,7 @@ public class ActivateText : MonoBehaviour
         UpdatePatient();
         if (Input.GetKeyDown(KeyCode.X))
         {
-            PatientText(gamestate.patient);
+            PatientText(patient);
         }
     }
 
@@ -67,7 +67,7 @@ public class ActivateText : MonoBehaviour
         {
             if (patients[i].isInHub)
             {
-                gamestate.patient = patients[i];
+                patient = patients[i];
             }
         }
     }

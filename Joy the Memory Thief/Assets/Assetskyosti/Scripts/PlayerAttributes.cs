@@ -49,8 +49,7 @@ public class PlayerAttributes : MonoBehaviour {
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
             if (score == maxScore) // pass condition for now
-            {
-                
+            {               
                 SceneManager.LoadScene("SampleScene");
                 gamestate.hasPassedLevel = true;
             }

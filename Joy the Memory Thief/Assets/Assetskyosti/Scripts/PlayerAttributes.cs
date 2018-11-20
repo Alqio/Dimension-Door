@@ -55,7 +55,10 @@ public class PlayerAttributes : MonoBehaviour {
                 gamestate.hasPassedLevel = true;
             }
         }
-        if(other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+
+        GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
+
+        if (maze != null && other.transform.IsChildOf(maze.transform))
         {
             rotateScript.activeMaze = other.gameObject;
             Debug.Log(rotateScript.activeMaze.tag);

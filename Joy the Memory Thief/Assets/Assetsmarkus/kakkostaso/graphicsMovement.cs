@@ -22,11 +22,11 @@ public class graphicsMovement : MonoBehaviour
     public float color_speed;
     public Vector3 color_rgb;
 
-    SpriteRenderer renderer;
+    //SpriteRenderer renderer;
 
     void Start()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        //renderer = GetComponent<SpriteRenderer>();
         scale_max = scale_max * transform.localScale.x;
         scale_min = scale_min * transform.localScale.x;
 

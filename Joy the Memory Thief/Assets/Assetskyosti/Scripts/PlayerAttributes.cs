@@ -46,7 +46,10 @@ public class PlayerAttributes : MonoBehaviour {
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
         }
-        if(other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+
+        GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
+
+        if (maze != null && other.transform.IsChildOf(maze.transform))
         {
 
             rotateScript.activeMaze = other.gameObject;

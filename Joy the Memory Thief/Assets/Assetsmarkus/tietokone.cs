@@ -55,6 +55,7 @@ public class tietokone : MonoBehaviour
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
                 //taso++;
                 gamestate.level++;
+                gamestate.hasPassedLevel = false;
                 computerSound.PlayClips();
             }
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());

@@ -66,6 +66,7 @@ public class TextIDManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
+            // skips the text completely
             DisableBox();
         }
         if (isActive)

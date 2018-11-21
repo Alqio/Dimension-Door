@@ -21,6 +21,8 @@ public class tietokone : MonoBehaviour
     private ComputerSound computerSound;
     private GameState gamestate;
 
+    public AudioClip patientChange;
+
     private void Awake()
     {
         gamestate = FindObjectOfType<GameState>();
@@ -71,6 +73,8 @@ public class tietokone : MonoBehaviour
                 gamestate.level++;
                 gamestate.hasPassedLevel = false;
                 computerSound.PlayClips();
+                FindObjectOfType<tuoli>().GetComponent<tuoli>().hasPatient = true;
+                //SoundManager.instance.PlaySfx(patientChange);
             }
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
         }

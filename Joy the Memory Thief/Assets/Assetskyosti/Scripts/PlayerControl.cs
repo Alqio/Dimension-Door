@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour {
 
@@ -23,6 +24,7 @@ public class PlayerControl : MonoBehaviour {
 
     public AudioClip jumpClip;
 
+    float enteringMenu = 0f;
 
     private void Awake()
     {
@@ -86,6 +88,15 @@ public class PlayerControl : MonoBehaviour {
     void Update () {
         onGround = GroundCheck();
         HandleInput();
+
+        Debug.Log(enteringMenu);
+
+        //if esc has been pressed long enough, go back to menu
+        if (enteringMenu >= 1)
+        {
+            SceneManager.LoadScene(0);
+        }
+        
     }
 
     void HandleInput()
@@ -100,6 +111,18 @@ public class PlayerControl : MonoBehaviour {
             GetComponent<RotateGameWorld>().HandleInput(body);
         }
         
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            enteringMenu += 0.005f;
+            Color c = attributes.menuText.color;
+            attributes.menuText.color = new Color(c.r, c.g, c.b, enteringMenu);
+        } else if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            enteringMenu = 0;
+            Color c = attributes.menuText.color;
+            attributes.menuText.color = new Color(c.r, c.g, c.b, enteringMenu);
+        }
+
     }
 
     public void ResetZoomSpeed()

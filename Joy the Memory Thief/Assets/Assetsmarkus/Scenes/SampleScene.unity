@@ -2799,8 +2799,8 @@ MonoBehaviour:
   speed: 0.1
   leftRoom: {fileID: 1250064090}
   rightRoom: {fileID: 799333689}
-  closeSound: {fileID: 0}
-  openSound: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: 105e116908c39154d923ad60fa4c7b4d, type: 3}
+  openSound: {fileID: 8300000, guid: 41d43101f486b224ca43aee926cd89c1, type: 3}
 --- !u!61 &698013076
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5938,7 +5938,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 823f46c1de5791e478074accc9da9180, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -6536,8 +6536,8 @@ MonoBehaviour:
   speed: 0.1
   leftRoom: {fileID: 799333689}
   rightRoom: {fileID: 1351170178}
-  closeSound: {fileID: 0}
-  openSound: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: 105e116908c39154d923ad60fa4c7b4d, type: 3}
+  openSound: {fileID: 8300000, guid: 41d43101f486b224ca43aee926cd89c1, type: 3}
 --- !u!61 &1934601014
 BoxCollider2D:
   m_ObjectHideFlags: 0

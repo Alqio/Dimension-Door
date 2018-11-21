@@ -12,16 +12,19 @@ public class ActivateText : MonoBehaviour
     public Patient patient = null;
     private Patient[] patients;
 
+
     public string triggerTextID;
     public string patient1ID;
     public string patient2ID;
     public string patient3ID;
+    public GameState gamestate;
 
     // Use this for initialization
     void Start()
     {
         textIDManager = FindObjectOfType<TextIDManager>();
         patients = FindObjectsOfType<Patient>();
+        gamestate = FindObjectOfType<GameState>();
     }
 
     // Update is called once per frame

@@ -7,6 +7,7 @@ public class tuoli : MonoBehaviour
 {
     bool playerInRange;
     tietokone tietokone_;
+    private GameState gamestate;
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
 
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
@@ -29,7 +30,8 @@ public class tuoli : MonoBehaviour
             patients.Add(res[i]);
         }
         patients.Sort(sortByNumber);
-        tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();       
+        tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();    
+        gamestate = FindObjectOfType<GameState>();
     }   
 
     // Update is called once per frame
@@ -38,12 +40,12 @@ public class tuoli : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.A) && playerInRange)
         {
-            machineTrigger.PatientText(patients[tietokone_.taso - 1]);
+            machineTrigger.PatientText(patients[gamestate.level - 1]);
             hasBeenPressed = true;
         }
         if (!machineTrigger.textIDManager.isActive && hasBeenPressed)
         {
-            SceneManager.LoadScene(tietokone_.levelNames[tietokone_.taso - 1]);
+            SceneManager.LoadScene(tietokone_.levelNames[gamestate.level - 1]);
             hasBeenPressed = false;
         }
     }

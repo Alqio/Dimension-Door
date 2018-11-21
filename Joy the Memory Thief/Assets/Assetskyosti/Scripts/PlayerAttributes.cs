@@ -22,6 +22,7 @@ public class PlayerAttributes : MonoBehaviour {
     public int score;
     public int maxScore = 4;
     public Text scoreText;
+    public Text menuText;
  
     // Use this for initialization
     void Start () {

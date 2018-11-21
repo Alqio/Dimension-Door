@@ -31,6 +31,11 @@ public class SoundManager : MonoBehaviour
         sfx.clip = audio;
         sfx.Play();
     }
+    public void PlaySfx(AudioClip audio, Vector3 pos)
+    {
+        //AudioSource.PlayClipAtPoint(audio, pos);
+    }
+
 
     public bool SfxIsPlaying()
     {

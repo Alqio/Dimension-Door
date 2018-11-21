@@ -10,10 +10,19 @@ public class ovi : MonoBehaviour
     public GameObject leftRoom;
     public GameObject rightRoom;
 
+    public AudioClip closeSound;
+    public AudioClip openSound;
+
 
     float open;
     float closed;
-   
+
+    bool atTop = false;
+    bool atBot = true;
+
+    private bool closeSoundPlayed = true;
+    private bool openSoundPlayed;
+
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
 
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
@@ -21,47 +30,56 @@ public class ovi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        open = this.transform.position.y + 5.5f;
-        closed = this.transform.position.y;
+        open = transform.position.y + 5.5f;
+        closed = transform.position.y;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    
-    }
     private void FixedUpdate()
     {
-        if (playerInRange) {
-            if (this.transform.position.y < open)
-            {
-                move(true);
-            }
-               
-            leftRoom.GetComponent<darkness>().doorOpen = true;
-            rightRoom.GetComponent<darkness>().doorOpen = true;              
-            
-        }
-        else if (!playerInRange)
+
+        if (playerInRange && !atTop)
         {
-            if(this.transform.position.y > closed)
-            {
-                move(false);
-            }
-          
-            rightRoom.GetComponent<darkness>().doorOpen = false;            
-            leftRoom.GetComponent<darkness>().doorOpen = false;
-                
-            
+            atTop = MoveUp();
+            atBot = false;
+            closeSoundPlayed = false;
+
+            leftRoom.GetComponent<darkness>().doorOpen = true;
+            rightRoom.GetComponent<darkness>().doorOpen = true;
+        }
+        if (atTop && !openSoundPlayed)
+        {
+            SoundManager.instance.PlaySfx(openSound);
+            openSoundPlayed = true;
         }
 
+        if (!playerInRange && !atBot)
+        {
+            atBot = MoveDown();
+            atTop = false;
+            openSoundPlayed = false;
+
+            rightRoom.GetComponent<darkness>().doorOpen = false;
+            leftRoom.GetComponent<darkness>().doorOpen = false;
+        }
+        if (atBot && !closeSoundPlayed)
+        {
+            SoundManager.instance.PlaySfx(closeSound);
+            closeSoundPlayed = true;
+        }
+
+
     }
-    void move(bool up) {
-        int i = 1;
-        if (!up) i = -1;
-        Vector3 pos = this.transform.position;
-        Vector3 plus = new Vector3(0, speed*i, 0);
-        this.transform.position = pos + plus;
+    private bool MoveUp() {
+        transform.position += new Vector3(0, speed, 0);
+        
+        return transform.position.y >= open;
     }
-   
+
+    private bool MoveDown()
+    {
+        transform.position += new Vector3(0, -speed, 0);
+
+        return transform.position.y <= closed;
+    }
+
 }

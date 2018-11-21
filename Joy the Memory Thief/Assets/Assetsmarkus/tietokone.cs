@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class tietokone : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class tietokone : MonoBehaviour
     public List<string> levelNames;
     //public bool hasPassedLevel;
     public ActivateText computerTrigger;
+
+    public Text activateText;
 
     private void OnTriggerEnter2D(Collider2D collision) => playerInRange = true;
     private void OnTriggerExit2D(Collider2D collision) => playerInRange = false;
@@ -48,6 +51,17 @@ public class tietokone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playerInRange)
+        {
+            Color c = activateText.color;
+            activateText.color = new Color(c.r, c.g, c.b, 1);
+        }
+        else
+        {
+            Color c = activateText.color;
+            activateText.color = new Color(c.r, c.g, c.b, 0);
+        }
+
         if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions)
         {
             //print(playerInRange);

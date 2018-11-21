@@ -29,11 +29,4 @@ public class GameState : MonoBehaviour
         Object.DontDestroyOnLoad(this);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    
 }

@@ -58,7 +58,10 @@ public class TextIDManager : MonoBehaviour
         {
             DisableBox();
         }
-        LoadTextWithID(firstTextID);
+        if (GameState.instance.level == 0)
+        {
+            LoadTextWithID(firstTextID);
+        }      
     }
 
     // Update is called once per frame

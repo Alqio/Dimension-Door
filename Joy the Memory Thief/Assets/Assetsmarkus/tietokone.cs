@@ -7,10 +7,8 @@ public class tietokone : MonoBehaviour
 {
     // Start is called before the first frame update
     bool playerInRange;
-    //public int taso;
     public List<GameObject> uhrit;
     public List<string> levelNames;
-    //public bool hasPassedLevel;
     public ActivateText computerTrigger;
 
     public Text activateText;
@@ -36,10 +34,8 @@ public class tietokone : MonoBehaviour
         //uhrit järjestyksessä
         uhrit.Add(GameObject.Find("tyyppi1"));
         uhrit.Add(GameObject.Find("tyyppi2"));
-        //uhrit.Add(GameObject.Find("tyyppi3"));
         levelNames.Add("Level1");
         levelNames.Add("Level1");
-        //levelNames.Add("Level1");
 
         //uhrien levelit järjestyksessä
 
@@ -66,7 +62,6 @@ public class tietokone : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions)
         {
-            //print(playerInRange);
             if (playerInRange && gamestate.hasPassedLevel) {
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
                 gamestate.level++;
@@ -91,10 +86,6 @@ public class tietokone : MonoBehaviour
                     patient.isInHub = false;
                 }
             }
-        }         
-        
-        
+        }               
     }
-
-    
 }

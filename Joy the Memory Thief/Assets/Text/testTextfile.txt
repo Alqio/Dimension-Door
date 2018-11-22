@@ -55,12 +55,13 @@ well anyway he's pretty much obsessed with gears, don't know why he didn't becom
 that's going a bit off topic, but yeah he likes gears so much that everyone just calls him gear.
 weird right?
 the memory you're trying to collect is of when he built his first machine.
+it took a long time to make so the memory might be fragmented.
 collectors really want strange memories don't they. the thing didn't even do anything.
 well i guess that's none of my business.
 ok enough chit chat. i expect good results from you.
 @end
 
-Patient2 test text
+Patient2 computer text
 @ID54321
 @start
 we went through a lot of trouble to get her here. celebrities are such a pain.
@@ -71,7 +72,7 @@ that's kind of creepy if you ask me.
 sad that it's all going to end here, but a job's a job.
 don't know if a few billion is worth all this effort...
 oh well not like we've ever had any standards.
-just get the memory of her singing at her mothers grave.
+get as many memories as you can they'll probably sell very well.
 i'm counting on you.
 @end
 
@@ -84,7 +85,7 @@ occupation: mechanic
 age: 35
 @end
 
-Patient2 test text
+Patient2 machine text
 @ID09876
 @start
 name: fantasia
@@ -93,6 +94,11 @@ occupation: singer
 age: 150
 @end
 
+End text
+@ID10293
+@start
+
+@end
 
 Whole story
 Joy steals memories from people.

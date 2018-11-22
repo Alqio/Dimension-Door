@@ -21,6 +21,7 @@ TagManager:
   - halos
   - finalHalo
   - microphone
+  - Memory
   layers:
   - Default
   - TransparentFX

@@ -2,11 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class RotateGameWorld : MonoBehaviour {
     
     private List<GameObject> activePlatforms = new List<GameObject>();
+    private List<GameObject> activeMemories = new List<GameObject>();
     public GameObject activeMaze;
+
+    private GameObject[] collectables;
+    private Quaternion[] rotations;
     
     public float rotationSpeed;
     public float zoomedOut;
@@ -41,9 +46,19 @@ public class RotateGameWorld : MonoBehaviour {
 	
     public void Rotate(Vector3 direction)
     {
+        collectables = GameObject.FindGameObjectsWithTag("Memory");
+        rotations = collectables.Select(c => c.transform.rotation).ToArray();
         foreach(GameObject platform in activePlatforms)
         {
             platform.transform.RotateAround(activeMaze.transform.position, direction, rotationSpeed);
+        }
+        foreach(GameObject memory in activeMemories)
+        {
+            memory.transform.RotateAround(activeMaze.transform.position, direction, rotationSpeed);
+        }
+        for(int i = 0; i < rotations.Count(); i++)
+        {
+            collectables[i].transform.rotation = rotations[i];
         }
     }
 
@@ -143,39 +158,23 @@ public class RotateGameWorld : MonoBehaviour {
     {
         if(activeMaze != null)
         {
+            activePlatforms.Clear();
+            activeMemories.Clear();
             if (activeMaze.tag == "center" && ringNumber == maxRing)
             {
                 Transform mazes = GameObject.FindGameObjectWithTag("Mazes").transform;
-                activePlatforms.Clear();
                 foreach (Transform maze in mazes)
                 {
                     if(maze.gameObject.tag != "center")
                     {
                         activePlatforms.Add(maze.gameObject);
-                        /*
-                        Transform blocks = maze.transform.Find("Offset").Find("Blocks");
-                        foreach (Transform ring in blocks)
-                        {
-                            foreach(Transform platform in ring)
-                            {
-                                activePlatforms.Add(platform.gameObject);
-                            }
-                        }
-                         */
                     }
                 }
             }
             else
             {
-                //Transform ring = activeMaze.transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber);
-                activePlatforms.Clear();
                 activePlatforms.Add(activeMaze.transform.Find("Offset").Find("Blocks").Find("Ring" + ringNumber).gameObject);
-                /*
-                foreach (Transform child in ring)
-                {
-                    activePlatforms.Add(child.gameObject);
-                }
-                 */
+                activeMemories.Add(activeMaze.transform.Find("Collectables").Find("Ring" + ringNumber).gameObject);
             }
         }
     }

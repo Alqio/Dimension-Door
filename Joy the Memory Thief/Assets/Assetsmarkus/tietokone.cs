@@ -68,7 +68,7 @@ public class tietokone : MonoBehaviour
                 gamestate.hasPassedLevel = false;
                 computerSound.PlayClips();
                 FindObjectOfType<tuoli>().GetComponent<tuoli>().hasPatient = true;
-                SoundManager.instance.PlaySfx(patientChange);
+                //SoundManager.instance.PlaySfx(patientChange);
             }
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
 

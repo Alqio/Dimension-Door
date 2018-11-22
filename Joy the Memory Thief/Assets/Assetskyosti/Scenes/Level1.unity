@@ -347,15 +347,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -757,15 +761,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -1281,15 +1289,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -3126,15 +3138,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -3499,15 +3515,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -4298,15 +4318,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -4545,11 +4569,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.272
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_Name
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -5245,15 +5277,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -5304,15 +5340,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -5928,15 +5968,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -6284,15 +6328,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -6337,11 +6385,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.272
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_Name
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -7032,15 +7088,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -7501,15 +7561,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -7566,15 +7630,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -8051,15 +8119,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -8419,15 +8491,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -10927,7 +11003,7 @@ MonoBehaviour:
   activeMaze: {fileID: 0}
   rotationSpeed: 1
   zoomedOut: 110
-  zoomedIn: 8
+  zoomedIn: 14
   normalSprite: {fileID: 21300000, guid: 18096fc2d6185b2408f65d22d072bdb6, type: 3}
   selectedSprite: {fileID: 21300000, guid: 2725b359b654bcc49b103ad02bb899a7, type: 3}
   ringNumber: 0
@@ -10975,15 +11051,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -11833,15 +11913,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -12088,15 +12172,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -12141,15 +12229,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -12382,15 +12474,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -13295,15 +13391,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -16555,11 +16655,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.272
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_Name
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -17077,15 +17185,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -18001,15 +18113,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -18054,15 +18170,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (9)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -18362,15 +18482,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -18518,11 +18642,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.272
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_Name
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -18615,15 +18747,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -19416,15 +19552,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -19791,7 +19931,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4
+  orthographic size: 14
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -22627,15 +22767,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -23610,15 +23754,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -25610,15 +25758,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -26039,15 +26191,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -26880,11 +27036,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.272
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_Name
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -27570,15 +27734,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -27896,15 +28064,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -28481,15 +28653,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -29300,15 +29476,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (7)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -29911,15 +30091,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -30499,15 +30683,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (6)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -31490,15 +31678,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (4)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -31725,15 +31917,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (5)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -32587,15 +32783,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (8)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -33766,15 +33966,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (1)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -34183,15 +34387,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -34333,15 +34541,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -34574,15 +34786,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (2)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
@@ -34697,15 +34913,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.27199998
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.295
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_Name
-      value: Coin (3)
+      value: Memory
+      objectReference: {fileID: 0}
+    - target: {fileID: 1780045373966888, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
+      propertyPath: m_TagString
+      value: Memory
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}

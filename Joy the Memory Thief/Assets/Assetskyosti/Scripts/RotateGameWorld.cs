@@ -46,7 +46,7 @@ public class RotateGameWorld : MonoBehaviour {
 	
     public void Rotate(Vector3 direction)
     {
-        collectables = GameObject.FindGameObjectsWithTag("Coin");
+        collectables = GameObject.FindGameObjectsWithTag("Memory");
         rotations = collectables.Select(c => c.transform.rotation).ToArray();
         foreach(GameObject platform in activePlatforms)
         {

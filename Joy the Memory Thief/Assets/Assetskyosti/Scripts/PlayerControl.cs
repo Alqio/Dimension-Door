@@ -88,9 +88,7 @@ public class PlayerControl : MonoBehaviour {
     void Update () {
         onGround = GroundCheck();
         HandleInput();
-
-        //Debug.Log(enteringMenu);
-
+        
         //if esc has been pressed long enough, go back to menu
         if (enteringMenu >= 1)
         {

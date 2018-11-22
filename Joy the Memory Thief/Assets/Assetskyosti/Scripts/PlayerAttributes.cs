@@ -45,7 +45,7 @@ public class PlayerAttributes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Coin"))
+        if (other.gameObject.CompareTag("Memory"))
         {
             other.gameObject.SetActive(false);
             score += 1;

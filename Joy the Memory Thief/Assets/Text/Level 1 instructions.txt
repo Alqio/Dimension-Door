@@ -1,0 +1,7 @@
+Level 1 instructions
+
+
+press w to go to the center of the maze
+press left or right to change the rotated ring
+press q to rotate clockwise
+press e to rotate counterclockwise

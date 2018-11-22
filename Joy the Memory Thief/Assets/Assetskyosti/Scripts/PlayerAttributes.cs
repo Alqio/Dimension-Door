@@ -17,15 +17,18 @@ public class PlayerAttributes : MonoBehaviour {
     public Transform groundCheck;
 
     private RotateGameWorld rotateScript;
+    private GameState gamestate;
 
     public int score;
     public int maxScore = 4;
     public Text scoreText;
+    public Text menuText;
  
     // Use this for initialization
     void Start () {
         score = 0;
         SetText(scoreText, "Score: " + score);
+        gamestate = FindObjectOfType<GameState>();
     }
 
     private void Awake()
@@ -46,13 +49,24 @@ public class PlayerAttributes : MonoBehaviour {
             other.gameObject.SetActive(false);
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
+            if (score == maxScore) // pass condition for now
+            {               
+                SceneManager.LoadScene("SampleScene");
+                gamestate.hasPassedLevel = true;
+            }
         }
-        if(SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        if (SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
 
-            rotateScript.activeMaze = other.gameObject;
-            Debug.Log(rotateScript.activeMaze.tag);
 
+            GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
+
+            if (maze != null && other.transform.IsChildOf(maze.transform))
+            {
+                rotateScript.activeMaze = other.gameObject;
+                Debug.Log(rotateScript.activeMaze.tag);
+
+            }
         }
     }
 
@@ -61,7 +75,6 @@ public class PlayerAttributes : MonoBehaviour {
         if (SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
             rotateScript.activeMaze = null;
-
         }
     }
 

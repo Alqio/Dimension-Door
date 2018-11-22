@@ -12,7 +12,6 @@ public class GameState : MonoBehaviour
     void Awake()
     {
         level = 0;
-        patient = null;
         hasPassedLevel = true;
         //Check if there is already an instance of GameState
         if (instance == null)

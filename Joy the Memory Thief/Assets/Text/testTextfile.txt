@@ -75,16 +75,6 @@ just get the memory of her singing at her mothers grave.
 i'm counting on you.
 @end
 
-Patient3 test text
-@ID65432
-@start
-Text about patient 3
-chit chat
-Text about patient 3
-General info eg hobbies, occupation, family, most precious memory
-@end
-
-
 Patient 1 machine text
 @ID98765
 @start
@@ -101,14 +91,6 @@ name: fantasia
 gender: female
 occupation: singer
 age: 150
-@end
-
-Patient3 test text
-@ID87654
-@start
-Text about patient 3
-Stats: health, age, intelligence, physical activity etc
-Text about patient 3
 @end
 
 

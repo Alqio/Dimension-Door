@@ -5,18 +5,15 @@ using UnityEngine;
 public class ActivateText : MonoBehaviour
 {
     public TextAsset text;
-    public int startLine;
-    public int endLine;
     public TextIDManager textIDManager;
     public bool isInside;
-    public Patient patient = null;
+    public Patient patient;
     private Patient[] patients;
 
 
     public string triggerTextID;
     public string patient1ID;
     public string patient2ID;
-    public string patient3ID;
     public GameState gamestate;
 
     // Use this for initialization
@@ -34,10 +31,6 @@ public class ActivateText : MonoBehaviour
         {
             UpdatePatient();
         }       
-        if (Input.GetKeyDown(KeyCode.X))
-        {
-            PatientText(patient);
-        }
     }
 
     public void PatientText(Patient patientInput)
@@ -56,10 +49,6 @@ public class ActivateText : MonoBehaviour
             {
                 textIDManager.LoadTextWithID(patient2ID);
             }
-            /*else if (patientInput.gameObject.CompareTag("Patient3"))
-            {
-                textIDManager.LoadTextWithID(patient3ID);
-            }*/
         }
     }
 

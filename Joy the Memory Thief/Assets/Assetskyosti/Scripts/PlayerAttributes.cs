@@ -20,14 +20,15 @@ public class PlayerAttributes : MonoBehaviour {
     private GameState gamestate;
 
     public int score;
-    public int maxScore = 4;
+    public int maxScore;
     public Text scoreText;
     public Text menuText;
  
     // Use this for initialization
     void Start () {
         score = 0;
-        SetText(scoreText, "Score: " + score);
+        maxScore = 3;
+        SetText(scoreText, "Memory fractions left: " + (maxScore - score));
         gamestate = FindObjectOfType<GameState>();
     }
 
@@ -44,25 +45,23 @@ public class PlayerAttributes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
-            if (score == maxScore) // pass condition for now
-            {               
+            Debug.Log(score);
+            if (score >= maxScore) // pass condition for now
+            {
+                Debug.Log("Level passed!");
                 SceneManager.LoadScene("SampleScene");
                 gamestate.hasPassedLevel = true;
             }
         }
-
-        GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
-
-        if (maze != null && other.transform.IsChildOf(maze.transform))
+        else if (maze != null && other.transform.IsChildOf(maze.transform))
         {
             rotateScript.activeMaze = other.gameObject;
-            Debug.Log(rotateScript.activeMaze.tag);
-
         }
     }
 

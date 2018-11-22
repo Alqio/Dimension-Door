@@ -17,6 +17,10 @@ TagManager:
   - Patient2
   - Patient3
   - Mazes
+  - musicPlatform
+  - halos
+  - finalHalo
+  - microphone
   layers:
   - Default
   - TransparentFX

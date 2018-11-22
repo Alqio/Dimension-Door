@@ -17,6 +17,8 @@ public class tuoli : MonoBehaviour
     private List<Patient> patients = new List<Patient>();
     private bool hasBeenPressed;
 
+    public bool hasPatient = false;
+
     public Text activateText;
 
     static int sortByNumber(Patient p1, Patient p2)
@@ -50,6 +52,14 @@ public class tuoli : MonoBehaviour
         {
             Color c = activateText.color;
             activateText.color = new Color(c.r, c.g, c.b, 0);
+        }
+
+        if (playerInRange && hasPatient)
+        {
+            GetComponent<AudioSource>().volume = 0.5f;
+        } else
+        {
+            GetComponent<AudioSource>().volume = 0f;
         }
 
         if (Input.GetKeyDown(KeyCode.A) && playerInRange)

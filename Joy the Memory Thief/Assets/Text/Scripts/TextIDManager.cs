@@ -58,7 +58,10 @@ public class TextIDManager : MonoBehaviour
         {
             DisableBox();
         }
-        LoadTextWithID(firstTextID);
+        if (GameState.instance.level == 0)
+        {
+            LoadTextWithID(firstTextID);
+        }
     }
 
     // Update is called once per frame
@@ -73,7 +76,7 @@ public class TextIDManager : MonoBehaviour
         {
             if (currentLine == -1)
             {
-                textShown.text = "ERROR";
+                textShown.text = "ERROR: Wrong text ID";
             }
             else if (Input.GetKeyDown(KeyCode.Return))
             {
@@ -92,8 +95,7 @@ public class TextIDManager : MonoBehaviour
                 else if (isTyping && !cancelTyping)
                 {
                     cancelTyping = true;
-                }
-                
+                }              
             }
         }
         else

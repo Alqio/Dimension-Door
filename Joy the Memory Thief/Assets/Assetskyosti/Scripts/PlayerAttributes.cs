@@ -45,7 +45,6 @@ public class PlayerAttributes : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
         if (other.gameObject.CompareTag("Coin"))
         {
             other.gameObject.SetActive(false);
@@ -59,15 +58,20 @@ public class PlayerAttributes : MonoBehaviour {
                 gamestate.hasPassedLevel = true;
             }
         }
-        else if (maze != null && other.transform.IsChildOf(maze.transform))
+        else if (SceneManager.GetActiveScene().name == "Level1" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
-            rotateScript.activeMaze = other.gameObject;
+            GameObject maze = GameObject.FindGameObjectWithTag("Mazes");
+
+            if (maze != null && other.transform.IsChildOf(maze.transform))
+            {
+                rotateScript.activeMaze = other.gameObject;
+            }
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        if (SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
             rotateScript.activeMaze = null;
         }

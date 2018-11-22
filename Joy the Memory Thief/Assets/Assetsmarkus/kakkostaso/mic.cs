@@ -25,9 +25,12 @@ public class mic : MonoBehaviour
     GameObject[] platforms;
 
     private Vector3 latestColor;
+    public char latestColor_char;
+    public bool singing;
     // Start is called before the first frame update
     void Start()
     {
+        singing = false;
         latestColor = new Vector3(0, 0, 0);
         //string[] notes_ = { "c", "c#", "d", "d#", "e", "f", "f#", "g", "g#", "a", "a#", "h", "c" };
         string[] notes_ = { "c", "d", "e", "f","g","a","h", "c" };
@@ -36,14 +39,25 @@ public class mic : MonoBehaviour
         float[] notesHz_ = { 16.35f,18.35f, 20.60f, 21.83f, 24.50f, 27.50f, 30.87f, 32.70f };
         notesHz = notesHz_;
         Vector3[] notesRGB_ = {
-            new Vector3(255,255,51), //yellow
-            new Vector3(0,128,255), //blue
-            new Vector3(255,102,255), //pink
-            new Vector3(51,255,51), //green
             new Vector3(255,153,51), //orange
-            new Vector3(255,51,51), //red
+            new Vector3(255,153,51), //orange
+            new Vector3(51,255,51), //green
+            new Vector3(51,255,51), //green
             new Vector3(153,51,255), //violet
-            new Vector3(255,255,51), //yellow
+            new Vector3(153,51,255), //violet
+            new Vector3(153,51,255), //violet
+            new Vector3(255,153,51), //orange
+
+
+
+            //new Vector3(255,255,51), //yellow
+            //new Vector3(0,128,255), //blue
+            //new Vector3(255,102,255), //pink
+            //new Vector3(51,255,51), //green
+            //new Vector3(255,153,51), //orange
+            //new Vector3(255,51,51), //red
+            //new Vector3(153,51,255), //violet
+            //new Vector3(255,255,51), //yellow
         };
         notesRGB = notesRGB_;
         _audioSource = GetComponent<AudioSource>();
@@ -89,9 +103,7 @@ public class mic : MonoBehaviour
                   .OrderByDescending(g => g.Count())
                   .Select(g => g.Key)
                   .First();
-            print("moi");
             if (n != -1 && halos.Length > 0) {
-                print("yo " + notes[n]);
                 foreach (GameObject g in halos)
                 {
                     g.GetComponent<graphicsMovement>().color_rgb = notesRGB[n];
@@ -115,20 +127,40 @@ public class mic : MonoBehaviour
                         float g = p.GetComponent<soundPlatform>().color_rgb_.y;
                         float b = p.GetComponent<soundPlatform>().color_rgb_.z;
 
-                        if (!latestColor.Equals(notesRGB[n]) && r == notesRGB[n].x && g == notesRGB[n].y && b == notesRGB[n].z)
+                        if ((p.GetComponent<soundPlatform>().always || (r == notesRGB[n].x && g == notesRGB[n].y && b == notesRGB[n].z)))
                         {
-                            p.GetComponent<soundPlatform>().invisible = !p.GetComponent<soundPlatform>().invisible;
-                            
+                            if (!latestColor.Equals(notesRGB[n]))
+                            {
+                                if (p.GetComponent<soundPlatform>().isMoving)
+                                {
+                                    if (!p.GetComponent<MoveFromTo>().onlyWhenSinging)
+                                        p.GetComponent<MoveFromTo>().movingToA = !p.GetComponent<MoveFromTo>().movingToA;
+                                }
+                                p.GetComponent<soundPlatform>().invisible = !p.GetComponent<soundPlatform>().invisible;
+                            }
+                            if (p.GetComponent<soundPlatform>().isMoving)
+                            {
+                                p.GetComponent<MoveFromTo>().isMoving = true;
+                                
+                            }
+                        }
+                        else
+                        {
+                            if (p.GetComponent<soundPlatform>().isMoving)
+                            {
+                                p.GetComponent<MoveFromTo>().isMoving = false;                            
+                            }
                         }
                         
                     }
+                    singing = true;
                     latestColor = notesRGB[n];
-                    print("moi");
                 }
                 else
                 {
                     //halo.GetComponent<SpriteRenderer>().color = new Color(notesRGB[n].x / 255f, notesRGB[n].y / 255f, notesRGB[n].z / 255f, c.a);
                     halo.GetComponent<graphicsMovement>().alfa_speed = -1f;
+                    singing = false;
                 }
 
             }
@@ -141,6 +173,8 @@ public class mic : MonoBehaviour
                 }
                 GameObject halo = GameObject.FindGameObjectWithTag("finalHalo");
                 halo.GetComponent<graphicsMovement>().alfa_speed = -1f;
+                singing = false;
+
             }
         } else //if (quesize != 0)
         {
@@ -148,16 +182,16 @@ public class mic : MonoBehaviour
             foreach (GameObject g in halos) {
                 g.GetComponent<graphicsMovement>().alfa_speed = -0.5f;
                 
-                g.GetComponent<graphicsMovement>().color_rgb = new Vector3(1f, 1f, 1f);
-                g.GetComponent<SpriteRenderer>().color = new Color(1,1,1, g.GetComponent<SpriteRenderer>().color.a);
+                g.GetComponent<graphicsMovement>().color_rgb = new Vector3(0f, 0f, 0f);
+                g.GetComponent<SpriteRenderer>().color = new Color(0,0,0, g.GetComponent<SpriteRenderer>().color.a);
 
             }
             GameObject halo = GameObject.FindGameObjectWithTag("finalHalo");
             halo.GetComponent<graphicsMovement>().alfa_speed = -1f;
             latestColor = new Vector3(0, 0, 0);
+            singing = false;
 
         }
-
     }
 
     int guessNote()
@@ -186,7 +220,7 @@ public class mic : MonoBehaviour
             return -1;
 
         float max_Hz = max_ind * blockSize + blockSize / 2;
-        print("max_HZ " + max_Hz);
+        //print("max_HZ " + max_Hz);
         while (max_Hz > 32.70f) 
         {
             max_Hz = max_Hz / 2;

@@ -37,14 +37,14 @@ public class valokoikeilu : MonoBehaviour
                 startTime = Time.time;
                 isHidden = true;
                 float t = (Time.time - startTime) / duration;
-                sprender.color = new Color(1f, 1f, 1f, Mathf.SmoothStep(0, 1, t));
+                sprender.color = new Color(sprender.color.r, sprender.color.g, sprender.color.b, Mathf.SmoothStep(0, 1, t));
             }
             else
             {
                 startTime = Time.time;
                 isHidden = false;
                 float t = (Time.time - startTime) / duration;
-                sprender.color = new Color(1f, 1f, 1f, Mathf.SmoothStep(maxAlfa, 0, t));
+                sprender.color = new Color(sprender.color.r, sprender.color.g, sprender.color.b, Mathf.SmoothStep(maxAlfa, 0, t));
             }
 
 

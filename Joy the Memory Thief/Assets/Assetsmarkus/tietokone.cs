@@ -21,6 +21,8 @@ public class tietokone : MonoBehaviour
     private ComputerSound computerSound;
     private GameState gamestate;
 
+    public AudioClip patientChange;
+
     private void Awake()
     {
         gamestate = FindObjectOfType<GameState>();
@@ -34,10 +36,10 @@ public class tietokone : MonoBehaviour
         //uhrit järjestyksessä
         uhrit.Add(GameObject.Find("tyyppi1"));
         uhrit.Add(GameObject.Find("tyyppi2"));
-        uhrit.Add(GameObject.Find("tyyppi3"));
+        //uhrit.Add(GameObject.Find("tyyppi3"));
         levelNames.Add("Level1");
         levelNames.Add("Level1");
-        levelNames.Add("Level1");
+        //levelNames.Add("Level1");
 
         //uhrien levelit järjestyksessä
 
@@ -67,28 +69,31 @@ public class tietokone : MonoBehaviour
             //print(playerInRange);
             if (playerInRange && gamestate.hasPassedLevel) {
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
-                //taso++;
                 gamestate.level++;
                 gamestate.hasPassedLevel = false;
                 computerSound.PlayClips();
+                FindObjectOfType<tuoli>().GetComponent<tuoli>().hasPatient = true;
+                SoundManager.instance.PlaySfx(patientChange);
             }
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
-        }
-            
-        
-        if (uhrit.Count > gamestate.level - 1 && gamestate.level > 0)
-        {
-            SpriteRenderer sprender = uhrit[gamestate.level - 1].GetComponent<SpriteRenderer>();
-            Patient patient = uhrit[gamestate.level - 1].GetComponent<Patient>();
-            patient.isInHub = true;
-            sprender.enabled = true;
-            if (gamestate.level != 1) {
-                sprender = uhrit[gamestate.level - 2].GetComponent<SpriteRenderer>();
-                patient = uhrit[gamestate.level - 2].GetComponent<Patient>();
-                sprender.enabled = false;
-                patient.isInHub = false;
+
+            if (uhrit.Count > gamestate.level - 1 && gamestate.level > 0)
+            {
+                SpriteRenderer sprender = uhrit[gamestate.level - 1].GetComponent<SpriteRenderer>();
+                Patient patient = uhrit[gamestate.level - 1].GetComponent<Patient>();
+                patient.isInHub = true;
+                sprender.enabled = true;
+                if (gamestate.level != 1)
+                {
+                    sprender = uhrit[gamestate.level - 2].GetComponent<SpriteRenderer>();
+                    patient = uhrit[gamestate.level - 2].GetComponent<Patient>();
+                    sprender.enabled = false;
+                    patient.isInHub = false;
+                }
             }
-        }
+        }         
+        
+        
     }
 
     

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class PlayerAttributes : MonoBehaviour {
@@ -46,7 +47,7 @@ public class PlayerAttributes : MonoBehaviour {
             score += 1;
             SetText(scoreText, "Memory fractions left: " + (maxScore - score));
         }
-        if(other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        if(SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
 
             rotateScript.activeMaze = other.gameObject;
@@ -57,7 +58,7 @@ public class PlayerAttributes : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
+        if (SceneManager.GetActiveScene().name != "taso2" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))
         {
             rotateScript.activeMaze = null;
 

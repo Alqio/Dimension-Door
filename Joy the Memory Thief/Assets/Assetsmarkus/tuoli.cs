@@ -56,7 +56,7 @@ public class tuoli : MonoBehaviour
 
         if (playerInRange && hasPatient)
         {
-            GetComponent<AudioSource>().volume = 0.5f;
+            GetComponent<AudioSource>().volume = 0.7f;
         } else
         {
             GetComponent<AudioSource>().volume = 0f;

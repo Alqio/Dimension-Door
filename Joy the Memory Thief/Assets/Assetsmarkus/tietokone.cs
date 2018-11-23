@@ -65,15 +65,14 @@ public class tietokone : MonoBehaviour
             if (playerInRange && gamestate.hasPassedLevel) {
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
                 gamestate.level++;
-                gamestate.hasPassedLevel = false;
-                
-                FindObjectOfType<tuoli>().GetComponent<tuoli>().hasPatient = true;
+                gamestate.hasPassedLevel = false;                
+                FindObjectOfType<tuoli>().hasPatient = true;
                 //SoundManager.instance.PlaySfx(patientChange);
             }
             computerSound.PlayClips();
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
 
-            if (uhrit.Count > gamestate.level - 1 && gamestate.level > 0)
+            if (uhrit.Count >= gamestate.level && gamestate.level > 0)
             {
                 SpriteRenderer sprender = uhrit[gamestate.level - 1].GetComponent<SpriteRenderer>();
                 Patient patient = uhrit[gamestate.level - 1].GetComponent<Patient>();

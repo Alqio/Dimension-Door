@@ -66,10 +66,11 @@ public class tietokone : MonoBehaviour
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI
                 gamestate.level++;
                 gamestate.hasPassedLevel = false;
-                computerSound.PlayClips();
+                
                 FindObjectOfType<tuoli>().GetComponent<tuoli>().hasPatient = true;
                 //SoundManager.instance.PlaySfx(patientChange);
             }
+            computerSound.PlayClips();
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
 
             if (uhrit.Count > gamestate.level - 1 && gamestate.level > 0)

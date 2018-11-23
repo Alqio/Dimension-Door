@@ -17,7 +17,6 @@ public class PlayerAttributes : MonoBehaviour {
     public Transform groundCheck;
 
     private RotateGameWorld rotateScript;
-    private GameState gamestate;
 
     public int score;
     public int maxScore;
@@ -29,7 +28,6 @@ public class PlayerAttributes : MonoBehaviour {
         score = 0;
         maxScore = 3;
         SetText(scoreText, "Memory fractions left: " + (maxScore - score));
-        gamestate = FindObjectOfType<GameState>();
     }
 
     private void Awake()
@@ -54,8 +52,8 @@ public class PlayerAttributes : MonoBehaviour {
             if (score >= maxScore) // pass condition for now
             {
                 Debug.Log("Level passed!");
-                SceneManager.LoadScene("SampleScene");
-                gamestate.hasPassedLevel = true;
+                GameState.instance.hasPassedLevel = true;
+                SceneManager.LoadScene("SampleScene");               
             }
         }
         else if (SceneManager.GetActiveScene().name == "Level1" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))

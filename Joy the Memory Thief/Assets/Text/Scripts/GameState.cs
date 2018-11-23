@@ -6,7 +6,6 @@ public class GameState : MonoBehaviour
 {
     public static GameState instance = null;
     public int level;
-    public Patient patient;
     public bool hasPassedLevel;
     // Start is called before the first frame update
     void Awake()

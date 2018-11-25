@@ -14,28 +14,57 @@ public class soundPlatform : MonoBehaviour
     public bool isMoving;
     public bool always;
     private Color c;
+    public string aitausName;
     // Start is called before the first frame update
     bool playerInRange;
+    public bool disable;
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(collision.gameObject.tag);
        if(collision.gameObject.tag == "Player" )
         {
             playerInRange = true;
-            print("moi");
         }
+        if (collision.gameObject.name == aitausName)
+        {
+            disable = false;
+            invisible = false;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            playerInRange = true;
+    
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            playerInRange = true;
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+            playerInRange = false;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
             playerInRange = false ;
+        if (collision.gameObject.name == aitausName)
+        {
+            disable = true;
+            invisible = true;
+        }
+        print(collision.gameObject.name);
+
     }
 
-   
+
     void Start()
     {
+        disable = false;
         if (color == 'v')
         {
             color_rgb_ = new Vector3(153, 51, 255);
@@ -73,7 +102,7 @@ public class soundPlatform : MonoBehaviour
         color_rgb = new Vector3(color_rgb_.x / 255, color_rgb_.y / 255, color_rgb_.z / 255);
 
         float alfa = GetComponent<SpriteRenderer>().color.a;
-        if (!invisible && playerInRange)
+        if (!invisible && playerInRange && GetComponent<Collider2D>().isTrigger)
             invisible = true;
 
         if (invisible)
@@ -97,9 +126,19 @@ public class soundPlatform : MonoBehaviour
         if (collider != null)
         {
             if (alfa < 0.5f)
+            {
                 collider.isTrigger = true;
+                gameObject.layer = 0;
+            }
             else
-                collider.isTrigger = false;
+            {
+                if(aitausName == "")
+                {
+                    collider.isTrigger = false;
+                    gameObject.layer = 8;
+                }
+                
+            }
         }
         
 

@@ -117,42 +117,58 @@ public class mic : MonoBehaviour
                 if (Mathf.Abs(c.r - notesRGB[n].x / 255f) < 2 / 255f &&
                     Mathf.Abs(c.g - notesRGB[n].y / 255f) < 2 / 255f &&
                     Mathf.Abs(c.b - notesRGB[n].z / 255f) < 2 / 255f &&
-                    quesize > 40)
+                    quesize > 30)
                 {
                     halo.GetComponent<SpriteRenderer>().color = new Color(notesRGB[n].x / 255f, notesRGB[n].y / 255f, notesRGB[n].z / 255f, 1);
                     halo.GetComponent<graphicsMovement>().alfa_speed = 1f;
                     foreach (GameObject p in platforms)
                     {
-                        float r = p.GetComponent<soundPlatform>().color_rgb_.x;
-                        float g = p.GetComponent<soundPlatform>().color_rgb_.y;
-                        float b = p.GetComponent<soundPlatform>().color_rgb_.z;
+                        if(p.GetComponent<soundPlatform>() != null){
+                            if (!p.GetComponent<soundPlatform>().disable)
+                            {
+                                float r = p.GetComponent<soundPlatform>().color_rgb_.x;
+                                float g = p.GetComponent<soundPlatform>().color_rgb_.y;
+                                float b = p.GetComponent<soundPlatform>().color_rgb_.z;
 
-                        if ((p.GetComponent<soundPlatform>().always || (r == notesRGB[n].x && g == notesRGB[n].y && b == notesRGB[n].z)))
-                        {
-                            if (!latestColor.Equals(notesRGB[n]))
+                                if ((p.GetComponent<soundPlatform>().always || (r == notesRGB[n].x && g == notesRGB[n].y && b == notesRGB[n].z)))
+                                {
+                                    if (!latestColor.Equals(notesRGB[n]))
+                                    {
+                                        if (p.GetComponent<soundPlatform>().isMoving)
+                                        {
+                                            if (!p.GetComponent<MoveFromTo>().onlyWhenSinging)
+                                                p.GetComponent<MoveFromTo>().movingToA = !p.GetComponent<MoveFromTo>().movingToA;
+                                        }
+                                        p.GetComponent<soundPlatform>().invisible = !p.GetComponent<soundPlatform>().invisible;
+                                    }
+                                    if (p.GetComponent<soundPlatform>().isMoving)
+                                    {
+                                        p.GetComponent<MoveFromTo>().isMoving = true;
+
+                                    }
+                                }
+                                else
+                                {
+                                    if (p.GetComponent<soundPlatform>().isMoving)
+                                    {
+                                        p.GetComponent<MoveFromTo>().isMoving = false;
+                                    }
+                                }
+                            }
+                            else
                             {
                                 if (p.GetComponent<soundPlatform>().isMoving)
                                 {
-                                    if (!p.GetComponent<MoveFromTo>().onlyWhenSinging)
-                                        p.GetComponent<MoveFromTo>().movingToA = !p.GetComponent<MoveFromTo>().movingToA;
+                                    p.GetComponent<MoveFromTo>().isMoving = false;
                                 }
-                                p.GetComponent<soundPlatform>().invisible = !p.GetComponent<soundPlatform>().invisible;
-                            }
-                            if (p.GetComponent<soundPlatform>().isMoving)
-                            {
-                                p.GetComponent<MoveFromTo>().isMoving = true;
-                                
+                                print(p.name + " ...... ");
                             }
                         }
-                        else
-                        {
-                            if (p.GetComponent<soundPlatform>().isMoving)
-                            {
-                                p.GetComponent<MoveFromTo>().isMoving = false;                            
-                            }
-                        }
+                       
+                       
                         
                     }
+                    
                     singing = true;
                     latestColor = notesRGB[n];
                 }

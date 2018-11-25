@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -69,7 +68,7 @@ public class tuoli : MonoBehaviour
         }
         if (!machineTrigger.textIDManager.isActive && hasBeenPressed)
         {
-            SceneManager.LoadScene(tietokone_.levelNames[gamestate.level - 1]);
+            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene(tietokone_.levelNames[gamestate.level - 1]);
             hasBeenPressed = false;
         }
     }

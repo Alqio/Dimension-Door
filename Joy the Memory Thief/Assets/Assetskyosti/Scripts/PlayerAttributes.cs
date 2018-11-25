@@ -53,7 +53,7 @@ public class PlayerAttributes : MonoBehaviour {
             {
                 Debug.Log("Level passed!");
                 GameState.instance.hasPassedLevel = true;
-                SceneManager.LoadScene("SampleScene");               
+                GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");               
             }
         }
         else if (SceneManager.GetActiveScene().name == "Level1" && other.transform.IsChildOf(GameObject.FindGameObjectWithTag("Mazes").transform))

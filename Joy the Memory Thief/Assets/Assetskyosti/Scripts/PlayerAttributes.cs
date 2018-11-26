@@ -26,8 +26,8 @@ public class PlayerAttributes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         score = 0;
-        maxScore = 3;
-        SetText(scoreText, "Memory fractions left: " + (maxScore - score));
+        maxScore = 19;
+     
     }
 
     private void Awake()
@@ -77,7 +77,7 @@ public class PlayerAttributes : MonoBehaviour {
 
     public void SetText(Text textObject, string text)
     {
-       // textObject.text = text;
+       textObject.text = text;
     }
 
 }

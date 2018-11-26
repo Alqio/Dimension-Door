@@ -40,11 +40,12 @@ public class mic : MonoBehaviour
         notesHz = notesHz_;
         Vector3[] notesRGB_ = {
             new Vector3(255,153,51), //orange
-            new Vector3(255,153,51), //orange
-            new Vector3(51,255,51), //green
-            new Vector3(51,255,51), //green
             new Vector3(153,51,255), //violet
-            new Vector3(153,51,255), //violet
+            new Vector3(51,255,51), //green
+			new Vector3(255,153,51), //orange         
+            //new Vector3(153,51,255), //violet
+			new Vector3(51,255,51), //green
+			new Vector3(51,255,51), //green
             new Vector3(153,51,255), //violet
             new Vector3(255,153,51), //orange
 
@@ -66,6 +67,7 @@ public class mic : MonoBehaviour
         recent_notes = new Queue<int>();
         if (mic_on)
         {
+		print(Microphone.devices.Length);
             if (Microphone.devices.Length > 0)
             {
                 _selectedDivice = Microphone.devices[0].ToString();
@@ -117,7 +119,7 @@ public class mic : MonoBehaviour
                 if (Mathf.Abs(c.r - notesRGB[n].x / 255f) < 2 / 255f &&
                     Mathf.Abs(c.g - notesRGB[n].y / 255f) < 2 / 255f &&
                     Mathf.Abs(c.b - notesRGB[n].z / 255f) < 2 / 255f &&
-                    quesize > 30)
+                    quesize > 10)
                 {
                     halo.GetComponent<SpriteRenderer>().color = new Color(notesRGB[n].x / 255f, notesRGB[n].y / 255f, notesRGB[n].z / 255f, 1);
                     halo.GetComponent<graphicsMovement>().alfa_speed = 1f;

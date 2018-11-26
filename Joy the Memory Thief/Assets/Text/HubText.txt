@@ -23,6 +23,7 @@ First text in the hub
 press enter to skip to the next line.
 press enter to read instructions about what you can do in the space you're in.
 skip any text by pressing s
+press esc to go to the menu
 short tutorial about what you can do in the hub:
 use the arrow keys to move left and right
 jump using the space key

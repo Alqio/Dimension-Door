@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.UI;
+
 
 public class RotateGameWorld : MonoBehaviour {
     
@@ -21,8 +23,9 @@ public class RotateGameWorld : MonoBehaviour {
     public Sprite selectedSprite;
 
     private PlayerControl controlScript;
-
     private Transform playerTransform;
+    private PlayerAttributes playerAttributes;
+
     public int ringNumber = 0;
     private int maxRing = 3;
     public int targetAngle = 0;
@@ -37,11 +40,13 @@ public class RotateGameWorld : MonoBehaviour {
     {
         playerTransform = GetComponent<Transform>();
         controlScript = GetComponent<PlayerControl>();
+        playerAttributes = playerTransform.GetComponent<PlayerAttributes>();
     }
 
     // Use this for initialization
     void Start () {
         rotating = false;
+        playerAttributes.SetText(playerAttributes.scoreText, "Memory fractions left: " + (playerAttributes.maxScore - playerAttributes.score));
     }
 	
     public void Rotate(Vector3 direction)

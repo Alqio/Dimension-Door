@@ -35,7 +35,7 @@ public class tietokone : MonoBehaviour
         uhrit.Add(GameObject.Find("tyyppi1"));
         uhrit.Add(GameObject.Find("tyyppi2"));
         levelNames.Add("Level1");
-        levelNames.Add("Level1");
+        levelNames.Add("taso2");
 
         //uhrien levelit järjestyksessä
 

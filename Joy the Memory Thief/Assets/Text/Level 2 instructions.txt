@@ -3,5 +3,5 @@ Level 2 instructions
 @ID12345
 @start
 press c and sing or whistle a note
-different frequencies cause different effects
+different sound frequencies cause different effects
 @end

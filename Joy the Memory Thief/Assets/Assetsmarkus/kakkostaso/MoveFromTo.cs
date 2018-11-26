@@ -38,7 +38,7 @@ public class MoveFromTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(somethingOnTheWay);
+        //print(somethingOnTheWay);
         if (!stopOnCollision || (stopOnCollision && !somethingOnTheWay))// && (who != "Player" || stopWhenHittingPlayer)))
         {
             Transform t;

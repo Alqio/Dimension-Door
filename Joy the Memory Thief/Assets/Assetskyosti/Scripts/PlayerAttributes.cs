@@ -77,7 +77,10 @@ public class PlayerAttributes : MonoBehaviour {
 
     public void SetText(Text textObject, string text)
     {
-       textObject.text = text;
+        if (textObject != null)
+        {
+            textObject.text = text;
+        }      
     }
 
 }

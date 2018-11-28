@@ -80,7 +80,7 @@ public class PlayerAttributes : MonoBehaviour {
         if (textObject != null)
         {
             textObject.text = text;
-        }      
+        }
     }
 
 }

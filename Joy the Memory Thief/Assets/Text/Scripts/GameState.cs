@@ -7,6 +7,7 @@ public class GameState : MonoBehaviour
     public static GameState instance = null;
     public int level;
     public bool hasPassedLevel;
+    public bool trigger;
     // Start is called before the first frame update
     void Awake()
     {
@@ -27,4 +28,11 @@ public class GameState : MonoBehaviour
         Object.DontDestroyOnLoad(this);
     }
 
+    private void Update()
+    {
+        if (trigger)
+        {
+            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");
+        }
+    }
 }

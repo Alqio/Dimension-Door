@@ -72,7 +72,7 @@ public class tietokone : MonoBehaviour
             computerSound.PlayClips();
             computerTrigger.PatientText(uhrit[gamestate.level - 1].GetComponent<Patient>());
 
-            if (uhrit.Count >= gamestate.level && gamestate.level > 0)
+            if (uhrit.Count >= gamestate.level && gamestate.level > 0 && !gamestate.hasPassedLevel)
             {
                 SpriteRenderer sprender = uhrit[gamestate.level - 1].GetComponent<SpriteRenderer>();
                 Patient patient = uhrit[gamestate.level - 1].GetComponent<Patient>();

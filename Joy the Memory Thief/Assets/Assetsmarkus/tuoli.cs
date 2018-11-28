@@ -60,16 +60,26 @@ public class tuoli : MonoBehaviour
         {
             GetComponent<AudioSource>().volume = 0f;
         }
-
-        if (Input.GetKeyDown(KeyCode.A) && playerInRange)
+        if (!gamestate.hasPassedLevel && gamestate.level > 0)
         {
-            machineTrigger.PatientText(patients[gamestate.level - 1]);
-            hasBeenPressed = true;
+            if (Input.GetKeyDown(KeyCode.A) && playerInRange)
+            {
+                machineTrigger.PatientText(patients[gamestate.level - 1]);
+                hasBeenPressed = true;
+            }
+            if (!machineTrigger.textIDManager.isActive && hasBeenPressed)
+            {
+                GameObject.FindObjectOfType<TransitionAnimation>().LoadScene(tietokone_.levelNames[gamestate.level - 1]);
+                hasBeenPressed = false;
+            }
         }
-        if (!machineTrigger.textIDManager.isActive && hasBeenPressed)
+        else
         {
-            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene(tietokone_.levelNames[gamestate.level - 1]);
-            hasBeenPressed = false;
+            if (Input.GetKeyDown(KeyCode.A) && playerInRange && gamestate.level > 0 && !gamestate.hasPassedLevel)
+            {
+                machineTrigger.PatientText(patients[gamestate.level - 1]);
+            }
         }
+        
     }
 }

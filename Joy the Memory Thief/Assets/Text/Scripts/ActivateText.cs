@@ -24,15 +24,6 @@ public class ActivateText : MonoBehaviour
         gamestate = FindObjectOfType<GameState>();
     }
 
-    // Update is called once per frame
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            UpdatePatient();
-        }       
-    }
-
     public void PatientText(Patient patientInput)
     {
         if (!textIDManager.isActive && isInside)
@@ -48,17 +39,6 @@ public class ActivateText : MonoBehaviour
             else if (patientInput.gameObject.CompareTag("Patient2"))
             {
                 textIDManager.LoadTextWithID(patient2ID);
-            }
-        }
-    }
-
-    void UpdatePatient()
-    {
-        for (int i = 0; i < patients.Length; i++)
-        {
-            if (patients[i].isInHub)
-            {
-                patient = patients[i];
             }
         }
     }

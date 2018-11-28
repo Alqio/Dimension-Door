@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Assetskyosti/Scenes/Level1.unity
     guid: 1d9434ba91fda1d44aeb8a7339117568
+  - enabled: 1
+    path: Assets/Assetsmarkus/Scenes/taso2.unity
+    guid: 5a447c928820d1943b134e2c17d9bbdb
   m_configObjects: {}

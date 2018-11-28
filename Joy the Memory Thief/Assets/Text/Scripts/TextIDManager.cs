@@ -20,10 +20,12 @@ public class TextIDManager : MonoBehaviour
     private bool isTyping;
     private bool cancelTyping;
     public float typeSpeed;
+    private bool endTextHasBeenShown;
 
     // Start is called before the first frame update
     void Start()
     {
+        endTextHasBeenShown = false;
         isTyping = false;
         playerControl = FindObjectOfType<PlayerControl>();
         if (allTextInGame != null)
@@ -72,6 +74,11 @@ public class TextIDManager : MonoBehaviour
             // skips the text completely
             DisableBox();
         }
+        if (GameState.instance.level >= 2 && GameState.instance.hasPassedLevel && !endTextHasBeenShown)
+        {
+            LoadTextWithID("@ID67584");
+            endTextHasBeenShown = true;
+        }
         if (isActive)
         {
             if (currentLine == -1)
@@ -102,10 +109,7 @@ public class TextIDManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Return))
             {
-                if (!isActive)
-                {
                     LoadTextWithID(textID);
-                }
             }
             return;
         }

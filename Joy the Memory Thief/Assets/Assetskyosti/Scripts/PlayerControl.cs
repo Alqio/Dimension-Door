@@ -76,8 +76,8 @@ public class PlayerControl : MonoBehaviour {
     private bool GroundCheck()
     {
         Vector3 pos1 = attributes.groundCheck.position;
-        Vector3 pos2 = attributes.groundCheck.position - new Vector3(-1, 0, 0);
-        Vector3 pos3 = attributes.groundCheck.position - new Vector3(1, 0, 0);
+        Vector3 pos2 = attributes.groundCheck.position - new Vector3(-0.2f, 0, 0);
+        Vector3 pos3 = attributes.groundCheck.position - new Vector3(0.2f, 0, 0);
 
         return Physics2D.Linecast(transform.position, pos1, 1 << LayerMask.NameToLayer("Ground")) 
             || Physics2D.Linecast(transform.position, pos2, 1 << LayerMask.NameToLayer("Ground"))

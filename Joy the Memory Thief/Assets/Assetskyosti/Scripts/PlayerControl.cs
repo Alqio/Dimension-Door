@@ -23,6 +23,7 @@ public class PlayerControl : MonoBehaviour {
     public float targetZoom = 8f;
 
     public AudioClip jumpClip;
+    public AudioClip movementClip;
 
     float enteringMenu = 0f;
 
@@ -102,6 +103,7 @@ public class PlayerControl : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space) && onGround)
         {
             jump = true;
+            
         }
 
         if (GetComponent<RotateGameWorld>())
@@ -171,6 +173,16 @@ public class PlayerControl : MonoBehaviour {
         if (Mathf.Abs(rb2d.velocity.x) > maxSpeed)
             rb2d.velocity = new Vector2(Mathf.Sign(rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
 
+        
+        if (xMove != 0 && !SoundManager.instance.SfxIsPlaying())
+        {
+            SoundManager.instance.PlaySfx(movementClip);
+            //print(SoundManager.instance.GetSoundEffect().clip.name);
+        } else if (xMove == 0 && SoundManager.instance.SfxIsPlaying() && SoundManager.instance.GetSoundEffect().clip == movementClip)
+        {
+            print("not moving, but playing sound");
+            SoundManager.instance.StopPlayingSfx(movementClip);
+        }
 
         if (xMove > 0 && !facingRight)
         {
@@ -189,7 +201,7 @@ public class PlayerControl : MonoBehaviour {
         if (jump)
         {
             body.velocity = Vector2.up * attributes.jumpPower * -Mathf.Sign(Physics2D.gravity.y);
-            //SoundManager.instance.PlaySfx(jumpClip);
+            SoundManager.instance.PlaySfx(jumpClip);
             jump = false;
         }
 

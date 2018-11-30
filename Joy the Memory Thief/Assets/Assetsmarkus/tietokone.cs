@@ -21,13 +21,9 @@ public class tietokone : MonoBehaviour
 
     public AudioClip patientChange;
 
-    private void Awake()
-    {
-        gamestate = FindObjectOfType<GameState>();
-    }
-
     void Start()
     {
+        gamestate = FindObjectOfType<GameState>();
         playerInRange = false;
         uhrit = new List<GameObject>();
         levelNames = new List<string>();

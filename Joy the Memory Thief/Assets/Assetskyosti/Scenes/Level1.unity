@@ -12765,6 +12765,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4297146524618920973, guid: 5c8624e83ed61e54baca875b84b62a0d,
+        type: 3}
+      propertyPath: movementClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7c15a38fe4252e0449df27220fa275ee, type: 3}
+    - target: {fileID: 4297146524618920973, guid: 5c8624e83ed61e54baca875b84b62a0d,
+        type: 3}
+      propertyPath: jumpClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5723c350365b1c047987fd1f614fb264, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c8624e83ed61e54baca875b84b62a0d, type: 3}
 --- !u!1 &671885812 stripped

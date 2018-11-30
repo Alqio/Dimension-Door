@@ -46,7 +46,10 @@ public class RotateGameWorld : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rotating = false;
-        playerAttributes.SetText(playerAttributes.scoreText, "Memory fractions left: " + (playerAttributes.maxScore - playerAttributes.score));
+        if (playerAttributes.scoreText != null)
+        {
+            playerAttributes.SetText(playerAttributes.scoreText, "Memory fractions left: " + (playerAttributes.maxScore - playerAttributes.score));
+        }        
     }
 	
     public void Rotate(Vector3 direction)

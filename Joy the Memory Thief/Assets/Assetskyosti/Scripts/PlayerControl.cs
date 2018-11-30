@@ -176,7 +176,7 @@ public class PlayerControl : MonoBehaviour {
         
         if (xMove != 0 && !SoundManager.instance.SfxIsPlaying())
         {
-            SoundManager.instance.PlaySfx(movementClip);
+            SoundManager.instance.PlaySfxWithVolume(movementClip, 0.5f);
             //print(SoundManager.instance.GetSoundEffect().clip.name);
         } else if (xMove == 0 && SoundManager.instance.SfxIsPlaying() && SoundManager.instance.GetSoundEffect().clip == movementClip)
         {
@@ -201,7 +201,7 @@ public class PlayerControl : MonoBehaviour {
         if (jump)
         {
             body.velocity = Vector2.up * attributes.jumpPower * -Mathf.Sign(Physics2D.gravity.y);
-            SoundManager.instance.PlaySfx(jumpClip);
+            SoundManager.instance.PlaySfxWithVolume(jumpClip, 0.1f);
             jump = false;
         }
 

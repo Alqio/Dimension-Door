@@ -2,6 +2,6 @@ Level 2 instructions
 
 @ID12345
 @start
-press c and sing or whistle a note
-different sound frequencies cause different effects
+hold down c and make a continuous sound until colored rings next to the player appear
+the sound affects objects that are colored green, violet or orange
 @end

@@ -3,7 +3,7 @@ Level 1 instructions
 @ID12345
 @start
 you can rotate the maze in the center
-press w to go to the center of the maze
+press w when you are inside the inner ring
 press left or right to change the rotated ring
 press q to rotate clockwise or e to rotate counterclockwise
 collect all the memory fragments

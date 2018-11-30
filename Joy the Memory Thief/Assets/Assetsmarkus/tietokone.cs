@@ -23,7 +23,7 @@ public class tietokone : MonoBehaviour
 
     void Start()
     {
-        gamestate = FindObjectOfType<GameState>();
+        gamestate = GameState.instance;
         playerInRange = false;
         uhrit = new List<GameObject>();
         levelNames = new List<string>();

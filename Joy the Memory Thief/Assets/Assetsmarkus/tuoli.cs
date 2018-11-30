@@ -35,8 +35,8 @@ public class tuoli : MonoBehaviour
             patients.Add(res[i]);
         }
         patients.Sort(sortByNumber);
-        tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();    
-        gamestate = FindObjectOfType<GameState>();
+        tietokone_ = GameObject.Find("kone").GetComponent<tietokone>();
+        gamestate = GameState.instance;
 
     }   
 

@@ -5,11 +5,13 @@ using UnityEngine;
 public class movingRestrictions : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject g;
 
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+
+    }
+  
     // Update is called once per frame
     void Update()
     {

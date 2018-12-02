@@ -53,6 +53,7 @@ public class PlayerAttributes : MonoBehaviour {
             {
                 Debug.Log("Level passed!");
                 GameState.instance.hasPassedLevel = true;
+                GameState.instance.isInHub = true;
                 GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");               
             }
         }

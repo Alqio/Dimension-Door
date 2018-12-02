@@ -20,6 +20,10 @@ public class LoadSceneOnClick : MonoBehaviour
         {
             sceneId = 3;
         }
+        if (GameState.instance.isInHub)
+        {
+            sceneId = 1;
+        }
         Debug.Log(level);
         Debug.Log(sceneId);
 

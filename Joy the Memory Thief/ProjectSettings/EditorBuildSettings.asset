@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Assetsmarkus/Scenes/taso2.unity
     guid: 5a447c928820d1943b134e2c17d9bbdb
+  - enabled: 1
+    path: Assets/Assetskyosti/Scenes/Credits.unity
+    guid: 16db9b8fdae359145913c141bf355d7d
   m_configObjects: {}

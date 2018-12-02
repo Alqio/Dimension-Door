@@ -21264,7 +21264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coloured: 1
-  color: 111
+  color: 118
   color_rgb_: {x: 0, y: 0, z: 0}
   min_alfa: 0.1
   invisible: 0
@@ -29906,7 +29906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31.36
+      value: 30.14
       objectReference: {fileID: 0}
     - target: {fileID: 4460032415033448, guid: 3fdc85b764b020649a0cbf2b88756d16, type: 3}
       propertyPath: m_LocalPosition.z

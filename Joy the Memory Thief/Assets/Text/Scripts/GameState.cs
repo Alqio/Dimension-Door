@@ -8,11 +8,13 @@ public class GameState : MonoBehaviour
     public int level;
     public bool hasPassedLevel;
     public bool trigger;
+    public bool isInHub;
     // Start is called before the first frame update
     void Awake()
     {
         level = 0;
         hasPassedLevel = true;
+        isInHub = true;
         //Check if there is already an instance of GameState
         if (instance == null)
         {

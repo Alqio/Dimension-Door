@@ -69,6 +69,7 @@ public class tuoli : MonoBehaviour
             }
             if (!machineTrigger.textIDManager.isActive && hasBeenPressed)
             {
+                gamestate.isInHub = false;
                 GameObject.FindObjectOfType<TransitionAnimation>().LoadScene(tietokone_.levelNames[gamestate.level - 1]);
                 hasBeenPressed = false;
             }

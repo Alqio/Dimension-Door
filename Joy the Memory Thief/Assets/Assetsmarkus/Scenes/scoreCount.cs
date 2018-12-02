@@ -17,7 +17,7 @@ public class scoreCount : MonoBehaviour
     {
         int i = GameObject.FindGameObjectsWithTag("Memory").Length;
         this.GetComponent<Text>().text = i.ToString();
-        if(i == 0)
+        if(i == 0 || i == 20)
         {
             GameState g = GameObject.FindGameObjectWithTag("state").GetComponent<GameState>();
             g.hasPassedLevel = true;

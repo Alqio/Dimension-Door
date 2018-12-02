@@ -22,6 +22,7 @@ TagManager:
   - finalHalo
   - microphone
   - Memory
+  - state
   layers:
   - Default
   - TransparentFX

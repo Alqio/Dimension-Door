@@ -177,10 +177,9 @@ public class PlayerControl : MonoBehaviour {
         if (xMove != 0 && !SoundManager.instance.SfxIsPlaying())
         {
             SoundManager.instance.PlaySfxWithVolume(movementClip, 0.5f);
-            //print(SoundManager.instance.GetSoundEffect().clip.name);
-        } else if (xMove == 0 && SoundManager.instance.SfxIsPlaying() && SoundManager.instance.GetSoundEffect().clip == movementClip)
+        }
+        else if (xMove == 0 && SoundManager.instance.SfxIsPlaying() && SoundManager.instance.GetSoundEffect().clip == movementClip)
         {
-            print("not moving, but playing sound");
             SoundManager.instance.StopPlayingSfx(movementClip);
         }
 

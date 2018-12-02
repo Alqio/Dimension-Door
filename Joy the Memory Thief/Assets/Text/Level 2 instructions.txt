@@ -2,6 +2,8 @@ Level 2 instructions
 
 @ID12345
 @start
-hold down c and make a continuous sound until colored rings next to the player appear
-the sound affects objects that are colored green, violet or orange
+press 'z' to zoom out 
+hold down 'c' and make a continuous sound until colored rings next to the player appear
+different pitches make different colors!
 @end
+the sound affects objects that are colored green, violet or orange

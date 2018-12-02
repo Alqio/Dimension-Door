@@ -1,22 +1,4 @@
 
-Machine text
-@ID12345
-------------------------
-@start
-go to the computer in the other room to get your next assignment
-@end
--------------------------
--------------------------
-Computer text
-@ID11111
-------------------------
-@start
-good job as always.
-it's a pleasure to have you working for us.
-i'll send you info on your next job soon.
-press a to get the next patient
-@end
--------------------------
 First text in the hub
 @ID23456
 @start
@@ -35,6 +17,7 @@ thank you for your attention.
 General instructions about the hub
 @ID34567
 @start
+use the arrow keys to move left and right
 jump using the space key
 press a to call your next patient when you are next to the computer
 press a to enter the patients memories when you are near the patient
@@ -46,11 +29,12 @@ Patient 1 computer text
 now joy, i know you're good at what you do, but this one is rare.
 it's for a very special client. we don't want to dissapoint him.
 it's hard to find a mechanic who actually enjoys their work.
-well anyway you know that it's important to know what kind of mind you're going into beforhand.
+you know that it's important to know what kind of mind you're going into beforhand.
 i'll try to make it short.
 basically he's a mechanic, doesn't really have family, which is perfect for us.
-well anyway he's pretty much obsessed with gears, don't know why he didn't become a locksmith.
-that's going a bit off topic, but yeah he likes gears so much that everyone just calls him gear.
+he's pretty much obsessed with gears, don't know why he didn't become a locksmith.
+that's going a bit off topic...
+he likes gears so much that everyone just calls him gear.
 weird right?
 the memory you're trying to collect is of when he built his first machine.
 it took a long time to make so the memory might be fragmented.
@@ -66,7 +50,6 @@ we went through a lot of trouble to get her here. celebrities are such a pain.
 their bodyguards and surveillance systems are so hard to get rid of.
 she's so popular that she's been modified in all kinds of ways to slow her aging.
 if she could keep up her popularity she would probably live for 100 years looking exactly the way she looks now.
-that's kind of creepy if you ask me.
 sad that it's all going to end here, but a job's a job.
 don't know if a few billion is worth all this effort...
 oh well not like we've ever had any standards.
@@ -98,6 +81,3 @@ End text
 good job as always.
 it's a pleasure to have you working for us.
 @end
-
-Whole story
-Joy steals memories from people.

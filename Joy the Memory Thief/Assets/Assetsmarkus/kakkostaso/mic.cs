@@ -95,11 +95,19 @@ public class mic : MonoBehaviour
     {
         int quesize = recent_notes.Count;
 
-        if (Input.GetKey(KeyCode.C))
+        if (Input.GetKey(KeyCode.C) || Input.GetKey(KeyCode.Alpha1) || Input.GetKey(KeyCode.Alpha2) || Input.GetKey(KeyCode.Alpha3))
         {
+
             if (quesize == 50)
                 recent_notes.Dequeue();
-            recent_notes.Enqueue(guessNote());
+            if (Input.GetKey(KeyCode.C))
+                recent_notes.Enqueue(guessNote());
+            else if (Input.GetKey(KeyCode.Alpha1))
+                recent_notes.Enqueue(0);
+            else if (Input.GetKey(KeyCode.Alpha2))
+                recent_notes.Enqueue(1);
+            else if (Input.GetKey(KeyCode.Alpha3))
+                recent_notes.Enqueue(2);
 
             int n = recent_notes.GroupBy(x => x)
                   .OrderByDescending(g => g.Count())

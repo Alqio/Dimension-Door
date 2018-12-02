@@ -38,7 +38,11 @@ public class PlayerAttributes : MonoBehaviour {
     // Update is called once per framFcoine
     void Update()
     {
-
+        if (Input.GetKey(KeyCode.T) && Input.GetKey(KeyCode.Q))
+        {
+            GameState.instance.hasPassedLevel = true;
+            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

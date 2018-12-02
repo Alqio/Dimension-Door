@@ -45,7 +45,7 @@ public class PlayerControl : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
+        /*Gizmos.color = Color.red;
 
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 13);
         Gizmos.DrawWireSphere(new Vector3(0, 0, 0), 20);
@@ -70,7 +70,7 @@ public class PlayerControl : MonoBehaviour {
         Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 20);
         Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 27);
         Gizmos.DrawWireSphere(new Vector3(-68, 0, 0), 34);
-
+        */
 
     }
 
@@ -113,7 +113,7 @@ public class PlayerControl : MonoBehaviour {
         
         if (Input.GetKey(KeyCode.Escape))
         {
-            enteringMenu += 0.005f;
+            enteringMenu += 0.008f;
             Color c = attributes.menuText.color;
             attributes.menuText.color = new Color(c.r, c.g, c.b, enteringMenu);
         } else if (Input.GetKeyUp(KeyCode.Escape))

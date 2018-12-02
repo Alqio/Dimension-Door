@@ -56,7 +56,7 @@ public class tietokone : MonoBehaviour
             activateText.color = new Color(c.r, c.g, c.b, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions)
+        if (Input.GetKeyDown(KeyCode.A) && !computerTrigger.textIDManager.limitActions && playerInRange)
         {
             if (playerInRange && gamestate.hasPassedLevel) {
                 // TÄHÄN PATIENTIN VAIHTOÄÄNI

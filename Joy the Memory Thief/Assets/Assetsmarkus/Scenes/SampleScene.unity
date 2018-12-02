@@ -646,8 +646,8 @@ MonoBehaviour:
   speed: 0.1
   leftRoom: {fileID: 1250064090}
   rightRoom: {fileID: 799333689}
-  closeSound: {fileID: 0}
-  openSound: {fileID: 0}
+  closeSound: {fileID: 8300000, guid: 105e116908c39154d923ad60fa4c7b4d, type: 3}
+  openSound: {fileID: 8300000, guid: 41d43101f486b224ca43aee926cd89c1, type: 3}
 --- !u!61 &90441119
 BoxCollider2D:
   m_ObjectHideFlags: 0

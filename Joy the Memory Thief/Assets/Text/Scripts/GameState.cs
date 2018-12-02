@@ -34,7 +34,9 @@ public class GameState : MonoBehaviour
     {
         if (trigger)
         {
-            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");
+            if (level == 2)
+                trigger = false;
+            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("SampleScene");          
         }
     }
 }

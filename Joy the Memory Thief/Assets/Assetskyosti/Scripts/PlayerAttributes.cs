@@ -22,12 +22,24 @@ public class PlayerAttributes : MonoBehaviour {
     public int maxScore;
     public Text scoreText;
     public Text menuText;
- 
+
+    private string memoryText;
+
     // Use this for initialization
     void Start () {
+
+        if (GameState.instance.level == 1)
+        {
+            memoryText = "Memory fractions left: ";
+        } else
+        {
+            memoryText = "Memories left: ";
+        }
+
         score = 0;
         maxScore = GameObject.FindGameObjectsWithTag("Memory").Length;
-        SetText(scoreText, "Memory fractions left: " + (maxScore - score));
+
+        SetText(scoreText, memoryText + (maxScore - score));
     }
 
     private void Awake()
@@ -51,7 +63,7 @@ public class PlayerAttributes : MonoBehaviour {
         {
             other.gameObject.SetActive(false);
             score += 1;
-            SetText(scoreText, "Memory fractions left: " + (maxScore - score));
+            SetText(scoreText, memoryText + (maxScore - score));
             Debug.Log(score);
             if (score >= maxScore) // pass condition for now
             {

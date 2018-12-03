@@ -26,6 +26,5 @@ public class EndDoor : MonoBehaviour
             GameState.instance.finished = true;
         }
 
-
     }
 }

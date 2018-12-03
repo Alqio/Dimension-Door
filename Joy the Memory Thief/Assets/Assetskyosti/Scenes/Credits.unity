@@ -627,10 +627,10 @@ MonoBehaviour:
     m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_HorizontalOverflow: 1
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "thank you for playing \n\njoy the memory thief\n\n\ncredits:\ntomi panula\nmarkus
+  m_Text: "thank you for playing \njoy the memory thief\n\n\ncredits:\ntomi panula\nmarkus
     laattala\nnelly kyt\xF6l\xE4\nky\xF6sti alkio\n"
 --- !u!222 &804599595
 CanvasRenderer:

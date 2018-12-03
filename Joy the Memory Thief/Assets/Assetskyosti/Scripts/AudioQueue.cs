@@ -9,21 +9,24 @@ public class AudioQueue : MonoBehaviour
     private AudioClip currentClip;
     private List<AudioClip> clips;
 
+    AudioSource audio;
 
     // Start is called before the first frame update
     void Start()
     {
         playing = false;
         index = 0;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (playing && !SoundManager.instance.SfxIsPlaying() && index < clips.Count)
+        if (playing && !audio.isPlaying && index < clips.Count)
         {
             currentClip = clips[index];
-            SoundManager.instance.PlaySfx(currentClip);
+            audio.clip = currentClip;
+            audio.Play();
             index++;
             
         }

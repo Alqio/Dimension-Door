@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class EndDoor : MonoBehaviour
 {
+
+    GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -11,5 +19,12 @@ public class EndDoor : MonoBehaviour
         {
             GetComponent<ovi>().enabled = true;
         }
+        if (player.transform.position.x + 3 < transform.position.x)
+        {
+            GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("Credits");
+            GameState.instance.finished = true;
+        }
+
+
     }
 }

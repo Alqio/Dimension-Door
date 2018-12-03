@@ -16,10 +16,12 @@ public class EndScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
+        print("colliding");
         if (GameState.instance.level >= 3)
         {
+            print("nyt pitäis siirtyä");
             GameObject.FindObjectOfType<TransitionAnimation>().LoadScene("Credits");
             GameState.instance.finished = true;
         }

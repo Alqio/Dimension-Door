@@ -26,8 +26,8 @@ public class PlayerAttributes : MonoBehaviour {
     // Use this for initialization
     void Start () {
         score = 0;
-        maxScore = 19;
-     
+        maxScore = GameObject.FindGameObjectsWithTag("Memory").Length;
+        SetText(scoreText, "Memory fractions left: " + (maxScore - score));
     }
 
     private void Awake()

@@ -40,12 +40,13 @@ public class RotateGameWorld : MonoBehaviour {
     {
         playerTransform = GetComponent<Transform>();
         controlScript = GetComponent<PlayerControl>();
-        playerAttributes = playerTransform.GetComponent<PlayerAttributes>();
+        playerAttributes = GetComponent<PlayerAttributes>();
     }
 
     // Use this for initialization
     void Start () {
         rotating = false;
+
         if (playerAttributes.scoreText != null)
         {
             playerAttributes.SetText(playerAttributes.scoreText, "Memory fractions left: " + (playerAttributes.maxScore - playerAttributes.score));
